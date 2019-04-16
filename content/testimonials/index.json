@@ -2,5 +2,11 @@
   "index": true,
   "layout": "testimonials-home",
   "category": "testimonials",
-  "title": "Testimonials"
+  "title": "Testimonials",
+  "testimonialsRels": [
+    "premier-asset-management",
+    "crux-asset-management",
+    "hsbc-global-asset-management",
+    "axa-investment-managers"
+  ]
 }
