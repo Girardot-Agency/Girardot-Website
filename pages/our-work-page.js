@@ -53,6 +53,7 @@ const Content_SC = styled.section`
 const ContentInner_SC = styled.div`
   flex-basis: 100%;
   margin-top: ${$_BaseUnit(2)};
+  margin-bottom: ${$_BaseUnit(5)};
 
   ${$_Screen({
     lg: css`

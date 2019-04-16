@@ -1,6 +1,6 @@
 import {createGlobalStyle} from "styled-components";
 
-import {BASE, FONT, TRAN, COL} from "./theme.css";
+import {BASE, FONT, TRAN, COL, TYPE} from "./theme.css";
 
 export default createGlobalStyle`
 
@@ -16,6 +16,7 @@ export default createGlobalStyle`
 
   html {
     font-family: "apercu", sans-serif;
+    font-size: ${TYPE.scale.sm};
   }
 
   a {

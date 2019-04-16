@@ -8,11 +8,6 @@ import {BASE, FONT, TRAN, COL} from "./theme.css";
 export default createGlobalStyle`
 
   /* Set box-sizing to border-box for all elements */
-  html {
-    font-size: ${BASE.unit};
-    font-family: ${FONT.main};
-  }
-
   *,
   *::before,
   *::after {

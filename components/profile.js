@@ -42,7 +42,7 @@ const ProfileTitle_SC = styled.h2`
   color: ${COL.brand_main_base};
   cursor: pointer;
   display: inline-block;
-  font-size: ${TYPE.md};
+  font-size: ${TYPE.scale.md};
     font-weight: normal;
   margin-top: ${$_BaseUnit(1.5)};
 
@@ -54,7 +54,7 @@ const ProfileTitle_SC = styled.h2`
 `;
 
 const ProfilePosition_SC = styled.p`
-  font-size: ${TYPE.md};
+  font-size: ${TYPE.scale.xs};
   color: ${COL.grey_base};
 `;
 
@@ -64,7 +64,7 @@ const ProfileModalInner_SC = styled.div`
 
 const ProfileModalTitle_SC = styled.h2`
   color: ${COL.brand_main_base};
-  font-size: ${TYPE.md};
+  font-size: ${TYPE.scale.md};
     font-weight: normal;
 `;
 

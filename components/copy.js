@@ -52,7 +52,7 @@ function Player (props = {}) {
 const Copy_SC = styled.div`
   font-family: "apercu", sans-serif;
 
-  margin: 0 auto ${$_BaseUnit(5)};
+  margin: 0 auto;
   width: 100%;
     max-width: ${$_BaseUnit(40)};
 
