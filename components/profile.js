@@ -1,5 +1,8 @@
 import Link from "next/link";
+import React, {Component} from "react";
 import styled from "styled-components";
+
+import Modal from "react-modal";
 
 import {
   $_Hidden,
@@ -24,32 +27,103 @@ import exportMap from "../static/db/export-map.json";
  * =Card:styles
 ******************************/
 
+const Profile_SC = styled.section`
+  text-align: center;
+`;
+
+const ProfileImg_SC = styled.img`
+  margin: 0 auto;
+  width: ${$_BaseUnit(10)};
+    max-width: 100%;
+`;
+
+const ProfileTitle_SC = styled.h2`
+  color: ${COL.brand_main_base};
+  cursor: pointer;
+  display: inline-block;
+  font-size: ${TYPE.md};
+    font-weight: normal;
+  margin-top: ${$_BaseUnit(2)};
+
+  ${$_TransAll};
+
+  &:hover {
+    color: ${COL.brand_main_darkest};
+  }
+`;
+
+const ProfilePosition_SC = styled.p`
+`;
+
+const ProfileModal_SC = styled.div`
+  background-color: rgba(0, 0, 0, 1);
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  &.is-active {
+    background-color: pink;
+  }
+
+  & > div {
+
+  }
+`;
+
 
 /**
  * =Card:component
 ******************************/
 
-function Profile ({pageData}) {
-  const route = {
-    pathname: pageData.page,
-    query: pageData.query
-  };
+class Profile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: false,
+      activeClass: ""
+    };
+  }
 
-  return (
-    <Card_SC>
+  handleClick() {
+    this.setState({
+      active: !this.state.active,
+      activeClass: this.state.active
+        ? "is-inactive"
+        : "is-active"
+    });
+  }
 
-      <div>
-      </div>
+  render() {
+    const activeClass = this.state.activeClass;
 
-      <div>
-        {pageData.query.title}
-      </div>
+    return (
+      <Profile_SC>
 
-    </Card_SC>
-  );
+        <ProfileImg_SC
+          src={this.props.profileImage}
+          alt={this.props.title}
+        />
+
+        <ProfileTitle_SC
+          onClick={this.handleClick.bind(this)}
+        >
+          {this.props.title}
+        </ProfileTitle_SC>
+
+        <ProfilePosition_SC>
+          {this.props.position}
+        </ProfilePosition_SC>
+
+        <ProfileModal_SC
+          className={activeClass}
+        >
+          {this.props.biog}
+        </ProfileModal_SC>
+
+      </Profile_SC>
+    );
+  }
 }
-
-export default Profile;
 
 /**
  * =Cards
@@ -65,12 +139,13 @@ export function profiles (data) {
 
     if (relPageData && relPageData !== undefined) {
       profiles.push(
-
-        <div>Hello</div>
-        // <Card
-        //   key={`card-${i}`}
-        //   pageData={relPageData}
-        // />
+        <Profile
+          key={`profile-${i}`}
+          title={relPageData.query.title}
+          profileImage={relPageData.query.profileImage}
+          position={relPageData.query.position}
+          biog={relPageData.query.body}
+        />
       );
     }
   });

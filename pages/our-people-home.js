@@ -1,11 +1,13 @@
 import Link from "next/link"
 import {withRouter} from "next/router"
 import React, {Component} from "react";
+import styled from "styled-components";
 
-import Profile, {profiles} from "../components/profile";
 import ContentWrapper from "../components/content-wrapper";
 import DefaultLayout from "../layouts/default";
 import Grid from "../components/grid";
+import Profile, {profiles} from "../components/profile";
+import SectionTitle from "../components/section-title";
 
 import exportMap from "../static/db/export-map.json";
 import {
@@ -21,6 +23,9 @@ import {
  * =Our people
 ************************************************************/
 
+const Header_SC = styled.div`
+  margin-top: ${$_BaseUnit(5)};
+`;
 
 class OurPeopleHome extends Component {
   constructor(props) {
@@ -37,10 +42,12 @@ class OurPeopleHome extends Component {
     const {router} = this.props;
     const pageData = this.state.pageData;
 
-    // console.log(pageData.ourPeopleRels)
-
     return (
       <DefaultLayout>
+        <Header_SC>
+          <SectionTitle title={pageData.title} />
+        </Header_SC>
+
         <ContentWrapper>
           { pageData.ourPeopleRels &&
             <Grid
