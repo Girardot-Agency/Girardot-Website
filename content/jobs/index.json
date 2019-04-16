@@ -4,6 +4,7 @@
   "category": "jobs",
   "title": "Jobs",
   "jobsRels": [
-    "fake-job-title"
+    "graphic-designer",
+    "internship"
   ]
 }
