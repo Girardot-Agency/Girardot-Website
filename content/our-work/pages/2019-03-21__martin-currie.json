@@ -1,0 +1,9 @@
+{
+  "layout": "our-work-page",
+  "category": "our-work",
+  "title": "Martin Currie ",
+  "customSlug": "martin-currie",
+  "body": "Martin Currie.",
+  "bannerImage": "/static/uploads/mcshooterbanner.jpg",
+  "cardImage": "/static/uploads/mcshootercard.jpg"
+}

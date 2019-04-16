@@ -1,0 +1,10 @@
+{
+  "layout": "our-work-page",
+  "category": "our-work",
+  "title": "Jupiter Asset Management ",
+  "customSlug": "jupiter-asset-management",
+  "body": "![](/static/uploads/jupiter_01.png)\n\n![](/static/uploads/jupiter_03.png)\n\n![](/static/uploads/jupiter_02.png)\n\nJupiter",
+  "bannerImage": "/static/uploads/axabanner.jpg",
+  "cardImage": "/static/uploads/card-hsbc.jpg",
+  "gallery": []
+}

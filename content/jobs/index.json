@@ -1,0 +1,9 @@
+{
+  "index": true,
+  "layout": "jobs-home",
+  "category": "jobs",
+  "title": "Jobs",
+  "jobsRels": [
+    "fake-job-title"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "layout": "our-work-page",
+  "category": "our-work",
+  "title": "Test page 03",
+  "customSlug": "test-page-03",
+  "body": "Content",
+  "bannerImage": "/static/uploads/axa_master_uk_disp_fund_fullpg_july14.png",
+  "cardImage": "/static/uploads/banner-home.jpg"
+}

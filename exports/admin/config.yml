@@ -1,0 +1,205 @@
+backend:
+  name: git-gateway
+  repo: lukebm/girardot
+  branch: deploy/public
+media_folder: uploads
+public_folder: /static/uploads
+collections:
+
+  # Static pages
+  - label: Static pages
+    name: static
+    extension: json
+    files:
+
+      # Home
+      - label: Home
+        name: home
+        file: content/index.json
+        fields:
+          - {label: Index, name: index, widget: hidden, default: true}
+          - {label: Layout, name: layout, widget: hidden, default: home}
+          - {label: Title, name: title, widget: string}
+          - {label: Strap line, name: strap, widget: string}
+          - {label: Banner logo, name: bannerLogo, widget: image}
+          - {label: Banner image, name: bannerImage, widget: image}
+          - {label: Our Work (title), name: ourWorkTitle, widget: string}
+          - label: Our Work (pages)
+            name: ourWorkRels
+            widget: relation
+            collection: our_work_page
+            searchFields: ["title"]
+            displayFields: ["title"]
+            valueField: "customSlug"
+            multiple: true
+
+      # About (home)
+      - label: About (home)
+        name: about_home
+        file: content/about/index.json
+        fields:
+          - {label: Index, name: index, widget: hidden, default: true}
+          - {label: Layout, name: layout, widget: hidden, default: about-home}
+          - {label: Category, name: category, widget: hidden, default: about}
+          - {label: Title, name: title, widget: string}
+          - {label: Banner image, name: bannerImage, widget: image}
+          - {label: Body, name: body, widget: markdown}
+
+      # Jobs (home)
+      - label: Jobs (home)
+        name: jobs_home
+        file: content/jobs/index.json
+        fields:
+          - {label: Index, name: index, widget: hidden, default: true}
+          - {label: Layout, name: layout, widget: hidden, default: jobs-home}
+          - {label: Category, name: category, widget: hidden, default: jobs}
+          - {label: Title, name: title, widget: string}
+          - label: Jobs (pages)
+            name: jobsRels
+            widget: relation
+            collection: jobs_page
+            searchFields: ["title"]
+            displayFields: ["title"]
+            valueField: "customSlug"
+            multiple: true
+
+      # Our people (home)
+      - label: Our People (home)
+        name: our_people_home
+        file: content/our-people/index.json
+        fields:
+          - {label: Index, name: index, widget: hidden, default: true}
+          - {label: Layout, name: layout, widget: hidden, default: our-people-home}
+          - {label: Category, name: category, widget: hidden, default: our-people}
+          - {label: Title, name: title, widget: string}
+          - label: Our People (pages)
+            name: ourPeopleRels
+            widget: relation
+            collection: our_people_page
+            searchFields: ["title"]
+            displayFields: ["title"]
+            valueField: "customSlug"
+            multiple: true
+
+      # Our work (home)
+      - label: Our Work (home)
+        name: our_work_home
+        file: content/our-work/index.json
+        fields:
+          - {label: Index, name: index, widget: hidden, default: true}
+          - {label: Layout, name: layout, widget: hidden, default: our-work-home}
+          - {label: Category, name: category, widget: hidden, default: our-work}
+          - {label: Title, name: title, widget: string}
+          - label: Our Work (categories)
+            name: ourWorkCategoryRels
+            widget: relation
+            collection: our_work_category
+            searchFields: ["title"]
+            displayFields: ["title"]
+            valueField: "customSlug"
+            multiple: true
+          - label: Our Work (pages)
+            name: ourWorkRels
+            widget: relation
+            collection: our_work_page
+            searchFields: ["title"]
+            displayFields: ["title"]
+            valueField: "customSlug"
+            multiple: true
+
+  # Jobs (pages)
+  - label: Jobs (page)
+    name: jobs_page
+    folder: content/jobs/pages
+    slug: "{{year}}-{{month}}-{{day}}__{{fields.customSlug}}"
+    create: true
+    extension: json
+    fields:
+      - {label: Layout, name: layout, widget: hidden, default: jobs-page}
+      - {label: Category, name: category, widget: hidden, default: jobs}
+      - {label: Title, name: title, widget: string}
+      - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
+      - {label: Body, name: body, widget: markdown}
+
+  # Our people (pages)
+  - label: Our People (page)
+    name: our_people_page
+    folder: content/our-people/pages
+    slug: "{{year}}-{{month}}-{{day}}__{{fields.customSlug}}"
+    create: true
+    extension: json
+    fields:
+      - {label: Layout, name: layout, widget: hidden, default: our-people-page}
+      - {label: Category, name: category, widget: hidden, default: jobs}
+      - {label: Title, name: title, widget: string}
+      - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
+      - {label: Body, name: body, widget: markdown}
+      - {label: Profile image, name: profileImage, widget: image}
+
+  # Our work (categories)
+  - label: Our Work (category)
+    name: our_work_category
+    folder: content/our-work/categories
+    slug: "{{year}}-{{month}}-{{day}}__{{fields.customSlug}}"
+    create: true
+    extension: json
+    fields:
+      - {label: Layout, name: layout, widget: hidden, default: our-work-home}
+      - {label: Category, name: category, widget: hidden, default: our-work}
+      - {label: Title, name: title, widget: string}
+      - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
+      - label: Our Work (pages)
+        name: ourWorkRels
+        widget: relation
+        collection: our_work_page
+        searchFields: ["title"]
+        displayFields: ["title"]
+        valueField: "customSlug"
+        multiple: true
+
+  # Our work (pages)
+  - label: Our Work (page)
+    name: our_work_page
+    folder: content/our-work/pages
+    slug: "{{year}}-{{month}}-{{day}}__{{fields.customSlug}}"
+    create: true
+    extension: json
+    fields:
+      - {label: Layout, name: layout, widget: hidden, default: our-work-page}
+      - {label: Category, name: category, widget: hidden, default: our-work}
+      - {label: Title, name: title, widget: string}
+      - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
+      - {label: Body, name: body, widget: markdown}
+      - {label: Banner image, name: bannerImage, widget: image}
+      - {label: Card image, name: cardImage, widget: image}
+      - label: Gallery
+        name: gallery
+        widget: list
+        allow_add: true
+        field: {label: Image, name: galleryImage, widget: image}
+
+  # Global settings
+  - label: Global settings
+    name: global_settings
+    extension: json
+    files:
+
+      # Branding
+      - label: Branding
+        name: branding
+        file: content/settings/branding.json
+        fields:
+          - {label: Category, name: category, widget: hidden, default: settings}
+          - {label: Title, name: title, widget: hidden, default: Settings}
+          - {label: Logo (main), name: logoMain, widget: image}
+          - {label: Logo (grey), name: logoGrey, widget: image}
+          - {label: Logo (invert), name: logoInvert, widget: image}
+
+      # Google analytics
+      - label: Google Analytics
+        name: google_analytics
+        file: content/settings/google-analytics.json
+        fields:
+          - {label: Category, name: category, widget: hidden, default: settings}
+          - {label: Title, name: title, widget: hidden, default: Google Analytics}
+          - {label: Tracking code, name: body, widget: markdown}

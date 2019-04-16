@@ -1,0 +1,10 @@
+.cache/
+.env
+.next/
+_out/
+out/
+node_modules/
+package-lock.json
+
+# Used only as temp folder for production asset caching
+static/uploads

@@ -1,0 +1,14 @@
+{
+  "layout": "our-work-page",
+  "category": "our-work",
+  "title": "Theo Fennell ",
+  "customSlug": "theo-fennell",
+  "body": "![](/static/uploads/theo-weft.jpg)\n\n![](/static/uploads/theo-lief.jpg)\n\n![](/static/uploads/theo-twain.jpg)\n\n## The Task\n\nWe were asked to create a corporate campaign that raised the profile of the Theo Fennell brand because it was listing on the London Stock Exchange.\n\n## The Solution\n\nWe created a fashion campaign for maximum impact. Each ad featured a different collection from Theo’s range to demonstrate the breadth of his designs.\n\n## The Results\n\nThe campaign raised awareness, created favourable press coverage in relevant financial publications and increased sales of the jewellery featured in the ads.",
+  "bannerImage": "/static/uploads/wmbanner.jpg",
+  "cardImage": "/static/uploads/wmcard.jpg",
+  "gallery": [
+    "/static/uploads/theo-lief.jpg",
+    "/static/uploads/theo-twain.jpg",
+    "/static/uploads/theo-weft.jpg"
+  ]
+}

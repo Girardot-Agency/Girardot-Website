@@ -1,0 +1,9 @@
+{
+  "index": true,
+  "layout": "our-people-home",
+  "category": "our-people",
+  "title": "Our people",
+  "ourPeopleRels": [
+    "james-boore"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "exports\\admin"
+    },
+    {
+      "path": "uploads"
+    },
+    {
+      "path": "docs"
+    },
+    {
+      "path": "content"
+    },
+    {
+      "path": "lib"
+    },
+    {
+      "path": "pages"
+    },
+    {
+      "path": "layouts"
+    },
+    {
+      "path": "components"
+    },
+    {
+      "path": "assets"
+    }
+  ],
+  "settings": {}
+}

@@ -1,0 +1,9 @@
+{
+  "layout": "our-work-page",
+  "category": "our-work",
+  "title": "Premier Multi-Asset Creative",
+  "customSlug": "premier-multi-asset-creative",
+  "body": "![title]( \"Full Page Ad\")\n\n![](/static/uploads/pam_ma_h-t_wrap_os_oct18.jpg \"Cover Wrap - Outer Spread\")\n\n![](/static/uploads/pam_ma_h-t_wrap_is_oct18.jpg \"Cover Wrap - Inner Spread\")",
+  "bannerImage": "/static/uploads/hungreads-thousandsbanner.jpg",
+  "cardImage": "/static/uploads/hungreads-thousandscard.jpg"
+}

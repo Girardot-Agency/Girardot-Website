@@ -1,0 +1,28 @@
+{
+  "layout": "our-work-home",
+  "category": "our-work",
+  "title": "All Projects",
+  "customSlug": "all-projects",
+  "ourWorkRels": [
+    "test-page-03",
+    "woodham-and-moortimer",
+    "theo-fennell",
+    "premier-diversified-fund",
+    "hsbc-global-asset-management",
+    "gunna-drinks-purpose-campaign",
+    "axa-investment-managers",
+    "allianz-global-investors-global-alpha",
+    "premier-multi-asset-creative",
+    "allianz-global-investors-floating-rate",
+    "netwealth",
+    "neptune-emerging-markets",
+    "inchbald-school-of-design-interior",
+    "martin-currie",
+    "crux-asset-management-uk-ssf",
+    "neptune-global-alpha",
+    "gunna-drinks-product-campaign",
+    "pictet",
+    "inchbald",
+    "gunna"
+  ]
+}
