@@ -147,7 +147,7 @@ class Profile extends Component {
     const activeClass = this.state.activeClass;
 
     return (
-      <Profile_SC className="Profile">
+      <Profile_SC>
 
         <ProfileImg_SC
           src={this.props.profileImage}
