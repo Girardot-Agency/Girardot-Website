@@ -1,12 +1,11 @@
 import Link from "next/link"
 import {withRouter} from "next/router"
+import Markdown from "markdown-to-jsx";
 import React, {Component} from "react";
 import styled from "styled-components";
 
 import ContentWrapper from "../components/content-wrapper";
 import DefaultLayout from "../layouts/default";
-import Grid from "../components/grid";
-import Profile, {profiles} from "../components/profile";
 import SectionTitle from "../components/section-title";
 
 import exportMap from "../static/db/export-map.json";
@@ -19,8 +18,48 @@ import {
   TYPE
 } from "../assets/styles/theme.css.js"
 
+
 /**
- * =Our people
+ * =Testimonial
+************************************************************/
+
+const TestimonialHeader_SC = styled.div``;
+const TestimonialBody_SC = styled.div``;
+const TestimonialFooter_SC = styled.div``;
+
+function Testimonial (props = {}) {
+  const {
+    brandLogo,
+    body,
+    name,
+    position,
+    brand
+  } = props;
+
+  return (
+    <section>
+      <TestimonialHeader_SC>
+        <img
+          src={brandLogo}
+          alt={brand}
+        />
+      </TestimonialHeader_SC>
+
+      <TestimonialBody_SC>
+        <Markdown children={body} />
+      </TestimonialBody_SC>
+
+      <TestimonialFooter_SC>
+        <h2>{name}</h2>
+        <p>{position}</p>
+        <p>{brand}</p>
+      </TestimonialFooter_SC>
+    </section>
+  )
+}
+
+/**
+ * =Testimonials (page)
 ************************************************************/
 
 const Header_SC = styled.div`
