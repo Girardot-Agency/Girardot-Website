@@ -2,6 +2,7 @@ import Link from "next/link"
 import {withRouter} from "next/router"
 import Markdown from "markdown-to-jsx";
 import React, {Component} from "react";
+import Modal from "react-modal";
 import styled, {css} from "styled-components";
 
 import DefaultLayout from "../layouts/default";

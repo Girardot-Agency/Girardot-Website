@@ -1,4 +1,8 @@
 import Markdown from "markdown-to-jsx";
+// import Lightbox from "react-image-lightbox";
+// import "react-image-lightbox/style.css";
+import react, {Component} from "react";
+import Modal from "react-modal";
 import ReactPlayer from "react-player";
 import styled, {css} from "styled-components";
 
@@ -29,7 +33,8 @@ function Player (props = {}) {
     <div
       style={{
         paddingBottom: ar,
-        position: "relative"
+        position: "relative",
+        margin: "50px 0"
       }}>
       <ReactPlayer
         url={url}
@@ -38,12 +43,77 @@ function Player (props = {}) {
         style={{
           position: "absolute",
           top: "0",
-          left: "0"
+          left: "0",
         }}
       />
     </div>
   )
 }
+
+/**
+ * =Gallery
+************************************************************/
+
+Modal.setAppElement("#__next");
+
+const customStyles = {
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, .5)"
+  },
+  content : {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    maxHeight: "95%",
+    maxWidth: "95%",
+    zIndex: "9999"
+  }
+};
+
+class ImageModal extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      modalIsOpen: false
+    };
+  }
+
+  handleOpenModal() {
+    this.setState({
+      modalIsOpen: true
+    });
+  }
+
+  handleCloseModal() {
+    this.setState({
+      modalIsOpen: false
+    });
+  }
+
+  render() {
+    return (<>
+      <img
+        onClick={this.handleOpenModal.bind(this)}
+        src={this.props.image}
+      />
+
+      <Modal
+        isOpen={this.state.modalIsOpen}
+        closeTimeoutMS={400}
+        style={customStyles}
+      >
+        <img
+          src={this.props.image}
+        />
+      </Modal>
+    </>)
+  }
+}
+
 
 /**
  * =Copy
@@ -75,7 +145,7 @@ const Copy_SC = styled.div`
   }
 `;
 
-function Copy ({title, copy}) {
+function Copy ({title, copy, gallery}) {
   return (
     <Copy_SC>
 
@@ -93,6 +163,18 @@ function Copy ({title, copy}) {
           },
         }}
       />
+
+      { Array.isArray(gallery) && gallery.length
+        ? (
+          gallery.map((image, index) => {
+
+            return (
+              <ImageModal image={image} />
+            )
+          })
+        )
+        : ""
+      }
     </Copy_SC>
   );
 }
