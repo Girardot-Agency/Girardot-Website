@@ -2,7 +2,7 @@ import Link from "next/link"
 import {withRouter} from "next/router"
 import React, {Component} from "react";
 
-import Card, {cards} from "../components/card";
+import Profile, {profiles} from "../components/profile";
 import ContentWrapper from "../components/content-wrapper";
 import DefaultLayout from "../layouts/default";
 import Grid from "../components/grid";
@@ -37,12 +37,14 @@ class OurPeopleHome extends Component {
     const {router} = this.props;
     const pageData = this.state.pageData;
 
+    // console.log(pageData.ourPeopleRels)
+
     return (
       <DefaultLayout>
         <ContentWrapper>
-          { pageData.ourWorkRels &&
+          { pageData.ourPeopleRels &&
             <Grid
-              cells={cards(pageData.ourWorkRels)}
+              cells={profiles(pageData.ourPeopleRels)}
             />
           }
         </ContentWrapper>
