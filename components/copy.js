@@ -57,15 +57,17 @@ const Copy_SC = styled.div`
     max-width: ${$_BaseUnit(40)};
 
   h1 {
-    margin-bottom: ${TYPE.scale.xl};
+    font-size: ${TYPE.scale.xl};
+    margin-bottom: ${$_BaseUnit(5)};
   }
 
-  h2, h3, h4, h5, h6 {
-    margin-top: 1em;
+  h2 {
+    font-size: ${TYPE.scale.lg};
   }
 
   h2, h3, h4, h5, h6, p, img {
-    margin-bottom: ${TYPE.scale.sm};
+    margin-top: ${$_BaseUnit(2.5)};
+    margin-bottom: ${$_BaseUnit(2.5)};
   }
 
   img, iframe {

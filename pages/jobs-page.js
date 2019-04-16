@@ -26,7 +26,7 @@ const JobsInner_SC = styled.div`
   h1, h2, h3, h4, h5, h6, p, ul, ol {
     margin-bottom: ${TYPE.scale.sm};
 
-    &:nth-child(1n +2 ) {
+    &:nth-child(1n + 2) {
       margin-top: 1em;
     }
   }
