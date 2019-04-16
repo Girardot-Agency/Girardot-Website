@@ -1,0 +1,9 @@
+{
+  "layout": "our-people-page",
+  "category": "our-people",
+  "title": "James Boore",
+  "position": "Senior Designer",
+  "customSlug": "james-boore",
+  "body": "Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Aenean massa. Vivamus elementum semper nisi. Cras varius.\r\n\nNullam vel sem. Maecenas nec odio et ante tincidunt tempus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. In ut quam vitae odio lacinia tincidunt. Etiam sit amet orci eget eros faucibus tincidunt.",
+  "profileImage": "/static/uploads/profile-james.png"
+}
