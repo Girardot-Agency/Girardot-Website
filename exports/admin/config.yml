@@ -138,6 +138,7 @@ collections:
       - {label: Title, name: title, widget: string}
       - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
       - {label: Body, name: body, widget: markdown}
+      - {label: Banner image, name: bannerImage, widget: image}
 
   # Our people (pages)
   - label: Our People (profile)
