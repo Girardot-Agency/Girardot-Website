@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, {Component} from "react";
 import styled from "styled-components";
 
+import Markdown from "markdown-to-jsx";
 import Modal from "react-modal";
 
 import {
@@ -43,7 +44,7 @@ const ProfileTitle_SC = styled.h2`
   display: inline-block;
   font-size: ${TYPE.md};
     font-weight: normal;
-  margin-top: ${$_BaseUnit(2)};
+  margin-top: ${$_BaseUnit(1.5)};
 
   ${$_TransAll};
 
@@ -53,43 +54,92 @@ const ProfileTitle_SC = styled.h2`
 `;
 
 const ProfilePosition_SC = styled.p`
+  font-size: ${TYPE.md};
+  color: ${COL.grey_base};
 `;
 
-const ProfileModal_SC = styled.div`
-  background-color: rgba(0, 0, 0, 1);
-  position: fixed;
-  top: 0;
-  left: 0;
+const ProfileModalInner_SC = styled.div`
+  /* margin-top: ${$_BaseUnit(2)}; */
+`;
 
-  &.is-active {
-    background-color: pink;
+const ProfileModalTitle_SC = styled.h2`
+  color: ${COL.brand_main_base};
+  font-size: ${TYPE.md};
+    font-weight: normal;
+`;
+
+const ProfileModalCopy_SC = styled.div`
+  line-height: 1.5;
+
+  & p {
+    margin-top: 1em;
+  }
+`;
+
+const ProfileModalClose_SC = styled.button`
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  top: ${$_BaseUnit()};
+    right: ${$_BaseUnit()};
+
+  & svg {
+    width: ${$_BaseUnit(2)};
+      height: ${$_BaseUnit(2)};
   }
 
-  & > div {
+  & .Close-x {
+    fill: transparent;
+    stroke: ${COL.brand_main_base};
+      stroke-linecap: round;
+      stroke-width: 5;
 
+    ${$_TransAll};
+  }
+
+  &:hover .Close-x {
+    stroke: ${COL.brand_main_darkest};
   }
 `;
 
 
-/**
- * =Card:component
-******************************/
+Modal.setAppElement("#__next");
+
+const customStyles = {
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, .5)"
+  },
+  content : {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    width: "500px",
+    maxWidth: "95%"
+  }
+};
 
 class Profile extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      active: false,
-      activeClass: ""
+      modalIsOpen: false
     };
   }
 
-  handleClick() {
+  handleOpenModal() {
     this.setState({
-      active: !this.state.active,
-      activeClass: this.state.active
-        ? "is-inactive"
-        : "is-active"
+      modalIsOpen: true
+    });
+  }
+
+  handleCloseModal() {
+    this.setState({
+      modalIsOpen: false
     });
   }
 
@@ -105,7 +155,7 @@ class Profile extends Component {
         />
 
         <ProfileTitle_SC
-          onClick={this.handleClick.bind(this)}
+          onClick={this.handleOpenModal.bind(this)}
         >
           {this.props.title}
         </ProfileTitle_SC>
@@ -114,11 +164,32 @@ class Profile extends Component {
           {this.props.position}
         </ProfilePosition_SC>
 
-        <ProfileModal_SC
-          className={activeClass}
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          closeTimeoutMS={400}
+          style={customStyles}
         >
-          {this.props.biog}
-        </ProfileModal_SC>
+          <ProfileModalInner_SC>
+            <ProfileModalClose_SC onClick={this.handleCloseModal.bind(this)}>
+              <svg viewBox="0 0 40 40">
+                <path className="Close-x" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+              </svg>
+            </ProfileModalClose_SC>
+
+            <ProfileModalTitle_SC>
+              {this.props.title}
+            </ProfileModalTitle_SC>
+
+            <ProfilePosition_SC>
+              {this.props.position}
+            </ProfilePosition_SC>
+
+            <ProfileModalCopy_SC>
+              <Markdown children={this.props.biog} />
+            </ProfileModalCopy_SC>
+
+          </ProfileModalInner_SC>
+        </Modal>
 
       </Profile_SC>
     );
@@ -134,8 +205,6 @@ export function profiles (data) {
 
   data.map((rel, i) => {
     const relPageData = exportMap[rel];
-
-    console.log(relPageData);
 
     if (relPageData && relPageData !== undefined) {
       profiles.push(

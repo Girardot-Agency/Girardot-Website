@@ -36,6 +36,12 @@ class OurPeopleHome extends Component {
   }
 
   handleClick() {
+    this.setState({
+      active: !this.state.active,
+      activeClass: this.state.active
+        ? "is-inactive"
+        : "is-active"
+    });
   }
 
   render() {

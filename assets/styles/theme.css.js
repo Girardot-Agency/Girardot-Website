@@ -38,6 +38,7 @@ export const COL = {
 
   /* Greyscale */
   grey_lightest: "hsla(0, 0%, 95%, 1)",
+  grey_base: "hsla(0, 0%, 50%, 1)",
   // grey_light: "#DC4E3A",
   // grey_base: "#DC4E3A",
   // grey_dark: "#DC4E3A",
