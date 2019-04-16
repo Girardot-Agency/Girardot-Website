@@ -72,7 +72,7 @@ collections:
           - {label: Layout, name: layout, widget: hidden, default: our-people-home}
           - {label: Category, name: category, widget: hidden, default: our-people}
           - {label: Title, name: title, widget: string}
-          - label: Our People (pages)
+          - label: Our People (profiles)
             name: ourPeopleRels
             widget: relation
             collection: our_people_page
@@ -107,6 +107,24 @@ collections:
             valueField: "customSlug"
             multiple: true
 
+      # Testimonials (home)
+      - label: Testimonials (home)
+        name: testimonials_home
+        file: content/testimonials/index.json
+        fields:
+          - {label: Index, name: index, widget: hidden, default: true}
+          - {label: Layout, name: layout, widget: hidden, default: testimonials-home}
+          - {label: Category, name: category, widget: hidden, default: testimonials}
+          - {label: Title, name: title, widget: string}
+          - label: Testimonials (profiles)
+            name: testimonialsRels
+            widget: relation
+            collection: testimonials_page
+            searchFields: ["title"]
+            displayFields: ["title"]
+            valueField: "customSlug"
+            multiple: true
+
   # Jobs (pages)
   - label: Jobs (page)
     name: jobs_page
@@ -122,7 +140,7 @@ collections:
       - {label: Body, name: body, widget: markdown}
 
   # Our people (pages)
-  - label: Our People (page)
+  - label: Our People (profile)
     name: our_people_page
     folder: content/our-people/pages
     slug: "{{year}}-{{month}}-{{day}}__{{fields.customSlug}}"
@@ -178,6 +196,23 @@ collections:
         widget: list
         allow_add: true
         field: {label: Image, name: galleryImage, widget: image}
+
+  # Our people (pages)
+  - label: Testimonials (profile)
+    name: testimonials_page
+    folder: content/testimonials/pages
+    slug: "{{year}}-{{month}}-{{day}}__{{fields.customSlug}}"
+    create: true
+    extension: json
+    fields:
+      - {label: Layout, name: layout, widget: hidden, default: testimonials-page}
+      - {label: Category, name: category, widget: hidden, default: testimonials}
+      - {label: Full name, name: title, widget: string}
+      - {label: Position, name: position, widget: string}
+      - {label: Brand, name: brand, widget: string}
+      - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
+      - {label: Body, name: body, widget: markdown}
+      - {label: Brand logo, name: brandLogo, widget: image}
 
   # Global settings
   - label: Global settings
