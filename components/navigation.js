@@ -135,6 +135,8 @@ function Menu ({handleClick, activeClass}) {
       query: item.data.query
     };
 
+    console.log(route);
+
     listItems.push(
       <MenuItem_SC key={`page-${index}`}>
         <Link
