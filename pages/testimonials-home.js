@@ -145,8 +145,6 @@ class TestimonialsHome extends Component {
     const {router} = this.props;
     const pageData = this.state.pageData;
 
-    console.log(pageData)
-
     return (
       <DefaultLayout>
         <Header_SC>
