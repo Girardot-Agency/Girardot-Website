@@ -44,6 +44,7 @@ export default createGlobalStyle`
   textarea,
   select,
   button {
+    background-color: transparent;
     font: inherit;
     letter-spacing: inherit;
   }
