@@ -68,16 +68,20 @@ export default class Grid extends Component {
     this.state = {
       buttonOptions: buttonOptions,
       cells: this.props.cells,
-      visible: this.props.viewMore
-        ? this.props.cells.length
-        : 6
+      visible: 6,
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      visible: 6
+    })
   }
 
   loadMore() {
     this.setState((cells) => {
       return {
-        visible: cells.visible + 3
+        visible: cells.visible + 3,
       }
     })
   }
@@ -86,7 +90,7 @@ export default class Grid extends Component {
     return (<>
       <Grid_SC>
         {
-          this.state.cells.slice(0, this.state.visible).map((cell, index) => {
+          this.props.cells.slice(0, this.state.visible).map((cell, index) => {
             let delay = 0;
             if (index > 0) delay = index * 100;
 

@@ -136,10 +136,10 @@ export default Card;
  * =Cards
 ************************************************************/
 
-export function cards (data) {
+export function cards (rels) {
   let cards = [];
 
-  data.map((rel, i) => {
+  rels.map((rel, i) => {
     const relPageData = exportMap[rel];
 
     if (relPageData && relPageData !== undefined) {

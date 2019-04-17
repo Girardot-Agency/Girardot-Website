@@ -104,7 +104,7 @@ class OurWorkHome extends Component {
     this.state = {
       active: false,
       activeClass: "",
-      pageData: props.router.query
+      pageData: this.props.router.query
     }
   }
 
@@ -115,11 +115,13 @@ class OurWorkHome extends Component {
         activeClass: "is-active"
       });
     }, 100);
+
     setTimeout(() => {
       this.setState({
         pageData: this.props.router.query,
       });
     }, animationTime);
+
     setTimeout(() => {
       this.setState({
         activeClass: "is-inactive"
