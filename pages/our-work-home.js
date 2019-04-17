@@ -139,6 +139,10 @@ class OurWorkHome extends Component {
             { pageData.ourWorkRels &&
               <Grid
                 cells={cards(pageData.ourWorkRels)}
+                buttonOptions={{
+                  type: "loadMore",
+                  align: "center"
+                }}
               />
             }
           </Transition_SC>

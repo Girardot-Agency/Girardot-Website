@@ -3,7 +3,7 @@
 ************************************************************/
 
 import Link from "next/link";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 import {_baseUnit, _center, _screen, _transition} from "../../assets/styles/mixins/_style";
 import {COL, TYPE} from "../../assets/styles/theme/_style";
@@ -20,11 +20,16 @@ const CTA_Styled = styled.div`
   border: ${_baseUnit(.125)} solid ${COL.brand_main_base};
   color: ${COL.brand_main_base};
   font-size: ${TYPE.scale.sm};
-  margin: 0 auto;
   position: relative;
   width: ${_baseUnit(15)};
     max-width: 100%;
     height: ${_baseUnit(3.25)};
+
+  ${props => (
+    props.align === "center"
+      ? `${css`margin: 0 auto`}`
+      : ""
+  )};
 
   &:hover {
     background: ${COL.brand_main_base};
@@ -47,14 +52,15 @@ const CTA_Styled = styled.div`
 ******************************/
 
 export default function (props = {}) {
-  const defaultOpts = {
+  let defaultOptions = {
     type: "text", // [String] "text" | "link"
     text: "Click here", // [String]
-    href: false // [String]
+    href: false, // [String]
+    align: false // [String]
   }
 
-  const {
-    options = defaultOpts
+  let {
+    options = defaultOptions
   } = props;
 
   let pageData, route;
@@ -67,7 +73,7 @@ export default function (props = {}) {
   }
 
   return (
-    <CTA_Styled>
+    <CTA_Styled align={options.align}>
       {
         options.type === "link" && options.href
 

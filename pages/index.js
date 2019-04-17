@@ -1,18 +1,33 @@
+/**
+ * =Homepage
+************************************************************/
+
+// Layout
 import DefaultLayout from "../layouts/default";
+
+// External parts
 import Card, {cards} from "../components/card";
 import ContentWrapper from "../components/content-wrapper";
 import Grid from "../components/grid";
 import Hero from "../components/hero";
 import SectionTitle from "../components/section-title";
 
+// Theme/mixins/helpers etc
 import exportMap from "../static/db/export-map.json";
-const homepageData = exportMap["/index.html"];
 
 /**
- * =IndexPage
-************************************************************/
+ * =Styles
+******************************/
 
-function IndexPage ({data = homepageData}) {
+/**
+ * =Component
+******************************/
+
+export default function (props = {}) {
+  let {
+    data = exportMap["/index.html"]
+  } = props;
+
   return (
     <DefaultLayout>
       <Hero
@@ -24,12 +39,15 @@ function IndexPage ({data = homepageData}) {
         <ContentWrapper>
           <Grid
             cells={cards(data.query.ourWorkRels)}
-            viewMore={"/our-work/index.html"} />
+            buttonOptions={{
+              type: "viewMore",
+              href: "/our-work/index.html",
+              align: "center"
+            }}
+          />
         </ContentWrapper>
       </section>
 
     </DefaultLayout>
   );
 }
-
-export default IndexPage;

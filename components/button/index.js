@@ -2,7 +2,7 @@
  * =Button
 ************************************************************/
 
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 // External parts
 import CTA from "../cta";
@@ -40,6 +40,15 @@ const Button_Styled = styled.button`
     border: 0;
     padding: 0;
   }
+
+  ${props => (
+    props.align === "center"
+      ? `${css`
+        display: block;
+        margin: 0 auto;
+      `}`
+      : ""
+  )};
 `;
 
 /**
@@ -47,19 +56,23 @@ const Button_Styled = styled.button`
 ******************************/
 
 export default function (props = {}) {
-  const defaultOpts = {
+  let defaultOpts = {
     type: "cta",
-    text: false
-  }
+    text: false,
+    align: false
+  };
 
-  const {
+  let {
     handleClick,
     activeClass,
     options = defaultOpts
   } = props;
 
   return (
-    <Button_Styled onClick={handleClick}>
+    <Button_Styled
+      onClick={handleClick}
+      align={options.align}
+    >
 
       {
         options.type === "cta"

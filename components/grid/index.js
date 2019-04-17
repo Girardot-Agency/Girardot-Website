@@ -7,6 +7,7 @@ import React, {Component} from "react";
 import styled, {css} from "styled-components";
 
 // External parts
+import Button from "../button"
 import CTA from "../cta"
 import ContentWrapper from "../../components/content-wrapper";
 
@@ -58,20 +59,40 @@ export default class Grid extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {}
+    let buttonOptions = {
+      type: this.props.buttonOptions.type, // [String] "loadMore" | "viewMore"
+      href: this.props.buttonOptions.href, // [String]
+      align: this.props.buttonOptions.align // [String]
+    };
+
+    this.state = {
+      buttonOptions: buttonOptions,
+      cells: this.props.cells,
+      visible: this.props.viewMore
+        ? this.props.cells.length
+        : 6
+    }
+  }
+
+  loadMore() {
+    this.setState((cells) => {
+      return {
+        visible: cells.visible + 3
+      }
+    })
   }
 
   render() {
     return (<>
       <Grid_SC>
         {
-          this.props.cells.map((cell, i) => {
+          this.state.cells.slice(0, this.state.visible).map((cell, index) => {
             let delay = 0;
-            if (i > 0) delay = i * 100;
+            if (index > 0) delay = index * 100;
 
             return (
               <div
-                key={`grid-cell-${i}`}
+                key={`grid-cell-${index}`}
                 className="Grid-cell"
               >
                 <Fade
@@ -86,17 +107,34 @@ export default class Grid extends Component {
           })
         }
       </Grid_SC>
-      {
-        this.props.viewMore &&
-        <ContentWrapper>
-          <CTA
-            options={{
-              type: "link",
-              href: this.props.viewMore,
-              text: "View more"
-            }}
-          />
-        </ContentWrapper>
+
+      { this.state.buttonOptions
+        && (
+          <ContentWrapper>
+            { this.state.buttonOptions.type == "viewMore"
+              ? (
+                <CTA
+                  options={{
+                    type: "link",
+                    href: this.state.buttonOptions.href,
+                    text: "View more",
+                    align: this.state.buttonOptions.align
+                  }}
+                />
+              )
+              : (
+                <Button
+                  handleClick={this.loadMore.bind(this)}
+                  options={{
+                    type: "cta",
+                    text: "Load more",
+                    align: this.state.buttonOptions.align
+                  }}
+                />
+              )
+            }
+          </ContentWrapper>
+        )
       }
     </>);
   }
