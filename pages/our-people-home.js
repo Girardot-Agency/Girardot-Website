@@ -50,9 +50,12 @@ class OurPeopleHome extends Component {
 
     return (
       <DefaultLayout>
-        <Header_SC>
-          <SectionTitle title={pageData.title} />
-        </Header_SC>
+        <header>
+          <SectionTitle
+            title={pageData.title}
+            isHeader={true}
+          />
+        </header>
 
         <ContentWrapper>
           { pageData.ourPeopleRels &&

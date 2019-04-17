@@ -2,7 +2,7 @@
  * =SectionTitle
 ************************************************************/
 
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 // Theme/mixins
 import {COL, TYPE} from "../../assets/styles/theme/_style"
@@ -22,15 +22,26 @@ const SectionTitle_Styled = styled.h2`
     font-weight: normal;
   height: ${_baseUnit(5)};
   text-align: center;
+
+  ${props => (
+    props.isHeader
+      ? css`margin-top: ${_baseUnit(5)};`
+      : ""
+  )}
 `;
 
 /**
  * =Component
 ******************************/
 
-export default function ({title}) {
+export default function (props = {}) {
+  let {
+    title,
+    isHeader = false
+  } = props;
+
   return (
-    <SectionTitle_Styled>
+    <SectionTitle_Styled isHeader={isHeader}>
       {title}
     </SectionTitle_Styled>
   );
