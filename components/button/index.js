@@ -1,14 +1,13 @@
-import styled, {css} from "styled-components";
-
-import Hmbgr from "./hmbgr";
-
-
 /**
  * =Button
 ************************************************************/
 
+import styled from "styled-components";
+
+import Hmbgr from "./hmbgr";
+
 /**
- * =Button (styles)
+ * =Styles
 ******************************/
 
 const Button_SC = styled.button`
@@ -51,7 +50,12 @@ const Button_SC = styled.button`
  * =Button (component)
 ******************************/
 
-function Button ({handleClick, activeClass}) {
+function Button (props = {}) {
+  const {
+    handleClick,
+    activeClass
+  } = props;
+
   return (
     <Button_SC onClick={handleClick}>
       <Hmbgr activeClass={activeClass} />
