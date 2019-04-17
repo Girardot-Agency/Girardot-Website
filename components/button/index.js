@@ -1,0 +1,62 @@
+import styled, {css} from "styled-components";
+
+import Hmbgr from "./hmbgr";
+
+
+/**
+ * =Button
+************************************************************/
+
+/**
+ * =Button (styles)
+******************************/
+
+const Button_SC = styled.button`
+  cursor: pointer;
+
+  /**
+   * =Button reset
+   * See: https://gist.github.com/MoOx/9137295 */
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+  outline: none;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize 'line-height'. Cannot be changed from 'normal' in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable 'input' types in iOS */
+  -webkit-appearance: none;
+
+  /* Remove excess padding and border in Firefox 4+ */
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+`;
+
+/**
+ * =Button (component)
+******************************/
+
+function Button ({handleClick, activeClass}) {
+  return (
+    <Button_SC onClick={handleClick}>
+      <Hmbgr activeClass={activeClass} />
+    </Button_SC>
+  );
+}
+
+export default Button;

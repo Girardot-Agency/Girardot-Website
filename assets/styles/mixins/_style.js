@@ -15,6 +15,7 @@ export {
   _contentWrapper,
   _flex,
   _hover,
+  _hidden,
   _screen,
   _shadow,
   _transition,
