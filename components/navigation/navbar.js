@@ -14,7 +14,7 @@ import Button from "../button";
 import Logo from "../logo";
 
 /**
- * =Navbar (styles)
+ * =Styles
 ******************************/
 
 const Navbar_Styled = styled.div`
@@ -40,7 +40,7 @@ const Navbar_Styled = styled.div`
 `;
 
 /**
- * =Navbar (component)
+ * =Component
 ******************************/
 
 function Navbar ({handleClick, activeClass}) {

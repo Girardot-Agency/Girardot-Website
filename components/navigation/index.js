@@ -5,9 +5,6 @@
 import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import React, {Component} from "react";
 
-// Theme/mixins
-import {_baseUnit, _contentWrapper, _flex, _center, _shadow} from "../../assets/styles/mixins/_style";
-
 // Component parts
 import Menu from "./menu";
 import Navbar from "./navbar";
@@ -53,12 +50,14 @@ class Navigation extends Component {
 
         <Navbar
           handleClick={this.handleClick.bind(this)}
-          activeClass={activeClass} />
+          activeClass={activeClass}
+        />
 
         <Menu
           handleClick={this.handleClick.bind(this)}
           activeClass={activeClass}
-          style={"transform:translateY(-100%);"} />
+          style={{transform: "translateY(-100%)"}}
+        />
 
       </nav>
     );
