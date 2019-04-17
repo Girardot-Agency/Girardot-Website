@@ -4,12 +4,35 @@
 
 import react, {Component} from "react";
 import Lightbox from "react-image-lightbox";
+import styled from "styled-components";
 
 // External parts
 import Button from "../button";
 
 // Internal parts
 import GalleryStyle from "./gallery.style";
+
+// Mixins/Themes etc
+import {_transition} from "../../assets/styles/mixins/_style"
+
+/**
+ * =Styles
+******************************/
+
+const FeaturedImage_Styled = styled.img`
+  ${_transition()};
+
+  cursor: pointer;
+  opacity: 1;
+
+  &:hover {
+    opacity: .75;
+  }
+`;
+
+/**
+ * =Component
+******************************/
 
 export default class Gallery extends Component {
   constructor(props) {
@@ -38,6 +61,10 @@ export default class Gallery extends Component {
             text: "Open gallery"
           }}
         />
+
+        <FeaturedImage_Styled
+          onClick={this.handleClick.bind(this)}
+          src={this.props.images[0]} />
 
         {isOpen && (
           <Lightbox
