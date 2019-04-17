@@ -1,24 +1,12 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-import {transformImage} from "../lib/helpers";
+// Helpers/mixins/theme
+import {transformImage} from "../../lib/helpers";
+import {_baseUnit, _hidden, _flex, _transition} from "../../assets/styles/mixins/_style";
+import {COL, SCREEN, TYPE} from "../../assets/styles/theme/_style";
 
-import {_baseUnit} from "../assets/styles/mixins/_style";
-
-import {
-  $_Hidden,
-  $_Flex,
-  $_TransAll,
-  $_BaseUnit
-} from "../assets/styles/mixins.css";
-import {
-  BASE,
-  COL,
-  SCREEN,
-  TYPE
-} from "../assets/styles/theme.css";
-
-import exportMap from "../static/db/export-map.json";
+import exportMap from "../../static/db/export-map.json";
 
 /**
  * =Card
@@ -28,47 +16,47 @@ import exportMap from "../static/db/export-map.json";
  * =Card:styles
 ******************************/
 
-const Card_SC = styled.section`
+const Card_Styled = styled.section`
   overflow: hidden;
   position: relative;
 
   &:hover {
     img {transform: scale(1.05);}
   }
-`;
 
-const CardImg_SC = styled.div`
-  & img {
-    ${$_TransAll};
+  .Card-image {
+    img {
+      ${_transition()};
 
-    max-width: 100%;
+      max-width: 100%;
+    }
   }
-`;
 
-const CardTitle_SC = styled.h3`
-  ${$_Flex("alignItemsCenter")}
+  .Card-title {
+    ${_flex("alignItemsCenter")}
 
-  background-color: ${COL.brand_main_base};
-  color: ${COL.white};
-  font-size: ${TYPE.scale.xs};
-  font-weight: normal;
-  height: ${BASE.unit * 2.5}px;
-  padding: 0 ${_baseUnit()};
-  position: relative;
-  width: 100%;
-  z-index: 1;
-`;
+    background-color: ${COL.brand_main_base};
+    color: ${COL.white};
+    font-size: ${TYPE.scale.xs};
+      font-weight: normal;
+    padding: 0 ${_baseUnit()};
+    position: relative;
+    width: 100%;
+      height: ${_baseUnit(2.5)};
+    z-index: 1;
+  }
 
-const CardLink_SC = styled.a`
-  position: absolute;
-    top: 0;
-    left: 0;
-  width: 100%;
-    height: 100%;
-  z-index: 1;
+  .Card-link {
+    position: absolute;
+      top: 0;
+      left: 0;
+    width: 100%;
+      height: 100%;
+    z-index: 1;
 
-  & > span {
-    ${$_Hidden};
+    span {
+      ${_hidden()};
+    }
   }
 `;
 
@@ -83,9 +71,9 @@ function Card ({pageData}) {
   };
 
   return (
-    <Card_SC>
+    <Card_Styled>
 
-      <CardImg_SC>
+      <div className="Card-image">
         <picture>
           <source
             media={`${SCREEN.lg}`}
@@ -115,24 +103,30 @@ function Card ({pageData}) {
             alt={pageData.query.title}
           />
         </picture>
-      </CardImg_SC>
+      </div>
 
-      <CardTitle_SC>
+      <h3 className="Card-title">
         {pageData.query.title}
-      </CardTitle_SC>
+      </h3>
 
       <Link
         passHref
         href={route}
         as={pageData.query.path}
-        prefetch>
+        prefetch
+      >
 
-        <CardLink_SC title={pageData.query.title}>
-          <span>Go to: {pageData.query.title}</span>
-        </CardLink_SC>
+        <a
+          className="Card-link"
+          title={pageData.query.title}
+        >
+          <span>
+            Go to: {pageData.query.title}
+          </span>
+        </a>
       </Link>
 
-    </Card_SC>
+    </Card_Styled>
   );
 }
 

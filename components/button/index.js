@@ -10,7 +10,7 @@ import Hmbgr from "./hmbgr";
  * =Styles
 ******************************/
 
-const Button_SC = styled.button`
+const Button_Styled = styled.button`
   cursor: pointer;
 
   /**
@@ -57,9 +57,9 @@ function Button (props = {}) {
   } = props;
 
   return (
-    <Button_SC onClick={handleClick}>
+    <Button_Styled onClick={handleClick}>
       <Hmbgr activeClass={activeClass} />
-    </Button_SC>
+    </Button_Styled>
   );
 }
 
