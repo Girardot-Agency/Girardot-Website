@@ -4,6 +4,7 @@
 
 import styled from "styled-components";
 
+import CTA from "../cta";
 import Hmbgr from "./hmbgr";
 
 /**
@@ -50,17 +51,36 @@ const Button_Styled = styled.button`
  * =Button (component)
 ******************************/
 
-function Button (props = {}) {
+export default function (props = {}) {
+  const defaultOpts = {
+    type: "cta",
+    text: false
+  }
+
   const {
     handleClick,
-    activeClass
+    activeClass,
+    options = defaultOpts
   } = props;
 
   return (
     <Button_Styled onClick={handleClick}>
-      <Hmbgr activeClass={activeClass} />
+
+      {
+        options.type === "cta"
+        && (
+          <CTA options={{
+            type: "text",
+            text: options.text
+          }} />
+        )
+      }
+
+      {
+        options.type === "hmbgr"
+        && <Hmbgr activeClass={activeClass} />
+      }
+
     </Button_Styled>
   );
 }
-
-export default Button;

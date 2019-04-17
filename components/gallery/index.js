@@ -5,6 +5,8 @@
 import react, {Component} from "react";
 import Lightbox from "react-image-lightbox";
 
+import Button from "../button";
+
 export default class Gallery extends Component {
   constructor(props) {
     super(props);
@@ -26,9 +28,13 @@ export default class Gallery extends Component {
     return (
 
       <div>
-        <button type="button" onClick={this.handleClick.bind(this)}>
-          Open Lightbox
-        </button>
+        <Button
+          handleClick={this.handleClick.bind(this)}
+          options={{
+            type: "cta",
+            text: "Open gallery"
+          }}
+        />
 
         {isOpen && (
           <Lightbox

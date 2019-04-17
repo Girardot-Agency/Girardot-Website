@@ -1,82 +1,15 @@
 import Fade from "react-reveal/Fade";
-import Link from "next/link";
 import styled, {css} from "styled-components";
 
-import ContentWrapper from "../components/content-wrapper";
+import CTA from "../cta"
+import ContentWrapper from "../../components/content-wrapper";
 
-import {_screen} from "../assets/styles/mixins/_style";
+import {_screen} from "../../assets/styles/mixins/_style";
 
 import {
   $_BaseUnit,
   $_Flex,
-  $_PosCenter,
-  $_Screen,
-  $_TransAll
-} from "../assets/styles/mixins.css";
-import {
-  COL,
-  TYPE
-} from "../assets/styles/theme.css";
-
-import exportMap from "../static/db/export-map.json";
-
-/**
- * =ViewMore
-************************************************************/
-
-/**
- * =ViewMore:styles
-******************************/
-
-const ViewMore_SC = styled.div`
-  ${$_TransAll};
-
-  border: ${$_BaseUnit(.125)} solid ${COL.brand_main_base};
-  color: ${COL.brand_main_base};
-  font-size: ${TYPE.scale.sm};
-  margin: 0 auto;
-  position: relative;
-  width: ${$_BaseUnit(15)};
-    max-width: 100%;
-    height: ${$_BaseUnit(3.25)};
-
-  &:hover {
-    background-color: ${COL.brand_main_base};
-    color: ${COL.white};
-  }
-
-  & a {
-    display: block;
-    width: 100%;
-      height: 100%;
-
-  } & span {
-    ${$_PosCenter("xy")};
-  }
-`;
-
-/**
- * =ViewMore:styles
-******************************/
-
-function ViewMore ({pageUrl}) {
-  const pageData = exportMap[pageUrl];
-  const route = {
-    pathname: pageData.page,
-    query: pageData.query
-  };
-
-  return (
-    <ViewMore_SC>
-      <Link
-        href={route}
-        as={route.query.path}
-      >
-        <a><span>View more</span></a>
-      </Link>
-    </ViewMore_SC>
-  );
-}
+} from "../../assets/styles/mixins.css";
 
 /**
  * =Grid
@@ -144,9 +77,13 @@ function Grid (props = {}) {
         );
       })}
     </Grid_SC>
-    { viewMorePage &&
+    {
+      viewMorePage &&
       <ContentWrapper>
-        <ViewMore pageUrl={viewMorePage} />
+        {/* <CTA
+          pageUrl={viewMorePage}
+
+        /> */}
       </ContentWrapper>
     }
   </>);

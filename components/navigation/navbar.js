@@ -43,14 +43,20 @@ const Navbar_Styled = styled.div`
  * =Component
 ******************************/
 
-function Navbar ({handleClick, activeClass}) {
+export default function (props = {}) {
+  const {
+    handleClick,
+    activeClass
+  } = props;
+
   return (
     <Navbar_Styled>
       <div className="Navbar-inner">
 
         <Button
           handleClick={handleClick}
-          activeClass={activeClass} />
+          activeClass={activeClass}
+          options={{type: "hmbgr"}} />
 
         <div className="Navbar-logo">
           <Link
@@ -68,5 +74,3 @@ function Navbar ({handleClick, activeClass}) {
     </Navbar_Styled>
   );
 }
-
-export default Navbar
