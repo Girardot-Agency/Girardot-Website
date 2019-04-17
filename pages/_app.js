@@ -4,7 +4,7 @@ import { PageTransition } from "next-page-transitions";
 
 import styled, {createGlobalStyle} from "styled-components";
 
-import HeadCustom from "../components/head-custom";
+import CustomHead from "../components/head";
 import Navigation from "../components/navigation";
 
 import GlobalStyles from "../assets/styles/global.css";
@@ -56,7 +56,7 @@ export default class Girardot extends App {
 
     return (
       <Container>
-        <HeadCustom />
+        <CustomHead />
         <Navigation />
 
         {/* Main content */}
