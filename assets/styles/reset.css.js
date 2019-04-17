@@ -44,7 +44,6 @@ export default createGlobalStyle`
   textarea,
   select,
   button {
-    color: inherit;
     font: inherit;
     letter-spacing: inherit;
   }
@@ -53,16 +52,6 @@ export default createGlobalStyle`
   textarea,
   button {
     border: 1px solid gray;
-  }
-
-  button {
-    border-radius: 0;
-    padding: 0.75em 1em;
-    background-color: transparent;
-  }
-
-  button * {
-    pointer-events: none;
   }
 
   /* Easy responsive for media elements */

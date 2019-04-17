@@ -4,7 +4,10 @@
 
 import styled from "styled-components";
 
+// External parts
 import CTA from "../cta";
+
+// Internal parts
 import Hmbgr from "./hmbgr";
 
 /**

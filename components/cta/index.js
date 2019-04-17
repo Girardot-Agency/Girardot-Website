@@ -5,17 +5,8 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-import {_screen} from "../../assets/styles/mixins/_style";
-
-import {
-  $_BaseUnit,
-  $_PosCenter,
-  $_TransAll
-} from "../../assets/styles/mixins.css";
-import {
-  COL,
-  TYPE
-} from "../../assets/styles/theme.css";
+import {_baseUnit, _center, _screen, _transition} from "../../assets/styles/mixins/_style";
+import {COL, TYPE} from "../../assets/styles/theme/_style";
 
 import exportMap from "../../static/db/export-map.json";
 
@@ -24,19 +15,19 @@ import exportMap from "../../static/db/export-map.json";
 ******************************/
 
 const CTA_Styled = styled.div`
-  ${$_TransAll};
+  ${_transition()};
 
-  border: ${$_BaseUnit(.125)} solid ${COL.brand_main_base};
+  border: ${_baseUnit(.125)} solid ${COL.brand_main_base};
   color: ${COL.brand_main_base};
   font-size: ${TYPE.scale.sm};
   margin: 0 auto;
   position: relative;
-  width: ${$_BaseUnit(15)};
+  width: ${_baseUnit(15)};
     max-width: 100%;
-    height: ${$_BaseUnit(3.25)};
+    height: ${_baseUnit(3.25)};
 
   &:hover {
-    background-color: ${COL.brand_main_base};
+    background: ${COL.brand_main_base};
     color: ${COL.white};
   }
 
@@ -47,7 +38,7 @@ const CTA_Styled = styled.div`
   }
 
   .CTA-text {
-    ${$_PosCenter("xy")};
+    ${_center("xy")};
   }
 `;
 
