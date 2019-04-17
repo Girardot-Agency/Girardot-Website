@@ -1,28 +1,31 @@
-import styled, {css} from "styled-components";
-
-import branding from "../content/settings/branding.json";
-
-import {$_Screen} from "../assets/styles/mixins.css";
-
 /**
  * =Logo
 ************************************************************/
 
+import styled from "styled-components";
+
+import branding from "../../content/settings/branding.json";
+
 /**
- * =Logo:styles
+ * =Styles
 ******************************/
 
-const Logo_SC = styled.img`
+const Logo_Styled = styled.img`
   max-width: 100%;
   width: ${props => props.size.default}px;
 `;
 
 /**
- * =Logo:component
- * Log is 22% of viewport
+ * =Component
 ******************************/
 
-function Logo ({logo, size, imgSrc}) {
+export default function (props = {}) {
+  let {
+    logo,
+    size,
+    imgSrc
+  } = props;
+
   const smLogo = 173,
         mdLogo = 274,
         lgLogo = 564;
@@ -39,7 +42,7 @@ function Logo ({logo, size, imgSrc}) {
   size = sizes[size];
 
   return (
-    <Logo_SC
+    <Logo_Styled
       size={size}
 
       width={size.default}
@@ -47,5 +50,3 @@ function Logo ({logo, size, imgSrc}) {
       alt="Girardot logo" />
   );
 }
-
-export default Logo;
