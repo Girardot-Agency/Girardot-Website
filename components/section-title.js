@@ -1,7 +1,8 @@
 import styled, {css} from "styled-components";
 
+import {COL} from "../assets/styles/theme/_style"
+
 import {
-  COL,
   TITLE,
   TYPE
 } from "../assets/styles/theme.css";

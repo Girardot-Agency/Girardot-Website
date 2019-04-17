@@ -4,6 +4,8 @@ import styled, {css} from "styled-components";
 
 import ContentWrapper from "../components/content-wrapper";
 
+import {_screen} from "../assets/styles/mixins/_style";
+
 import {
   $_BaseUnit,
   $_Flex,
@@ -89,7 +91,7 @@ const Grid_SC = styled.section`
 
   margin: -${$_BaseUnit(2.5)} 0 0 -${$_BaseUnit(1.25)};
 
-  ${$_Screen({
+  ${_screen({
     xl: css`
       margin: -${$_BaseUnit(2.5)} 0 0 -${$_BaseUnit(2.5)};
     `
@@ -100,7 +102,7 @@ const GridCell_SC = styled.div`
   margin: ${$_BaseUnit(1.25)} 0 0 ${$_BaseUnit(1.25)};
   flex-basis: 100%;
 
-  ${$_Screen({
+  ${_screen({
     sm: css`
       flex-basis: calc(50% - ${$_BaseUnit(1.25)});
     `,

@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 import {transformImage} from "../lib/helpers";
 
+import {_baseUnit} from "../assets/styles/mixins/_style";
+
 import {
   $_Hidden,
   $_Flex,
@@ -51,7 +53,7 @@ const CardTitle_SC = styled.h3`
   font-size: ${TYPE.scale.xs};
   font-weight: normal;
   height: ${BASE.unit * 2.5}px;
-  padding: 0 ${$_BaseUnit()};
+  padding: 0 ${_baseUnit()};
   position: relative;
   width: 100%;
   z-index: 1;
