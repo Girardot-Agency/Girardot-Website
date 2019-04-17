@@ -1,38 +1,25 @@
-import React, {Component} from "react";
-import Link from "next/link";
-import styled, {css, keyframes} from "styled-components";
-import Div100vh from "react-div-100vh";
+/**
+ * =Menu
+************************************************************/
 
-import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
+import Link from "next/link";
+import Div100vh from "react-div-100vh";
+import styled, {css, keyframes} from "styled-components";
 
 import {slideInDown, slideOutUp} from "react-animations";
 
-import Button from "./button";
-import Logo from "./logo";
+import {getPagesData} from "../../lib/helpers";
 
-import {getPagesData} from "../lib/helpers";
-
-import {
-  COL,
-  STRAP,
-  TYPE
-} from "../assets/styles/theme.css";
+import {COL, TYPE} from "../../assets/styles/theme/_style";
 
 import {
   $_BaseUnit,
-  $_ContentWrapper,
   $_Flex,
   $_Link,
   $_PosCenter,
   $_PseudoBase,
   $_Screen,
-  $_Shadow,
-  $_TransAll,
-} from "../assets/styles/mixins.css";
-
-/**
- * =Menu
-************************************************************/
+} from "../../assets/styles/mixins.css";
 
 /**
  * =Menu (styles)
@@ -162,121 +149,4 @@ function Menu ({handleClick, activeClass}) {
   );
 }
 
-/**
- * =Navbar
-************************************************************/
-
-/**
- * =Navbar (styles)
-******************************/
-
-const Navigation_SC = styled.nav`
-`;
-
-const Navbar_SC = styled.div`
-  ${$_Shadow};
-
-  background: ${COL.white};
-  height: ${$_BaseUnit(5)};
-  position: fixed;
-  width: 100vw;
-  top: 0;
-  z-index: 100;
-`;
-
-const NavbarInner_SC = styled.div`
-  ${$_ContentWrapper};
-
-  ${$_Flex("alignItemsCenter")};
-
-  height: 100%;
-`;
-
-const NavbarLogo_SC = styled.div`
-  ${$_PosCenter("x")}
-`;
-
-/**
- * =Navbar (component)
-******************************/
-
-function Navbar ({handleClick, activeClass}) {
-  return (
-    <Navbar_SC>
-      <NavbarInner_SC>
-
-        <Button
-          handleClick={handleClick}
-          activeClass={activeClass} />
-
-        <NavbarLogo_SC>
-          <Link
-            passHref
-            href={"/"}
-            prefetch
-          >
-            <a>
-              <Logo size="sm" logo="logoMain" />
-            </a>
-          </Link>
-        </NavbarLogo_SC>
-
-      </NavbarInner_SC>
-    </Navbar_SC>
-  );
-}
-
-/**
- * =Navigation
-************************************************************/
-
-class Navigation extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: false,
-      activeClass: ""
-    };
-  }
-
-  targetElement = null;
-
-  componentDidMount() {
-    this.targetElement = document.querySelector("#Menu");
-  }
-
-  handleClick() {
-    if (!this.state.active) {
-      disableBodyScroll(this.targetElement, {reserveScrollBarGap: true});
-    } else {
-      enableBodyScroll(this.targetElement);
-    }
-    this.setState({
-      active: !this.state.active,
-      activeClass: this.state.active
-        ? "is-inactive"
-        : "is-active"
-    });
-  }
-
-  render() {
-    const activeClass = this.state.activeClass;
-
-    return (
-      <Navigation_SC>
-
-        <Navbar
-          handleClick={this.handleClick.bind(this)}
-          activeClass={activeClass} />
-
-        <Menu
-          handleClick={this.handleClick.bind(this)}
-          activeClass={activeClass}
-          style={"transform:translateY(-100%);"} />
-
-      </Navigation_SC>
-    );
-  }
-}
-
-export default Navigation;
+export default Menu
