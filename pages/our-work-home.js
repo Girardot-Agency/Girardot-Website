@@ -11,14 +11,8 @@ import DefaultLayout from "../layouts/default";
 import Grid from "../components/grid";
 
 import exportMap from "../static/db/export-map.json";
-import {
-  $_Flex,
-  $_BaseUnit
-} from "../assets/styles/mixins.css";
-import {
-  COL,
-  TYPE
-} from "../assets/styles/theme.css.js"
+import {_flex, _baseUnit} from "../assets/styles/mixins/_style";
+import {COL, TYPE} from "../assets/styles/theme/_style"
 
 /**
  * =SubMenu
@@ -29,20 +23,20 @@ const SubMenu_SC = styled.div`
   color: ${COL.white};
   font-size: ${TYPE.scale.sm};
   font-weight: normal;
-  margin-top: ${$_BaseUnit(5)};
-  min-height: ${$_BaseUnit(5)};
+  margin-top: ${_baseUnit(5)};
+  min-height: ${_baseUnit(5)};
   text-align: center;
 `;
 
 const SubMenuList_SC = styled.ul`
-  ${$_Flex("rowCenterAll")};
+  ${_flex("rowCenterAll")};
 
   min-height: inherit;
-  padding: ${$_BaseUnit()};
+  padding: ${_baseUnit()};
 
   & > li:nth-child(1n + 2) {
-    margin-left: ${$_BaseUnit()};
-    padding: ${$_BaseUnit(.25)} 0;
+    margin-left: ${_baseUnit()};
+    padding: ${_baseUnit(.25)} 0;
   }
 `;
 

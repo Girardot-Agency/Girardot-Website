@@ -1,26 +1,16 @@
 import Link from "next/link"
 import {withRouter} from "next/router"
-import Markdown from "markdown-to-jsx";
 import React, {Component} from "react";
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 
 import DefaultLayout from "../layouts/default";
 
 import ContentWrapper from "../components/content-wrapper";
-import Copy from "../components/copy";
 import SectionTitle from "../components/section-title";
 
 import exportMap from "../static/db/export-map.json";
-import {
-  $_Flex,
-  $_BaseUnit,
-  $_Link,
-  $_Screen
-} from "../assets/styles/mixins.css";
-import {
-  COL,
-  TYPE
-} from "../assets/styles/theme.css.js"
+import {_baseUnit, _hover} from "../assets/styles/mixins/_style";
+import {COL, TYPE} from "../assets/styles/theme/_style"
 
 /**
  * =Testimonial
@@ -29,13 +19,13 @@ import {
 const JobsInner_SC = styled.div`
   margin: 0 auto;
   text-align: center;
-  width: ${$_BaseUnit(50)};
+  width: ${_baseUnit(50)};
     max-width: 100%;
 `;
 
 const JobSummary_SC = styled.div`
-  margin-bottom: ${$_BaseUnit(1.5)};
-  padding-bottom: ${$_BaseUnit(1.5)};
+  margin-bottom: ${_baseUnit(1.5)};
+  padding-bottom: ${_baseUnit(1.5)};
 
   &:nth-last-child(1n + 2) {
     border-bottom: 1px solid ${COL.grey_lightest};
@@ -43,7 +33,7 @@ const JobSummary_SC = styled.div`
 `;
 
 const JobSummaryLink_SC = styled.a`
-  ${$_Link(COL.brand_main_base, COL.brand_main_dark)}
+  ${_hover(COL.brand_main_base, COL.brand_main_dark)}
 
   font-size: ${TYPE.scale.md};
     font-weight: normal;
@@ -78,7 +68,7 @@ function JobSumary ({pageData}) {
 ************************************************************/
 
 const Header_SC = styled.div`
-  margin-top: ${$_BaseUnit(5)};
+  margin-top: ${_baseUnit(5)};
 `;
 
 class JobsHome extends Component {

@@ -9,17 +9,8 @@ import Copy from "../components/copy";
 import DefaultLayout from "../layouts/default";
 
 import {transformImage} from "../lib/helpers";
-import {
-  $_BaseUnit,
-  $_ContentWrapper,
-  $_Screen,
-  $_Flex,
-  $_PseudoBase
-} from "../assets/styles/mixins.css";
-import {
-  SCREEN,
-  TYPE
-} from "../assets/styles/theme.css";
+import {_baseUnit, _contentWrapper, _screen, _flex} from "../assets/styles/mixins/_style";
+import {SCREEN, TYPE} from "../assets/styles/theme/_style";
 
 /**
  * =Content
@@ -30,18 +21,19 @@ import {
 ******************************/
 
 const Content_SC = styled.section`
-  ${$_ContentWrapper};
-  ${$_Flex("row")};
+  ${_contentWrapper()};
+  ${_flex("row")};
 
   font-size: ${TYPE.scale.sm};
   position: relative;
-  margin-top: ${$_BaseUnit(2)};
+  margin-top: ${_baseUnit(2)};
 
   &::before {
-    ${$_PseudoBase};
+    content: "";
+    display: block;
 
     flex-basis: 100%;
-    ${$_Screen({
+    ${_screen({
       lg: css`
         flex-basis: 50%;
       `
@@ -51,14 +43,14 @@ const Content_SC = styled.section`
 
 const ContentInner_SC = styled.div`
   flex-basis: 100%;
-  margin-top: ${$_BaseUnit(2)};
-  margin-bottom: ${$_BaseUnit(5)};
+  margin-top: ${_baseUnit(2)};
+  margin-bottom: ${_baseUnit(5)};
 
-  ${$_Screen({
+  ${_screen({
     lg: css`
-      flex-basis: calc(50% - ${$_BaseUnit(2)});
-      margin-top: ${$_BaseUnit(4)};
-      padding-left: ${$_BaseUnit(2)};
+      flex-basis: calc(50% - ${_baseUnit(2)});
+      margin-top: ${_baseUnit(4)};
+      padding-left: ${_baseUnit(2)};
     `
   })};
 `;
@@ -87,10 +79,10 @@ function Content ({children}) {
 
 const Banner_SC = styled.div`
 
-  ${$_Screen({
+  ${_screen({
     lg: css`
       max-width: 50vw;
-      padding-top: ${$_BaseUnit(4.5)};
+      padding-top: ${_baseUnit(4.5)};
       position: absolute;
         top: 0;
         left: 0;
@@ -162,7 +154,7 @@ function Banner ({isSticky, src, alt}) {
 ************************************************************/
 
 const Container_SC = styled(StickyContainer)`
-  padding-top: ${$_BaseUnit(4.5)};
+  padding-top: ${_baseUnit(4.5)};
   min-height: 100vh;
 `;
 

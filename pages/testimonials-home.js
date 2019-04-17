@@ -12,61 +12,54 @@ import Copy from "../components/copy";
 import SectionTitle from "../components/section-title";
 
 import exportMap from "../static/db/export-map.json";
-import {
-  $_Flex,
-  $_BaseUnit,
-  $_Screen
-} from "../assets/styles/mixins.css";
-import {
-  COL,
-  TYPE
-} from "../assets/styles/theme.css.js"
+import {_flex, _baseUnit, _screen} from "../assets/styles/mixins/_style";
+import {COL, TYPE} from "../assets/styles/theme/_style"
 
 /**
  * =Testimonial
 ************************************************************/
 
 const Testimonials_SC = styled.div`
-  ${$_Flex("row")}
+  ${_flex("row")}
 
-  margin: -${$_BaseUnit(2.5)} 0 0 -${$_BaseUnit(2.5)};
+  margin: -${_baseUnit(2.5)} 0 0 -${_baseUnit(2.5)};
 
-  ${$_Screen({
+  ${_screen({
     xl: css`
-      margin: -${$_BaseUnit(5)} 0 0 -${$_BaseUnit(5)};
+      margin: -${_baseUnit(5)} 0 0 -${_baseUnit(5)};
     `
   })};
 `;
 
 const Testimonial_SC = styled.section`
-  margin: ${$_BaseUnit(2.5)} 0 0 ${$_BaseUnit(2.5)};
+  margin: ${_baseUnit(2.5)} 0 0 ${_baseUnit(2.5)};
   flex-basis: 100%;
 
-  ${$_Screen({
+  ${_screen({
     sm: css`
-      flex-basis: calc(50% - ${$_BaseUnit(2.5)});
+      flex-basis: calc(50% - ${_baseUnit(2.5)});
     `,
     md: css`
-      flex-basis: calc(50% - ${$_BaseUnit(2.5)});
+      flex-basis: calc(50% - ${_baseUnit(2.5)});
     `,
     lg: css`
-      flex-basis: calc(33.3333% - ${$_BaseUnit(2.5)});
+      flex-basis: calc(33.3333% - ${_baseUnit(2.5)});
     `,
     xl: css`
-      flex-basis: calc(25% - ${$_BaseUnit(5)});
-      margin: ${$_BaseUnit(5)} 0 0 ${$_BaseUnit(5)};
+      flex-basis: calc(25% - ${_baseUnit(5)});
+      margin: ${_baseUnit(5)} 0 0 ${_baseUnit(5)};
     `
   })};
 `;
 
 const TestimonialHeader_SC = styled.div`
   display: flex;
-  height: ${$_BaseUnit(7.5)};
-  margin-bottom: ${$_BaseUnit(2.5)};
+  height: ${_baseUnit(7.5)};
+  margin-bottom: ${_baseUnit(2.5)};
 
   & img {
     margin: auto 0;
-    max-width: ${$_BaseUnit(12.5)};
+    max-width: ${_baseUnit(12.5)};
   }
 `;
 
@@ -122,7 +115,7 @@ function Testimonial (props = {}) {
 ************************************************************/
 
 const Header_SC = styled.div`
-  margin-top: ${$_BaseUnit(5)};
+  margin-top: ${_baseUnit(5)};
 `;
 
 class TestimonialsHome extends Component {

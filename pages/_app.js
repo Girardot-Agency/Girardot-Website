@@ -15,26 +15,25 @@ import ResetStyles from "../assets/styles/reset.css";
 ************************************************************/
 
 const PageTransitionStyles = createGlobalStyle`
+  .PageTran-enter {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
 
-.PageTran-enter {
-  opacity: 0;
-  transform: translate3d(0, 20px, 0);
-}
+  .PageTran-enter-done {
+    opacity: 1;
+  }
 
-.PageTran-enter-done {
-  opacity: 1;
-}
+  .PageTran-enter-active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: ease-in-out all 600ms;
+  }
 
-.PageTran-enter-active {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  transition: ease-in-out all 600ms;
-}
-
-.PageTran-exit-active {
-  opacity: 0;
-  transition: ease-in-out all 600ms;
-}
+  .PageTran-exit-active {
+    opacity: 0;
+    transition: ease-in-out all 600ms;
+  }
 `;
 
 /**

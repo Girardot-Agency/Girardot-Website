@@ -1,26 +1,19 @@
 import Markdown from "markdown-to-jsx";
 import React, {Component} from "react";
 import {withRouter} from "next/router"
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 
 import ContentWrapper from "../components/content-wrapper";
 import DefaultLayout from "../layouts/default";
 
-import {
-  $_Flex,
-  $_BaseUnit,
-  $_Screen
-} from "../assets/styles/mixins.css";
-
-import {
-  COL,
-  TYPE
-} from "../assets/styles/theme.css.js"
+// Mixins/theme/helpers
+import {_baseUnit} from "../assets/styles/mixins/_style";
+import {COL ,TYPE} from "../assets/styles/theme/_style"
 
 const JobsInner_SC = styled.div`
   line-height: 1.5;
-  margin: ${$_BaseUnit(10)} auto;
-  width: ${$_BaseUnit(50)};
+  margin: ${_baseUnit(10)} auto;
+  width: ${_baseUnit(50)};
     max-width: 100%;
 
   h1, h2, h3, h4, h5, h6, p, ul, ol {
@@ -39,7 +32,7 @@ const JobsInner_SC = styled.div`
 
   ul {
     list-style: square;
-    padding-left: ${$_BaseUnit(2.5)};
+    padding-left: ${_baseUnit(2.5)};
   }
 `;
 

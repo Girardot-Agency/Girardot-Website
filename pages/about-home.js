@@ -9,20 +9,14 @@ import DefaultLayout from "../layouts/default";
 import SectionTitle from "../components/section-title";
 
 import {transformImage} from "../lib/helpers";
-import {
-  $_BaseUnit,
-  $_Screen
-} from "../assets/styles/mixins.css";
-import {
-  SCREEN
-} from "../assets/styles/theme.css.js"
+import {_baseUnit} from "../assets/styles/mixins/_style";
 
 /**
  * =Title
 ************************************************************/
 
 const Header = styled.header`
-  margin-top: ${$_BaseUnit(5)};
+  margin-top: ${_baseUnit(5)};
 `;
 
 /**
@@ -30,7 +24,7 @@ const Header = styled.header`
 ************************************************************/
 
 const Banner_SC = styled.div`
-  margin-bottom: ${$_BaseUnit(5)};
+  margin-bottom: ${_baseUnit(5)};
 `;
 
 const BannerImg_SC = styled.div`
