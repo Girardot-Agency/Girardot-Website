@@ -48,9 +48,9 @@ const CTA_Styled = styled.div`
 
 export default function (props = {}) {
   const defaultOpts = {
-    type: "text",
-    text: "Click here",
-    pageURL: false
+    type: "text", // [String] "text" | "link"
+    text: "Click here", // [String]
+    href: false // [String]
   }
 
   const {
@@ -58,8 +58,8 @@ export default function (props = {}) {
   } = props;
 
   let pageData, route;
-  if (options.pageURL) {
-    pageData = exportMap[pageUrl];
+  if (options.href) {
+    pageData = exportMap[options.href];
     route = {
       pathname: pageData.page,
       query: pageData.query
@@ -69,7 +69,8 @@ export default function (props = {}) {
   return (
     <CTA_Styled>
       {
-        options.type === "link" && options.pageURL
+        options.type === "link" && options.href
+
         ? (
           <Link
             href={route}
@@ -82,6 +83,7 @@ export default function (props = {}) {
             </a>
           </Link>
         )
+
         : (
           <div className="CTA-inner">
             <span className="CTA-text">

@@ -59,31 +59,40 @@ const GridCell_SC = styled.div`
 function Grid (props = {}) {
   const {
     cells,
-    viewMorePage
+    viewMore
   } = props;
 
   return (<>
     <Grid_SC>
-      {cells.map((cell, i) => {
-        let delay = 0;
-        if (i > 0) delay = i * 100;
+      {
+        cells.map((cell, i) => {
+          let delay = 0;
+          if (i > 0) delay = i * 100;
 
-        return (
-          <GridCell_SC key={`grid-cell-${i}`}>
-            <Fade bottom duration={600} delay={delay}>
-              {cell}
-            </Fade>
-          </GridCell_SC>
-        );
-      })}
+          return (
+            <GridCell_SC key={`grid-cell-${i}`}>
+              <Fade
+                bottom
+                duration={600}
+                delay={delay}
+              >
+                {cell}
+              </Fade>
+            </GridCell_SC>
+          );
+        })
+      }
     </Grid_SC>
     {
-      viewMorePage &&
+      viewMore &&
       <ContentWrapper>
-        {/* <CTA
-          pageUrl={viewMorePage}
-
-        /> */}
+        <CTA
+          options={{
+            type: "link",
+            href: viewMore,
+            text: "View more"
+          }}
+        />
       </ContentWrapper>
     }
   </>);

@@ -24,7 +24,7 @@ function IndexPage ({data = homepageData}) {
         <ContentWrapper>
           <Grid
             cells={cards(data.query.ourWorkRels)}
-            viewMorePage={"/our-work/index.html"} />
+            viewMore={"/our-work/index.html"} />
         </ContentWrapper>
       </section>
 
