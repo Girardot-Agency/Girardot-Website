@@ -1,31 +1,20 @@
-import Link from "next/link"
+/**
+ * =Our people
+************************************************************/
+
 import {withRouter} from "next/router"
 import React, {Component} from "react";
-import styled from "styled-components";
 
+// External parts
 import ContentWrapper from "../components/content-wrapper";
 import DefaultLayout from "../layouts/default";
 import Grid from "../components/grid";
 import Profile, {profiles} from "../components/profile";
 import SectionTitle from "../components/section-title";
 
-import exportMap from "../static/db/export-map.json";
-import {
-  $_Flex,
-  $_BaseUnit
-} from "../assets/styles/mixins.css";
-import {
-  COL,
-  TYPE
-} from "../assets/styles/theme.css.js"
-
 /**
- * =Our people
-************************************************************/
-
-const Header_SC = styled.div`
-  margin-top: ${$_BaseUnit(5)};
-`;
+ * =Component
+******************************/
 
 class OurPeopleHome extends Component {
   constructor(props) {
@@ -35,17 +24,7 @@ class OurPeopleHome extends Component {
     }
   }
 
-  handleClick() {
-    this.setState({
-      active: !this.state.active,
-      activeClass: this.state.active
-        ? "is-inactive"
-        : "is-active"
-    });
-  }
-
   render() {
-    const {router} = this.props;
     const pageData = this.state.pageData;
 
     return (
