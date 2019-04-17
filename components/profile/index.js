@@ -40,8 +40,8 @@ const Profile_Styled = styled.section`
 
   .Profile-image {
     margin: 0 auto;
-    width: ${_baseUnit(10)};
-      max-width: 100%;
+    max-width: 100%;
+      max-height: ${_baseUnit(10)};
   }
 
   .Profile-position {
