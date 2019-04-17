@@ -3,6 +3,7 @@
 ************************************************************/
 
 import Fade from "react-reveal/Fade";
+import React, {Component} from "react";
 import styled, {css} from "styled-components";
 
 // External parts
@@ -53,47 +54,50 @@ const Grid_SC = styled.section`
  * =Component
 ******************************/
 
-export default function (props = {}) {
-  const {
-    cells,
-    viewMore
-  } = props;
+export default class Grid extends Component {
+  constructor(props) {
+    super(props);
 
-  return (<>
-    <Grid_SC>
-      {
-        cells.map((cell, i) => {
-          let delay = 0;
-          if (i > 0) delay = i * 100;
+    this.state = {}
+  }
 
-          return (
-            <div
-              key={`grid-cell-${i}`}
-              className="Grid-cell"
-            >
-              <Fade
-                bottom
-                duration={600}
-                delay={delay}
+  render() {
+    return (<>
+      <Grid_SC>
+        {
+          this.props.cells.map((cell, i) => {
+            let delay = 0;
+            if (i > 0) delay = i * 100;
+
+            return (
+              <div
+                key={`grid-cell-${i}`}
+                className="Grid-cell"
               >
-                {cell}
-              </Fade>
-            </div>
-          );
-        })
+                <Fade
+                  bottom
+                  duration={600}
+                  delay={delay}
+                >
+                  {cell}
+                </Fade>
+              </div>
+            );
+          })
+        }
+      </Grid_SC>
+      {
+        this.props.viewMore &&
+        <ContentWrapper>
+          <CTA
+            options={{
+              type: "link",
+              href: this.props.viewMore,
+              text: "View more"
+            }}
+          />
+        </ContentWrapper>
       }
-    </Grid_SC>
-    {
-      viewMore &&
-      <ContentWrapper>
-        <CTA
-          options={{
-            type: "link",
-            href: viewMore,
-            text: "View more"
-          }}
-        />
-      </ContentWrapper>
-    }
-  </>);
+    </>);
+  }
 }
