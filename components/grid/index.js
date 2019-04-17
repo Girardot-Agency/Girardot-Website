@@ -1,62 +1,59 @@
-import Fade from "react-reveal/Fade";
-import styled, {css} from "styled-components";
-
-import CTA from "../cta"
-import ContentWrapper from "../../components/content-wrapper";
-
-import {_screen} from "../../assets/styles/mixins/_style";
-
-import {
-  $_BaseUnit,
-  $_Flex,
-} from "../../assets/styles/mixins.css";
-
 /**
  * =Grid
 ************************************************************/
 
+import Fade from "react-reveal/Fade";
+import styled, {css} from "styled-components";
+
+// External parts
+import CTA from "../cta"
+import ContentWrapper from "../../components/content-wrapper";
+
+// Mixins/theme/helpers
+import {_baseUnit, _flex, _screen} from "../../assets/styles/mixins/_style";
+
 /**
- * =Grid:styles
+ * =Styles
 ******************************/
 
 const Grid_SC = styled.section`
-  ${$_Flex("row")}
+  ${_flex("row")}
 
-  margin: -${$_BaseUnit(2.5)} 0 0 -${$_BaseUnit(1.25)};
+  margin: -${_baseUnit(2.5)} 0 0 -${_baseUnit(1.25)};
 
   ${_screen({
     xl: css`
-      margin: -${$_BaseUnit(2.5)} 0 0 -${$_BaseUnit(2.5)};
+      margin: -${_baseUnit(2.5)} 0 0 -${_baseUnit(2.5)};
     `
   })};
-`;
 
-const GridCell_SC = styled.div`
-  margin: ${$_BaseUnit(1.25)} 0 0 ${$_BaseUnit(1.25)};
-  flex-basis: 100%;
+  .Grid-cell {
+    margin: ${_baseUnit(1.25)} 0 0 ${_baseUnit(1.25)};
+    flex-basis: 100%;
 
-  ${_screen({
-    sm: css`
-      flex-basis: calc(50% - ${$_BaseUnit(1.25)});
-    `,
-    md: css`
-      flex-basis: calc(50% - ${$_BaseUnit(1.25)});
-    `,
-    lg: css`
-      flex-basis: calc(33.3333% - ${$_BaseUnit(1.25)});
-    `,
-    xl: css`
-      flex-basis: calc(33.3333% - ${$_BaseUnit(2.5)});
-      margin: ${$_BaseUnit(2.5)} 0 0 ${$_BaseUnit(2.5)};
-    `
-  })};
+    ${_screen({
+      sm: css`
+        flex-basis: calc(50% - ${_baseUnit(1.25)});
+      `,
+      md: css`
+        flex-basis: calc(50% - ${_baseUnit(1.25)});
+      `,
+      lg: css`
+        flex-basis: calc(33.3333% - ${_baseUnit(1.25)});
+      `,
+      xl: css`
+        flex-basis: calc(33.3333% - ${_baseUnit(2.5)});
+        margin: ${_baseUnit(2.5)} 0 0 ${_baseUnit(2.5)};
+      `
+    })};
+  }
 `;
 
 /**
- * =Grid:component
+ * =Component
 ******************************/
 
-function Grid (props = {}) {
+export default function (props = {}) {
   const {
     cells,
     viewMore
@@ -70,7 +67,10 @@ function Grid (props = {}) {
           if (i > 0) delay = i * 100;
 
           return (
-            <GridCell_SC key={`grid-cell-${i}`}>
+            <div
+              key={`grid-cell-${i}`}
+              className="Grid-cell"
+            >
               <Fade
                 bottom
                 duration={600}
@@ -78,7 +78,7 @@ function Grid (props = {}) {
               >
                 {cell}
               </Fade>
-            </GridCell_SC>
+            </div>
           );
         })
       }
@@ -97,5 +97,3 @@ function Grid (props = {}) {
     }
   </>);
 }
-
-export default Grid;
