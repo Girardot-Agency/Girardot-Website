@@ -127,7 +127,8 @@ export default class Grid extends Component {
                 />
               )
               : (
-                <Button
+                this.state.visible < this.props.cells.length
+                && <Button
                   handleClick={this.loadMore.bind(this)}
                   options={{
                     type: "cta",
