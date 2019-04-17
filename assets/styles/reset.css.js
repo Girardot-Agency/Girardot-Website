@@ -1,7 +1,5 @@
 import {createGlobalStyle} from "styled-components";
 
-import {BASE, FONT, TRAN, COL} from "./theme.css";
-
 /**
  * =Base reset
  * See: https://github.com/zellwk/css-reset/blob/master/reset.css */

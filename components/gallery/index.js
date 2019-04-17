@@ -5,7 +5,11 @@
 import react, {Component} from "react";
 import Lightbox from "react-image-lightbox";
 
+// External parts
 import Button from "../button";
+
+// Internal parts
+import GalleryStyle from "./gallery.style";
 
 export default class Gallery extends Component {
   constructor(props) {
@@ -26,7 +30,6 @@ export default class Gallery extends Component {
     console.log(isOpen)
 
     return (
-
       <div>
         <Button
           handleClick={this.handleClick.bind(this)}
@@ -54,6 +57,8 @@ export default class Gallery extends Component {
             }
           />
         )}
+
+        <GalleryStyle />
       </div>
     );
   }
