@@ -53,7 +53,9 @@ class JobPage extends Component {
       <DefaultLayout>
         <ContentWrapper>
           <JobsInner_SC>
-            <img src={pageData.bannerImage} />
+            <img
+              style={{maxWidth: "100%"}}
+              src={pageData.bannerImage} />
             <Markdown children={pageData.body} />
           </JobsInner_SC>
         </ContentWrapper>

@@ -98,7 +98,15 @@ const Menu_Styled = styled(Div100vh)`
 function Menu ({handleClick, activeClass}) {
   const indexPages = getPagesData(/^(?!\/index.html)(.*\/index.html)/);
 
-  let listItems = [];
+  let listItems = [(
+    <li className="Menu-item" key={`page-home`}>
+      <Link
+        href="/"
+      >
+        <a onClick={handleClick}>Home</a>
+      </Link>
+    </li>
+  )];
 
   indexPages.map((item, index) => {
     // const slug = item.slug.replace(/(\/index)?\.html$/, "");
