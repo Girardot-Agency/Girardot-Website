@@ -59,11 +59,14 @@ export default class Grid extends Component {
   constructor(props) {
     super(props);
 
-    let buttonOptions = {
-      type: this.props.buttonOptions.type, // [String] "loadMore" | "viewMore"
-      href: this.props.buttonOptions.href, // [String]
-      align: this.props.buttonOptions.align // [String]
-    };
+    let buttonOptions;
+    if (this.props.buttonOptions) {
+      buttonOptions = {
+        type: this.props.buttonOptions.type, // [String] "loadMore" | "viewMore"
+        href: this.props.buttonOptions.href, // [String]
+        align: this.props.buttonOptions.align // [String]
+      };
+    }
 
     this.state = {
       buttonOptions: buttonOptions,
