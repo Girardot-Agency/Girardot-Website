@@ -40,8 +40,9 @@ function Banner (props = {}) {
   return (
     <Banner_SC>
       <BannerImg_SC>
-        <picture>
-          <source
+        <img src={transformImage(src)} alt={alt} />
+        {/* <picture> */}
+          {/* <source
             sizes={"100vw"}
             srcSet={`
               ${transformImage(src, {w: 400})} 400w,
@@ -51,9 +52,8 @@ function Banner (props = {}) {
               ${transformImage(src, {w: 1200})} 1200w
               ${transformImage(src, {w: 1800})} 1800w
             `}
-          />
-          <img src={transformImage(src)} alt={alt} />
-        </picture>
+          /> */}
+        {/* </picture> */}
       </BannerImg_SC>
     </Banner_SC>
   );
@@ -67,26 +67,28 @@ function Banner (props = {}) {
 class AboutHome extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      pageData: props.router.query
+    }
   }
 
   render() {
     const {router} = this.props;
-
-    // console.log(router);
+    const pageData = this.state.pageData;
 
     return (
       <DefaultLayout>
         <Header>
-          <SectionTitle title={router.query.title} />
+          <SectionTitle title={pageData.title} />
         </Header>
 
         <ContentWrapper>
           <Banner
-            src={router.query.bannerImage}
-            alt={router.query.title}
+            src={pageData.bannerImage}
+            alt={pageData.title}
           />
 
-          <Copy copy={router.query.body} />
+          <Copy copy={pageData.body} />
         </ContentWrapper>
       </DefaultLayout>
     );
