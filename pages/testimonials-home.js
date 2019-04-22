@@ -1,8 +1,5 @@
-import Link from "next/link"
 import {withRouter} from "next/router"
-import Markdown from "markdown-to-jsx";
 import React, {Component} from "react";
-import Modal from "react-modal";
 import styled, {css} from "styled-components";
 
 import DefaultLayout from "../layouts/default";
@@ -19,8 +16,8 @@ import {COL, TYPE} from "../assets/styles/theme/_style"
  * =Testimonial
 ************************************************************/
 
-const Testimonials_SC = styled.div`
-  ${_flex("row")}
+const TestimonialsContainer_Styled = styled.div`
+  ${_flex("row")};
 
   margin: -${_baseUnit(2.5)} 0 0 -${_baseUnit(2.5)};
 
@@ -31,7 +28,7 @@ const Testimonials_SC = styled.div`
   })};
 `;
 
-const Testimonial_SC = styled.section`
+const Testimonial_Styled = styled.section`
   margin: ${_baseUnit(2.5)} 0 0 ${_baseUnit(2.5)};
   flex-basis: 100%;
 
@@ -50,32 +47,29 @@ const Testimonial_SC = styled.section`
       margin: ${_baseUnit(5)} 0 0 ${_baseUnit(5)};
     `
   })};
-`;
 
-const TestimonialHeader_SC = styled.div`
-  display: flex;
-  height: ${_baseUnit(7.5)};
-  margin-bottom: ${_baseUnit(2.5)};
+  .Testimonial_header {
+    display: flex;
+    height: ${_baseUnit(7.5)};
+    margin-bottom: ${_baseUnit(2.5)};
 
-  & img {
-    margin: auto 0;
-    max-width: ${_baseUnit(12.5)};
+    img {
+      margin: auto 0;
+      max-width: ${_baseUnit(12.5)};
+    }
   }
-`;
 
-const TestimonialBody_SC = styled.div``;
-
-const TestimonialFooter_SC = styled.div`
-
-  & > h2 {
+  .Testimonial_footer {
+    > h2 {
     color: ${COL.brand_main_base};
     font-size: ${TYPE.scale.md};
       font-weight: normal;
-  }
+    }
 
-  & > p {
-    color: ${COL.grey_base};
-    font-size: ${TYPE.scale.xs};
+    > p {
+      color: ${COL.grey_base};
+      font-size: ${TYPE.scale.xs};
+    }
   }
 `;
 
@@ -89,34 +83,30 @@ function Testimonial (props = {}) {
   } = props;
 
   return (
-    <Testimonial_SC>
-      <TestimonialHeader_SC>
+    <Testimonial_Styled>
+      <header className="Testimonial_header">
         <img
           src={brandLogo}
           alt={brand}
         />
-      </TestimonialHeader_SC>
+      </header>
 
-      <TestimonialBody_SC>
+      <div>
         <Copy copy={body} />
-      </TestimonialBody_SC>
+      </div>
 
-      <TestimonialFooter_SC>
+      <div className="Testimonial_footer">
         <h2>{name}</h2>
         <p>{position}</p>
         <p>{brand}</p>
-      </TestimonialFooter_SC>
-    </Testimonial_SC>
+      </div>
+    </Testimonial_Styled>
   )
 }
 
 /**
  * =Testimonials (page)
 ************************************************************/
-
-const Header_SC = styled.div`
-  margin-top: ${_baseUnit(5)};
-`;
 
 class TestimonialsHome extends Component {
   constructor(props) {
@@ -126,27 +116,16 @@ class TestimonialsHome extends Component {
     }
   }
 
-  handleClick() {
-    this.setState({
-      active: !this.state.active,
-      activeClass: this.state.active
-        ? "is-inactive"
-        : "is-active"
-    });
-  }
-
   render() {
     const {router} = this.props;
     const pageData = this.state.pageData;
 
     return (
       <DefaultLayout>
-        <Header_SC>
-          <SectionTitle title={pageData.title} />
-        </Header_SC>
+        <SectionTitle title={pageData.title} isHeader={true} />
 
         <ContentWrapper>
-          <Testimonials_SC>
+          <TestimonialsContainer_Styled>
 
             { pageData.testimonialsRels &&
               pageData.testimonialsRels.map((rel, i) => {
@@ -167,7 +146,7 @@ class TestimonialsHome extends Component {
               }
             })}
 
-          </Testimonials_SC>
+          </TestimonialsContainer_Styled>
         </ContentWrapper>
       </DefaultLayout>
     );

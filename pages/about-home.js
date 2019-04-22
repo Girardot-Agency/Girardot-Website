@@ -1,7 +1,6 @@
-import Link from "next/link"
 import {withRouter} from "next/router"
 import React, {Component} from "react";
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 
 import Copy from "../components/copy";
 import ContentWrapper from "../components/content-wrapper";
@@ -12,25 +11,16 @@ import {transformImage} from "../lib/helpers";
 import {_baseUnit} from "../assets/styles/mixins/_style";
 
 /**
- * =Title
-************************************************************/
-
-const Header = styled.header`
-  margin-top: ${_baseUnit(5)};
-`;
-
-/**
  * =Banner
 ************************************************************/
 
-const Banner_SC = styled.div`
+const Banner_Styled = styled.div`
   margin-bottom: ${_baseUnit(5)};
-`;
 
-const BannerImg_SC = styled.div`
-  & img {
-    max-width: 100%;
-    /* z-index: -1; */
+  .Banner_image {
+    img {
+      max-width: 100%;
+    }
   }
 `;
 
@@ -38,8 +28,8 @@ function Banner (props = {}) {
   const {src, alt} = props;
 
   return (
-    <Banner_SC>
-      <BannerImg_SC>
+    <Banner_Styled>
+      <div className="Banner_image">
         <picture>
           <source
             sizes={"100vw"}
@@ -54,11 +44,10 @@ function Banner (props = {}) {
           />
           <img src={transformImage(src)} alt={alt} />
         </picture>
-      </BannerImg_SC>
-    </Banner_SC>
+      </div>
+    </Banner_Styled>
   );
 }
-
 
 /**
  * =AboutHome
@@ -78,9 +67,7 @@ class AboutHome extends Component {
 
     return (
       <DefaultLayout>
-        <Header>
-          <SectionTitle title={pageData.title} />
-        </Header>
+        <SectionTitle title={pageData.title} isHeader={true} />
 
         <ContentWrapper>
           <Banner
