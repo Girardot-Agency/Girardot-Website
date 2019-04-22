@@ -42,8 +42,8 @@ collections:
           - {label: Layout, name: layout, widget: hidden, default: about-home}
           - {label: Category, name: category, widget: hidden, default: about}
           - {label: Title, name: title, widget: string}
-          - {label: Banner image, name: bannerImage, widget: image}
           - {label: Body, name: body, widget: markdown}
+          - {label: Banner image, name: bannerImage, widget: image}
 
       # Jobs (home)
       - label: Jobs (home)
@@ -136,9 +136,9 @@ collections:
       - {label: Layout, name: layout, widget: hidden, default: jobs-page}
       - {label: Category, name: category, widget: hidden, default: jobs}
       - {label: Title, name: title, widget: string}
-      - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
       - {label: Body, name: body, widget: markdown}
       - {label: Banner image, name: bannerImage, widget: image}
+      - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
 
   # Our people (pages)
   - label: Our People (profile)
@@ -152,9 +152,9 @@ collections:
       - {label: Category, name: category, widget: hidden, default: our-people}
       - {label: Full name, name: title, widget: string}
       - {label: Position, name: position, widget: string}
-      - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
       - {label: Body, name: body, widget: markdown}
       - {label: Profile image, name: profileImage, widget: image}
+      - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
 
   # Our work (categories)
   - label: Our Work (category)
@@ -167,7 +167,6 @@ collections:
       - {label: Layout, name: layout, widget: hidden, default: our-work-home}
       - {label: Category, name: category, widget: hidden, default: our-work}
       - {label: Title, name: title, widget: string}
-      - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
       - label: Our Work (pages)
         name: ourWorkRels
         widget: relation
@@ -176,6 +175,7 @@ collections:
         displayFields: ["title"]
         valueField: "customSlug"
         multiple: true
+      - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
 
   # Our work (pages)
   - label: Our Work (page)
@@ -188,7 +188,6 @@ collections:
       - {label: Layout, name: layout, widget: hidden, default: our-work-page}
       - {label: Category, name: category, widget: hidden, default: our-work}
       - {label: Title, name: title, widget: string}
-      - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
       - {label: Body, name: body, widget: markdown}
       - {label: Banner image, name: bannerImage, widget: image}
       - {label: Card image, name: cardImage, widget: image}
@@ -197,6 +196,7 @@ collections:
         widget: list
         allow_add: true
         field: {label: Image, name: galleryImage, widget: image}
+      - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
 
   # Our people (pages)
   - label: Testimonials (profile)
@@ -211,9 +211,9 @@ collections:
       - {label: Full name, name: title, widget: string}
       - {label: Position, name: position, widget: string}
       - {label: Brand, name: brand, widget: string}
-      - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
       - {label: Body, name: body, widget: markdown}
       - {label: Brand logo, name: brandLogo, widget: image}
+      - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
 
   # Global settings
   - label: Global settings
