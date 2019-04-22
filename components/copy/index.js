@@ -16,7 +16,7 @@ import {TYPE} from "../../assets/styles/theme/_style";
  * =Styles
 ******************************/
 
-const Copy_SC = styled.div`
+const Copy_Styled = styled.div`
   margin: 0 auto;
   width: 100%;
     max-width: ${_baseUnit(40)};
@@ -60,9 +60,11 @@ export default function (props = {}) {
   };
 
   return (
-    <Copy_SC>
+    <Copy_Styled>
 
-      {title && <h1>{title}</h1>}
+      { title
+        && <h1>{title}</h1>
+      }
 
       <Markdown
         children={copy}
@@ -74,6 +76,6 @@ export default function (props = {}) {
           ? <Gallery images={gallery} />
           : ""
       }
-    </Copy_SC>
+    </Copy_Styled>
   );
 }
