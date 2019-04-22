@@ -1,10 +1,12 @@
-import {withRouter} from "next/router"
+import Link from "next/link";
+import Router, {withRouter} from "next/router"
 import React, {Component} from "react";
 
 import Fade from "react-reveal/Fade";
 import {StickyContainer, Sticky} from "react-sticky";
 import styled, {css} from "styled-components";
 
+import Button from "../components/button";
 import Copy from "../components/copy";
 import DefaultLayout from "../layouts/default";
 
@@ -32,7 +34,7 @@ const Content_Styled = styled.section`
       lg: css`
         flex-basis: 50%;
       `
-    })}
+    })};
   }
 
   .Content-inner {
@@ -65,6 +67,9 @@ function Content ({children}) {
 ************************************************************/
 
 const Banner_Styled = styled.div`
+  position: relative;
+  z-index: 200;
+
   ${_screen({
     lg: css`
       max-width: 50vw;
@@ -83,9 +88,41 @@ const Banner_Styled = styled.div`
   }
 `;
 
-/**
- * =BannerImg:component
-******************************/
+const BackButton_Styled = styled.div`
+  position: absolute;
+  bottom: 0;
+
+  ${_screen({
+    lg: css`bottom: 20%;`
+  })};
+
+`;
+
+class BackButton extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  handleBackClick() {
+    return Router.back()
+  }
+
+  render() {
+    return (
+      <BackButton_Styled>
+        <Button
+          handleClick={this.handleBackClick.bind(this)}
+          options={{
+            shrink: true,
+            style: "secondary",
+            text: "Back",
+            type: "cta"
+          }}
+        />
+      </BackButton_Styled>
+    );  
+  }
+}
 
 function Banner ({isSticky, src, alt}) {
   return (
@@ -93,7 +130,7 @@ function Banner ({isSticky, src, alt}) {
       {({style}) => {
         return (
           <Banner_Styled style={isSticky ? style : {}}>
-            <Fade left duration={600}>
+            <Fade left delay={200} duration={600}>
 
               <div className="Banner_image">
                 <picture>
@@ -120,6 +157,8 @@ function Banner ({isSticky, src, alt}) {
                   />
                   <img src={transformImage(src)} alt={alt} />
                 </picture>
+
+                <BackButton />
               </div>
 
             </Fade>

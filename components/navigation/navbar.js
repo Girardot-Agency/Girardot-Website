@@ -25,7 +25,7 @@ const Navbar_Styled = styled.div`
   position: fixed;
   width: 100vw;
   top: 0;
-  z-index: 100;
+  z-index: 300;
 
   .Navbar-inner {
     ${_contentWrapper()};

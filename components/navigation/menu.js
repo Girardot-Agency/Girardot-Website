@@ -28,7 +28,7 @@ const Menu_Styled = styled(Div100vh)`
   position: fixed;
   transform: translateY(-100%);
   width: 100vw;
-  z-index: 1;
+  z-index: 250;
 
   &.is-inactive {
     animation: .8s ${animateMenuUp};

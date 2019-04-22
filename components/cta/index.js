@@ -5,7 +5,7 @@
 import Link from "next/link";
 import styled, {css} from "styled-components";
 
-import {_baseUnit, _center, _screen, _transition} from "../../assets/styles/mixins/_style";
+import {_baseUnit, _center, _flex, _screen, _transition} from "../../assets/styles/mixins/_style";
 import {COL, TYPE} from "../../assets/styles/theme/_style";
 
 import exportMap from "../../static/db/export-map.json";
@@ -20,31 +20,39 @@ const CTA_Styled = styled.div`
   border: ${_baseUnit(.125)} solid ${COL.brand_main_base};
   color: ${COL.brand_main_base};
   font-size: ${TYPE.scale.sm};
+  padding: 0 ${_baseUnit(3)};
   position: relative;
   width: ${_baseUnit(15)};
     max-width: 100%;
     height: ${_baseUnit(3.25)};
 
-  ${props => (
-    props.align === "center"
-      ? `${css`margin: 0 auto`}`
-      : ""
-  )};
-
-  &:hover {
-    background: ${COL.brand_main_base};
-    color: ${COL.white};
+  .CTA-inner,
+  .CTA-text {
+    height: 100%;
   }
 
   .CTA-inner {
     display: block;
     width: 100%;
-      height: 100%;
   }
 
   .CTA-text {
-    ${_center("xy")};
+    ${_flex("rowCenterAll")};
   }
+
+  &.CTA--secondary {
+    background-color: ${COL.grey_lightest};
+  }
+
+  &:hover {
+    background-color: ${COL.brand_main_base};
+    color: ${COL.white};
+  }
+
+  ${props => props.shrink
+    ? `${css`width: unset`}`
+    : ""
+  };
 `;
 
 /**
@@ -53,10 +61,11 @@ const CTA_Styled = styled.div`
 
 export default function (props = {}) {
   let defaultOptions = {
-    type: "text", // [String] "text" | "link"
-    text: "Click here", // [String]
+    align: false, // [String]
     href: false, // [String]
-    align: false // [String]
+    style: "primary", // [String]
+    text: "Click here", // [String]
+    type: "text" // [String] "text" | "link"
   }
 
   let {
@@ -73,7 +82,11 @@ export default function (props = {}) {
   }
 
   return (
-    <CTA_Styled align={options.align}>
+    <CTA_Styled
+      className={`CTA--${options.style}`}
+      align={options.align}
+      shrink={options.shrink}
+    >
       {
         options.type === "link" && options.href
 

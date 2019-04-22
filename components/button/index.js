@@ -10,6 +10,9 @@ import CTA from "../cta";
 // Internal parts
 import Hmbgr from "./hmbgr";
 
+// Mixins/theme etc
+import {COL} from "../../assets/styles/theme/_style";
+
 /**
  * =Styles
 ******************************/
@@ -56,17 +59,21 @@ const Button_Styled = styled.button`
 ******************************/
 
 export default function (props = {}) {
-  let defaultOpts = {
-    type: "cta",
+  let defaultOptions = {
+    align: false,
+    shrink: false,
+    style: "primary",
     text: false,
-    align: false
+    type: "cta",
   };
 
   let {
     handleClick,
     activeClass,
-    options = defaultOpts
+    options
   } = props;
+
+  options = Object.assign({}, defaultOptions, options);
 
   return (
     <Button_Styled
@@ -74,18 +81,20 @@ export default function (props = {}) {
       align={options.align}
     >
 
-      {
-        options.type === "cta"
+      { options.type === "cta"
         && (
-          <CTA options={{
-            type: "text",
-            text: options.text
-          }} />
+          <CTA
+            options={{
+              shrink: options.shrink, 
+              style: options.style,
+              text: options.text,
+              type: "text",
+            }}
+          />
         )
       }
 
-      {
-        options.type === "hmbgr"
+      { options.type === "hmbgr"
         && <Hmbgr activeClass={activeClass} />
       }
 
