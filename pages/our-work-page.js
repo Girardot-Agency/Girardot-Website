@@ -209,9 +209,11 @@ class OurWorkPage extends Component {
           <Content>
 
             <Copy
-              title={pageData.title}
               copy={pageData.body}
-              gallery={pageData.gallery}
+              options={{
+                title: pageData.title,
+                gallery: pageData.gallery
+              }}
             />
 
           </Content>

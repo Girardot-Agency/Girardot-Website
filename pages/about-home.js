@@ -40,20 +40,20 @@ function Banner (props = {}) {
   return (
     <Banner_SC>
       <BannerImg_SC>
-        <img src={transformImage(src)} alt={alt} />
-        {/* <picture> */}
-          {/* <source
+        <picture>
+          <source
             sizes={"100vw"}
             srcSet={`
-              ${transformImage(src, {w: 400})} 400w,
-              ${transformImage(src, {w: 600})} 600w,
-              ${transformImage(src, {w: 800})} 800w,
-              ${transformImage(src, {w: 1000})} 1000w,
-              ${transformImage(src, {w: 1200})} 1200w
-              ${transformImage(src, {w: 1800})} 1800w
+              ${transformImage(src, {w: 600})} 400w,
+              ${transformImage(src, {w: 800})} 600w,
+              ${transformImage(src, {w: 1000})} 800w,
+              ${transformImage(src, {w: 1200})} 1000w,
+              ${transformImage(src, {w: 1400})} 1200w
+              ${transformImage(src, {w: 2000})} 1800w
             `}
-          /> */}
-        {/* </picture> */}
+          />
+          <img src={transformImage(src)} alt={alt} />
+        </picture>
       </BannerImg_SC>
     </Banner_SC>
   );
@@ -88,7 +88,11 @@ class AboutHome extends Component {
             alt={pageData.title}
           />
 
-          <Copy copy={pageData.body} />
+          <Copy
+            copy={pageData.body}
+            options={{copyStyle: "secondary"}}  
+          />
+
         </ContentWrapper>
       </DefaultLayout>
     );

@@ -10,13 +10,14 @@ import Player from "../player";
 
 // Theme/helpers/mixins
 import {_baseUnit} from "../../assets/styles/mixins/_style";
-import {TYPE} from "../../assets/styles/theme/_style";
+import {COL, TYPE} from "../../assets/styles/theme/_style";
 
 /**
  * =Styles
 ******************************/
 
 const Copy_Styled = styled.div`
+  line-height: 1.5;
   margin: 0 auto;
   width: 100%;
     max-width: ${_baseUnit(40)};
@@ -38,6 +39,12 @@ const Copy_Styled = styled.div`
   img, iframe {
     max-width: 100%;
   }
+
+  &.Copy-secondary {
+    h1, h2, h3, h4, h5 {
+      color: ${COL.brand_main_base};
+    }
+  }
 `;
 
 /**
@@ -45,13 +52,18 @@ const Copy_Styled = styled.div`
 ******************************/
 
 export default function (props = {}) {
-  const {
-    title,
+  let defaultOptions = {
+    copyStyle: "primary",
+    gallery: false,
+    title: false
+  };
+
+  let {
     copy,
-    gallery
+    options = defaultOptions,
   } = props;
 
-  const markdownOpts = {
+  let markdownOpts = {
     overrides: {
       Player: {
         component: Player
@@ -60,10 +72,10 @@ export default function (props = {}) {
   };
 
   return (
-    <Copy_Styled>
+    <Copy_Styled className={`Copy-${options.copyStyle}`}>
 
-      { title
-        && <h1>{title}</h1>
+      { options.title
+        && <h1>{options.title}</h1>
       }
 
       <Markdown
@@ -72,8 +84,8 @@ export default function (props = {}) {
       />
 
       {
-        Array.isArray(gallery) && gallery.length
-          ? <Gallery images={gallery} />
+        Array.isArray(options.gallery) && options.gallery.length
+          ? <Gallery images={options.gallery} />
           : ""
       }
     </Copy_Styled>
