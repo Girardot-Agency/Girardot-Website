@@ -17,7 +17,7 @@ import {_baseUnit} from "../assets/styles/mixins/_style";
 const Banner_Styled = styled.div`
   margin-bottom: ${_baseUnit(5)};
 
-  .Banner_image {
+  .Banner-image {
     img {
       max-width: 100%;
     }
@@ -29,7 +29,7 @@ function Banner (props = {}) {
 
   return (
     <Banner_Styled>
-      <div className="Banner_image">
+      <div className="Banner-image">
         <picture>
           <source
             sizes={"100vw"}

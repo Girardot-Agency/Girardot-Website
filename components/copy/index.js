@@ -45,7 +45,7 @@ const Copy_Styled = styled.div`
     padding-left: ${_baseUnit(2.5)};
   }
 
-  &.Copy-secondary {
+  &.Copy--secondary {
     h1, h2, h3, h4, h5 {
       color: ${COL.brand_main_base};
     }
@@ -77,7 +77,7 @@ export default function (props = {}) {
   };
 
   return (
-    <Copy_Styled className={`Copy-${options.copyStyle}`}>
+    <Copy_Styled className={`Copy--${options.copyStyle}`}>
 
       { options.title
         && <h1>{options.title}</h1>

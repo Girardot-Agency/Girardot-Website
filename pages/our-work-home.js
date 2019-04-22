@@ -18,7 +18,7 @@ import {COL, TYPE} from "../assets/styles/theme/_style"
  * =SubMenu
 ************************************************************/
 
-const SubMenu_SC = styled.div`
+const SubMenu_Styled = styled.div`
   background-color: ${COL.brand_main_base};
   color: ${COL.white};
   font-size: ${TYPE.scale.sm};
@@ -28,13 +28,13 @@ const SubMenu_SC = styled.div`
   text-align: center;
 `;
 
-const SubMenuList_SC = styled.ul`
+const SubMenuList_Styled = styled.ul`
   ${_flex("rowCenterAll")};
 
   min-height: inherit;
   padding: ${_baseUnit()};
 
-  & > li:nth-child(1n + 2) {
+  > li:nth-child(1n + 2) {
     margin-left: ${_baseUnit()};
     padding: ${_baseUnit(.25)} 0;
   }
@@ -64,17 +64,17 @@ function SubMenuItems ({handleClick}) {
   })
 
   return (
-    <SubMenuList_SC>
+    <SubMenuList_Styled>
       {menuItems}
-    </SubMenuList_SC>
+    </SubMenuList_Styled>
   )
 }
 
 function SubMenu ({handleClick}) {
   return (
-    <SubMenu_SC>
+    <SubMenu_Styled>
       <SubMenuItems handleClick={handleClick} />
-    </SubMenu_SC>
+    </SubMenu_Styled>
   );
 }
 

@@ -27,7 +27,7 @@ const JobSummary_Styled = styled.div`
     border-bottom: 1px solid ${COL.grey_lightest};
   }
 
-  .JobSummary_link {
+  .JobSummary-link {
     ${_hover(COL.brand_main_base, COL.brand_main_dark)};
 
     font-size: ${TYPE.scale.md};
@@ -51,7 +51,7 @@ function JobSumary ({pageData}) {
           prefetch
         >
           <a
-            className="JobSummary_link"
+            className="JobSummary-link"
             title={pageData.query.title}
           >
             {pageData.query.title}

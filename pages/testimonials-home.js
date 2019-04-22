@@ -48,7 +48,7 @@ const Testimonial_Styled = styled.section`
     `
   })};
 
-  .Testimonial_header {
+  .Testimonial-header {
     display: flex;
     height: ${_baseUnit(7.5)};
     margin-bottom: ${_baseUnit(2.5)};
@@ -59,7 +59,7 @@ const Testimonial_Styled = styled.section`
     }
   }
 
-  .Testimonial_footer {
+  .Testimonial-footer {
     > h2 {
     color: ${COL.brand_main_base};
     font-size: ${TYPE.scale.md};
@@ -84,7 +84,7 @@ function Testimonial (props = {}) {
 
   return (
     <Testimonial_Styled>
-      <header className="Testimonial_header">
+      <header className="Testimonial-header">
         <img
           src={brandLogo}
           alt={brand}
@@ -95,7 +95,7 @@ function Testimonial (props = {}) {
         <Copy copy={body} />
       </div>
 
-      <div className="Testimonial_footer">
+      <div className="Testimonial-footer">
         <h2>{name}</h2>
         <p>{position}</p>
         <p>{brand}</p>

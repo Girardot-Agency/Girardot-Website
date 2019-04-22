@@ -35,7 +35,7 @@ const Content_Styled = styled.section`
     })}
   }
 
-  .Content_inner {
+  .Content-inner {
     flex-basis: 100%;
     margin-top: ${_baseUnit(2)};
     margin-bottom: ${_baseUnit(5)};
@@ -53,7 +53,7 @@ const Content_Styled = styled.section`
 function Content ({children}) {
   return (
     <Content_Styled>
-      <div className="Content_inner">
+      <div className="Content-inner">
         {children}
       </div>
     </Content_Styled>
