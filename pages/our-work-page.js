@@ -10,21 +10,16 @@ import DefaultLayout from "../layouts/default";
 
 import {transformImage} from "../lib/helpers";
 import {_baseUnit, _contentWrapper, _screen, _flex} from "../assets/styles/mixins/_style";
-import {SCREEN, TYPE} from "../assets/styles/theme/_style";
+import {SCREEN} from "../assets/styles/theme/_style";
 
 /**
  * =Content
 ************************************************************/
 
-/**
- * =Content:styles
-******************************/
-
-const Content_SC = styled.section`
+const Content_Styled = styled.section`
   ${_contentWrapper()};
   ${_flex("row")};
 
-  font-size: ${TYPE.scale.sm};
   position: relative;
   margin-top: ${_baseUnit(2)};
 
@@ -39,33 +34,29 @@ const Content_SC = styled.section`
       `
     })}
   }
+
+  .Content_inner {
+    flex-basis: 100%;
+    margin-top: ${_baseUnit(2)};
+    margin-bottom: ${_baseUnit(5)};
+
+    ${_screen({
+      lg: css`
+        flex-basis: calc(50% - ${_baseUnit(2)});
+        margin-top: ${_baseUnit(4)};
+        padding-left: ${_baseUnit(2)};
+      `
+    })};
+  }
 `;
-
-const ContentInner_SC = styled.div`
-  flex-basis: 100%;
-  margin-top: ${_baseUnit(2)};
-  margin-bottom: ${_baseUnit(5)};
-
-  ${_screen({
-    lg: css`
-      flex-basis: calc(50% - ${_baseUnit(2)});
-      margin-top: ${_baseUnit(4)};
-      padding-left: ${_baseUnit(2)};
-    `
-  })};
-`;
-
-/**
- * =Content:component
-******************************/
 
 function Content ({children}) {
   return (
-    <Content_SC>
-      <ContentInner_SC>
+    <Content_Styled>
+      <div className="Content_inner">
         {children}
-      </ContentInner_SC>
-    </Content_SC>
+      </div>
+    </Content_Styled>
   );
 }
 
@@ -73,12 +64,7 @@ function Content ({children}) {
  * =BannerImg
 ************************************************************/
 
-/**
- * =BannerImg:styles
-******************************/
-
-const Banner_SC = styled.div`
-
+const Banner_Styled = styled.div`
   ${_screen({
     lg: css`
       max-width: 50vw;
@@ -89,12 +75,11 @@ const Banner_SC = styled.div`
       width: 50vw;
     `
   })};
-`;
 
-const BannerImg_SC = styled.div`
-  & img {
-    max-width: 100%;
-    /* z-index: -1; */
+  .Banner_image {
+    & img {
+      max-width: 100%;
+    }
   }
 `;
 
@@ -107,9 +92,10 @@ function Banner ({isSticky, src, alt}) {
     <Sticky disableCompensation={true}>
       {({style}) => {
         return (
-          <Banner_SC style={isSticky ? style : {}}>
+          <Banner_Styled style={isSticky ? style : {}}>
             <Fade left duration={600}>
-              <BannerImg_SC>
+
+              <div className="Banner_image">
                 <picture>
                   <source
                     media={`${SCREEN.lg}`}
@@ -134,9 +120,10 @@ function Banner ({isSticky, src, alt}) {
                   />
                   <img src={transformImage(src)} alt={alt} />
                 </picture>
-              </BannerImg_SC>
+              </div>
+
             </Fade>
-          </Banner_SC>
+          </Banner_Styled>
         );
       }}
     </Sticky>
@@ -144,25 +131,19 @@ function Banner ({isSticky, src, alt}) {
 }
 
 /**
- * =Gallery
-************************************************************/
-
-
-
-/**
  * =Container
 ************************************************************/
 
-const Container_SC = styled(StickyContainer)`
+const Container_Styled = styled(StickyContainer)`
   padding-top: ${_baseUnit(4.5)};
   min-height: 100vh;
 `;
 
 function Container ({children}) {
   return (
-    <Container_SC>
+    <Container_Styled>
       {children}
-    </Container_SC>
+    </Container_Styled>
   );
 }
 
