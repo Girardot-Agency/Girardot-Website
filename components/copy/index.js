@@ -40,6 +40,11 @@ const Copy_Styled = styled.div`
     max-width: 100%;
   }
 
+  ul {
+    list-style: square;
+    padding-left: ${_baseUnit(2.5)};
+  }
+
   &.Copy-secondary {
     h1, h2, h3, h4, h5 {
       color: ${COL.brand_main_base};
