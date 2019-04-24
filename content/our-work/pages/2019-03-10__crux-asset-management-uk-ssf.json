@@ -1,8 +1,7 @@
 {
   "layout": "our-work-page",
   "category": "our-work",
-  "title": "CRUX Asset Management - UK SSF",
-  "customSlug": "crux-asset-management-uk-ssf",
+  "title": "CRUX Asset Management",
   "body": "## Content",
   "bannerImage": "/static/uploads/ukssf-banner.jpg",
   "cardImage": "/static/uploads/ukssf-card.jpg",
@@ -10,5 +9,6 @@
     "/static/uploads/crux-ukssf_master_oct18.jpg",
     "/static/uploads/crux-ukssf_master_oct182.jpg",
     "/static/uploads/crux-ukssf_master_oct183.jpg"
-  ]
+  ],
+  "customSlug": "crux-asset-management-uk-ssf"
 }
