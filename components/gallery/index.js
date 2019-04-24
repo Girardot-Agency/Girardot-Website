@@ -50,7 +50,6 @@ export default class Gallery extends Component {
 
   render() {
     const { photoIndex, isOpen } = this.state;
-    console.log(isOpen)
 
     return (
       <div>
