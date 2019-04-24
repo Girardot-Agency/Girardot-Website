@@ -1,8 +1,7 @@
 {
   "layout": "our-work-home",
   "category": "our-work",
-  "title": "Motion & Animation",
-  "customSlug": "motion-and-animation",
+  "title": "Finance & Corporate",
   "ourWorkRels": [
     "woodham-and-moortimer",
     "theo-fennell",
@@ -10,5 +9,6 @@
     "pictet",
     "neptune-global-alpha",
     "martin-currie"
-  ]
+  ],
+  "customSlug": "motion-and-animation"
 }
