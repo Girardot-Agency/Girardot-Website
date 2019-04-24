@@ -20,7 +20,6 @@ const CTA_Styled = styled.div`
   border: ${_baseUnit(.125)} solid ${COL.brand_main_base};
   color: ${COL.brand_main_base};
   font-size: ${TYPE.scale.sm};
-  padding: 0 ${_baseUnit(3)};
   position: relative;
   width: ${_baseUnit(15)};
     max-width: 100%;
@@ -33,11 +32,20 @@ const CTA_Styled = styled.div`
 
   .CTA-inner {
     display: block;
+    padding: 0 ${_baseUnit(3)};
     width: 100%;
   }
 
   .CTA-text {
     ${_flex("rowCenterAll")};
+  }
+
+  &.CTA--center {
+    margin: 0 auto;
+  }
+
+  &.CTA--shrink {
+    width: unset
   }
 
   &.CTA--secondary {
@@ -48,11 +56,6 @@ const CTA_Styled = styled.div`
     background-color: ${COL.brand_main_base};
     color: ${COL.white};
   }
-
-  ${props => props.shrink
-    ? `${css`width: unset`}`
-    : ""
-  };
 `;
 
 /**
@@ -61,7 +64,7 @@ const CTA_Styled = styled.div`
 
 export default function (props = {}) {
   let defaultOptions = {
-    align: false, // [String]
+    align: "left", // [String]
     href: false, // [String]
     style: "primary", // [String]
     text: "Click here", // [String]
@@ -69,8 +72,10 @@ export default function (props = {}) {
   }
 
   let {
-    options = defaultOptions
+    options
   } = props;
+
+  options = Object.assign({}, defaultOptions, options);
 
   let pageData, route;
   if (options.href) {
@@ -83,8 +88,11 @@ export default function (props = {}) {
 
   return (
     <CTA_Styled
-      className={`CTA--${options.style}`}
-      align={options.align}
+      className={`
+      CTA--${options.style}
+      CTA--${options.align}
+      ${options.shrink && "CTA--shrink"}
+      `}
       shrink={options.shrink}
     >
       {

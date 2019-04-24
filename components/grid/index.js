@@ -86,10 +86,10 @@ export default class Grid extends Component {
       return {
         visible: cells.visible + 3,
       }
-    })
+    })    
   }
 
-  render() {
+  render() {    
     return (<>
       <Grid_SC>
         {

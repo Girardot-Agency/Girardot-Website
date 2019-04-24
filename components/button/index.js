@@ -10,9 +10,6 @@ import CTA from "../cta";
 // Internal parts
 import Hmbgr from "./hmbgr";
 
-// Mixins/theme etc
-import {COL} from "../../assets/styles/theme/_style";
-
 /**
  * =Styles
 ******************************/
@@ -44,14 +41,10 @@ const Button_Styled = styled.button`
     padding: 0;
   }
 
-  ${props => (
-    props.align === "center"
-      ? `${css`
-        display: block;
-        margin: 0 auto;
-      `}`
-      : ""
-  )};
+  &.Button--center {
+    display: block;
+    margin: 0 auto;
+  }
 `;
 
 /**
@@ -73,19 +66,19 @@ export default function (props = {}) {
     options
   } = props;
 
-  options = Object.assign({}, defaultOptions, options);
+  options = Object.assign({}, defaultOptions, options);  
 
   return (
     <Button_Styled
+      className={`Button--${options.align}`}
       onClick={handleClick}
-      align={options.align}
     >
 
       { options.type === "cta"
         && (
           <CTA
             options={{
-              shrink: options.shrink, 
+              shrink: options.shrink,
               style: options.style,
               text: options.text,
               type: "text",

@@ -32,7 +32,8 @@ export default function (props = {}) {
     <DefaultLayout>
       <Hero
         image={data.query.bannerLogo}
-        strap={data.query.strap} />
+        strap={data.query.strap}
+      />
 
       <section>
         <SectionTitle title={data.query.ourWorkTitle} />
