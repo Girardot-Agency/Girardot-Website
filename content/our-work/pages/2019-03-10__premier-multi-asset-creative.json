@@ -1,8 +1,7 @@
 {
   "layout": "our-work-page",
   "category": "our-work",
-  "title": "Premier Multi-Asset Creative",
-  "customSlug": "premier-multi-asset-creative",
+  "title": "Premier Multi-Asset",
   "body": "## Content",
   "bannerImage": "/static/uploads/hungreads-thousandsbanner.jpg",
   "cardImage": "/static/uploads/hungreads-thousandscard.jpg",
@@ -10,5 +9,6 @@
     "/static/uploads/pam_ma_h-t_master_nov18.jpg",
     "/static/uploads/pam_ma_h-t_wrap_is_oct18.jpg",
     "/static/uploads/pam_ma_h-t_wrap_os_oct18.jpg"
-  ]
+  ],
+  "customSlug": "premier-multi-asset-creative"
 }
