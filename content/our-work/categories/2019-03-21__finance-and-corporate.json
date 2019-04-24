@@ -1,8 +1,7 @@
 {
   "layout": "our-work-home",
   "category": "our-work",
-  "title": "Finance & Corporate",
-  "customSlug": "finance-and-corporate",
+  "title": "Motion & Animation",
   "ourWorkRels": [
     "pictet",
     "martin-currie",
@@ -16,5 +15,6 @@
     "allianz-global-investors-floating-rate",
     "allianz-global-investors-global-alpha",
     "netwealth"
-  ]
+  ],
+  "customSlug": "finance-and-corporate"
 }
