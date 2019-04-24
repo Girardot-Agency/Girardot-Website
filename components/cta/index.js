@@ -102,6 +102,7 @@ export default function (props = {}) {
           <Link
             href={route}
             as={route.query.path}
+            scroll={false}
           >
             <a className="CTA-inner">
               <span className="CTA-text">

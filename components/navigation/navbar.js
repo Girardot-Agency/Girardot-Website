@@ -63,6 +63,7 @@ export default function (props = {}) {
             passHref
             href={"/"}
             prefetch
+            scroll={false}
           >
             <a>
               <Logo size="sm" logo="logoMain" />

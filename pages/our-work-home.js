@@ -56,6 +56,7 @@ function SubMenuItems ({handleClick}) {
         <Link
           href={route}
           as={pageData.query.path}
+          scroll={false}
         >
           <a onClick={handleClick}>{pageData.query.title}</a>
         </Link>

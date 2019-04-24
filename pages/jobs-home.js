@@ -49,6 +49,7 @@ function JobSumary ({pageData}) {
           href={route}
           as={pageData.query.path}
           prefetch
+          scroll={false}
         >
           <a
             className="JobSummary-link"

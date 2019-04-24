@@ -122,6 +122,7 @@ function Menu ({handleClick, activeClass}) {
         <Link
           href={route}
           as={item.data.query.path}
+          scroll={false}
         >
           <a onClick={handleClick}>{title}</a>
         </Link>
