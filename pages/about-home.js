@@ -35,11 +35,11 @@ function Banner (props = {}) {
             sizes={"100vw"}
             srcSet={`
               ${transformImage(src, {w: 600})} 400w,
-              ${transformImage(src, {w: 800})} 600w,
-              ${transformImage(src, {w: 1000})} 800w,
-              ${transformImage(src, {w: 1200})} 1000w,
-              ${transformImage(src, {w: 1400})} 1200w
-              ${transformImage(src, {w: 2000})} 1800w
+              ${transformImage(src, {w: 900})} 600w,
+              ${transformImage(src, {w: 1200})} 800w,
+              ${transformImage(src, {w: 1500})} 1000w,
+              ${transformImage(src, {w: 1900})} 1200w
+              ${transformImage(src, {w: 2700})} 1800w
             `}
           />
           <img src={transformImage(src)} alt={alt} />
