@@ -81,9 +81,13 @@ const Banner_Styled = styled.div`
     `
   })};
 
-  .Banner_image {
-    & img {
+  .Banner-image {
+    position: relative;
+    padding-bottom: 100%;
+
+    img {
       max-width: 100%;
+      position: absolute;
     }
   }
 `;
@@ -130,9 +134,9 @@ function Banner ({isSticky, src, alt}) {
       {({style}) => {
         return (
           <Banner_Styled style={isSticky ? style : {}}>
-            <Fade left delay={200} duration={600}>
+            <Fade left delay={500} duration={600}>
 
-              <div className="Banner_image">
+              <div className="Banner-image">
                 <picture>
                   <source
                     media={`${SCREEN.lg}`}
