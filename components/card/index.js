@@ -25,9 +25,16 @@ const Card_Styled = styled.section`
   }
 
   .Card-image {
+    width: 100%;
+    padding-bottom: 56%;
+    position: relative;
+
     img {
       ${_transition()};
 
+      position: absolute;
+      top: 0;
+        left: 0;
       max-width: 100%;
     }
   }
