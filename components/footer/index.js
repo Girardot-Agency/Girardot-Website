@@ -19,7 +19,7 @@ import Logo from "../logo";
 const Footer_Styled = styled.footer`
   background-color: ${COL.grey_lightest};
   height: ${_baseUnit(10)};
-  z-index: 300;
+  z-index: 500;
 
   ${
     _screen({

@@ -30,10 +30,10 @@ class OurPeopleHome extends Component {
     return (
       <DefaultLayout>
         <header>
-          <SectionTitle
-            title={pageData.title}
-            isHeader={true}
-          />
+            <SectionTitle
+                title={pageData.title}
+                isHeader={true}
+            />
         </header>
 
         <ContentWrapper>
