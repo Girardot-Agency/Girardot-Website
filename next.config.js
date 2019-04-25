@@ -32,6 +32,9 @@ module.exports = {
 				cmsDir = `${DIR.exports}/cms-public`;
 			}
 
+			console.log(cmsDir);
+
+
 			fs.copy(cmsDir, path.resolve(`${DIR.out}/admin`));
 
 			return exportMap;
