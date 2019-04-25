@@ -104,7 +104,7 @@ collections:
             name: ourWorkRels
             widget: list
             allow_add: true
-            field: {label: Page, name: galleryImage, widget: image}
+            field:
               label: Page
               name: ourWorkPage
               widget: relation
