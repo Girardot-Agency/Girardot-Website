@@ -140,14 +140,20 @@ collections:
           - {label: Layout, name: layout, widget: hidden, default: testimonials-home}
           - {label: Category, name: category, widget: hidden, default: testimonials}
           - {label: Title, name: title, widget: string}
+
           - label: Testimonials (profiles)
             name: testimonialsRels
-            widget: relation
-            collection: testimonials_page
-            searchFields: ["title"]
-            displayFields: ["title"]
-            valueField: "customSlug"
-            multiple: true
+            widget: list
+            allow_add: true
+            field:
+              label: Testimonial
+              name: testimonialsPage
+              widget: relation
+              collection: testimonials_page
+              searchFields: ["title"]
+              displayFields: ["title"]
+              valueField: "customSlug"
+              multiple: false
 
   # Jobs (pages)
   - label: Jobs (page)
