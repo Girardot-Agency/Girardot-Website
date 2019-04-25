@@ -266,7 +266,7 @@ collections:
 
       - label: Tracking code
         name: tracking_code
-        file: content/settings/tracking_code.json
+        file: content/settings/tracking-code.json
         fields:
           - {label: Category, name: category, widget: hidden, default: settings}
           - {label: Title, name: title, widget: hidden, default: Tracking code}
