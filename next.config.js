@@ -25,8 +25,13 @@ module.exports = {
 		const { dev, dir, outDir, distDir, buildId } = buildInfo;
 
 		if (!dev) {
-			let cmsDir = `${DIR.exports}/cms-public`;
-			if (BRANCH.preview) cmsDir = `${DIR.exports}/cms-preview`;
+			let cmsDir;
+			if (BRANCH.preview) {
+				cmsDir = `${DIR.exports}/cms-preview`;
+			} else {
+				cmsDir = `${DIR.exports}/cms-public`;
+			}
+
 			fs.copy(cmsDir, path.resolve(`${DIR.out}/admin`));
 
 			return exportMap;
