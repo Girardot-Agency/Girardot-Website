@@ -78,7 +78,7 @@ collections:
             widget: list
             allow_add: true
             field:
-              label: Page
+              label: Profile
               name: ourPeoplePage
               widget: relation
               collection: our_people_page
