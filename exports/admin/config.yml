@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
-  repo: lukebm/girardot
-  branch: deploy/public
+  repo: Girardot-Agency/Girardot-Website
+  branch: deploy/preview
 media_folder: uploads
 public_folder: /static/uploads
 collections:
@@ -24,14 +24,20 @@ collections:
           - {label: Banner logo, name: bannerLogo, widget: image}
           - {label: Banner image, name: bannerImage, widget: image}
           - {label: Our Work (title), name: ourWorkTitle, widget: string}
+
           - label: Our Work (pages)
             name: ourWorkRels
-            widget: relation
-            collection: our_work_page
-            searchFields: ["title"]
-            displayFields: ["title"]
-            valueField: "customSlug"
-            multiple: true
+            widget: list
+            allow_add: true
+            field:
+              label: Page
+              name: ourWorkPage
+              widget: relation
+              collection: our_work_page
+              searchFields: ["title"]
+              displayFields: ["title"]
+              valueField: "customSlug"
+              multiple: false
 
       # About (home)
       - label: About (home)
@@ -54,14 +60,20 @@ collections:
           - {label: Layout, name: layout, widget: hidden, default: jobs-home}
           - {label: Category, name: category, widget: hidden, default: jobs}
           - {label: Title, name: title, widget: string}
+
           - label: Jobs (pages)
             name: jobsRels
-            widget: relation
-            collection: jobs_page
-            searchFields: ["title"]
-            displayFields: ["title"]
-            valueField: "customSlug"
-            multiple: true
+            widget: list
+            allow_add: true
+            field:
+              label: Job
+              name: jobsPage
+              widget: relation
+              collection: jobs_page
+              searchFields: ["title"]
+              displayFields: ["title"]
+              valueField: "customSlug"
+              multiple: false
 
       # Our people (home)
       - label: Our People (home)
@@ -72,14 +84,20 @@ collections:
           - {label: Layout, name: layout, widget: hidden, default: our-people-home}
           - {label: Category, name: category, widget: hidden, default: our-people}
           - {label: Title, name: title, widget: string}
+
           - label: Our People (profiles)
             name: ourPeopleRels
-            widget: relation
-            collection: our_people_page
-            searchFields: ["title"]
-            displayFields: ["title"]
-            valueField: "customSlug"
-            multiple: true
+            widget: list
+            allow_add: true
+            field:
+              label: Profile
+              name: ourPeoplePage
+              widget: relation
+              collection: our_people_page
+              searchFields: ["title"]
+              displayFields: ["title"]
+              valueField: "customSlug"
+              multiple: false
 
       # Our work (home)
       - label: Our Work (home)
@@ -90,22 +108,34 @@ collections:
           - {label: Layout, name: layout, widget: hidden, default: our-work-home}
           - {label: Category, name: category, widget: hidden, default: our-work}
           - {label: Title, name: title, widget: string}
+
           - label: Our Work (categories)
             name: ourWorkCategoryRels
-            widget: relation
-            collection: our_work_category
-            searchFields: ["title"]
-            displayFields: ["title"]
-            valueField: "customSlug"
-            multiple: true
+            widget: list
+            allow_add: true
+            field:
+              label: Page
+              name: ourWorkPage
+              widget: relation
+              collection: our_work_category
+              searchFields: ["title"]
+              displayFields: ["title"]
+              valueField: "customSlug"
+              multiple: false
+
           - label: Our Work (pages)
             name: ourWorkRels
-            widget: relation
-            collection: our_work_page
-            searchFields: ["title"]
-            displayFields: ["title"]
-            valueField: "customSlug"
-            multiple: true
+            widget: list
+            allow_add: true
+            field:
+              label: Page
+              name: ourWorkPage
+              widget: relation
+              collection: our_work_page
+              searchFields: ["title"]
+              displayFields: ["title"]
+              valueField: "customSlug"
+              multiple: false
 
       # Testimonials (home)
       - label: Testimonials (home)
@@ -116,14 +146,20 @@ collections:
           - {label: Layout, name: layout, widget: hidden, default: testimonials-home}
           - {label: Category, name: category, widget: hidden, default: testimonials}
           - {label: Title, name: title, widget: string}
+
           - label: Testimonials (profiles)
             name: testimonialsRels
-            widget: relation
-            collection: testimonials_page
-            searchFields: ["title"]
-            displayFields: ["title"]
-            valueField: "customSlug"
-            multiple: true
+            widget: list
+            allow_add: true
+            field:
+              label: Testimonial
+              name: testimonialsPage
+              widget: relation
+              collection: testimonials_page
+              searchFields: ["title"]
+              displayFields: ["title"]
+              valueField: "customSlug"
+              multiple: false
 
   # Jobs (pages)
   - label: Jobs (page)
@@ -167,14 +203,21 @@ collections:
       - {label: Layout, name: layout, widget: hidden, default: our-work-home}
       - {label: Category, name: category, widget: hidden, default: our-work}
       - {label: Title, name: title, widget: string}
+
       - label: Our Work (pages)
         name: ourWorkRels
-        widget: relation
-        collection: our_work_page
-        searchFields: ["title"]
-        displayFields: ["title"]
-        valueField: "customSlug"
-        multiple: true
+        widget: list
+        allow_add: true
+        field:
+          label: Page
+          name: ourWorkPage
+          widget: relation
+          collection: our_work_page
+          searchFields: ["title"]
+          displayFields: ["title"]
+          valueField: "customSlug"
+          multiple: false
+
       - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
 
   # Our work (pages)
