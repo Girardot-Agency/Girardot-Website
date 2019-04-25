@@ -1,6 +1,8 @@
 [build]
-  command = "npm run deploy:public"
   publish = "_out"
 
-[context.deploy-preview]
+[context.deploy/public]
+  command = "npm run deploy:public"
+
+[context.deploy/preview]
   command = "npm run deploy:preview"
