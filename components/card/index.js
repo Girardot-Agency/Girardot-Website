@@ -142,6 +142,10 @@ export default Card;
 export function cards(rels) {
 	let cards = [];
 
+	if (!Array.isArray(rels) || !rels.length) {
+		rels = [].concat(rels);
+	}
+
 	rels.map((rel, i) => {
 		const relPageData = exportMap[rel];
 
@@ -149,5 +153,6 @@ export function cards(rels) {
 			cards.push(<Card key={`card-${i}`} pageData={relPageData} />);
 		}
 	});
+
 	return cards;
 }
