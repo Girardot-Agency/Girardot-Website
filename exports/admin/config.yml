@@ -90,6 +90,7 @@ collections:
           - {label: Layout, name: layout, widget: hidden, default: our-work-home}
           - {label: Category, name: category, widget: hidden, default: our-work}
           - {label: Title, name: title, widget: string}
+
           - label: Our Work (categories)
             name: ourWorkCategoryRels
             widget: relation
@@ -98,14 +99,20 @@ collections:
             displayFields: ["title"]
             valueField: "customSlug"
             multiple: true
+
           - label: Our Work (pages)
             name: ourWorkRels
-            widget: relation
-            collection: our_work_page
-            searchFields: ["title"]
-            displayFields: ["title"]
-            valueField: "customSlug"
-            multiple: true
+            widget: list
+            allow_add: true
+            field: {label: Page, name: galleryImage, widget: image}
+              label: Page
+              name: ourWorkPage
+              widget: relation
+              collection: our_work_page
+              searchFields: ["title"]
+              displayFields: ["title"]
+              valueField: "customSlug"
+              multiple: true
 
       # Testimonials (home)
       - label: Testimonials (home)
