@@ -147,18 +147,22 @@ export default Card;
 export function cards (rels) {
   let cards = [];
 
-  rels.map((rel, i) => {
-    const relPageData = exportMap[rel];
+  if (rels) {
+    console.log(rels);
 
-    if (relPageData && relPageData !== undefined) {
-      cards.push(
-        <Card
-          key={`card-${i}`}
-          pageData={relPageData}
-        />
-      );
-    }
-  });
+    rels.map((rel, i) => {
+        const relPageData = exportMap[rel];
+
+        if (relPageData && relPageData !== undefined) {
+          cards.push(
+            <Card
+              key={`card-${i}`}
+              pageData={relPageData}
+            />
+          );
+        }
+      });
+  }
 
   return cards;
 }
