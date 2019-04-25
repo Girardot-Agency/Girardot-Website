@@ -24,14 +24,20 @@ collections:
           - {label: Banner logo, name: bannerLogo, widget: image}
           - {label: Banner image, name: bannerImage, widget: image}
           - {label: Our Work (title), name: ourWorkTitle, widget: string}
+
           - label: Our Work (pages)
             name: ourWorkRels
-            widget: relation
-            collection: our_work_page
-            searchFields: ["title"]
-            displayFields: ["title"]
-            valueField: "customSlug"
-            multiple: true
+            widget: list
+            allow_add: true
+            field:
+              label: Page
+              name: ourWorkPage
+              widget: relation
+              collection: our_work_page
+              searchFields: ["title"]
+              displayFields: ["title"]
+              valueField: "customSlug"
+              multiple: false
 
       # About (home)
       - label: About (home)
@@ -197,14 +203,21 @@ collections:
       - {label: Layout, name: layout, widget: hidden, default: our-work-home}
       - {label: Category, name: category, widget: hidden, default: our-work}
       - {label: Title, name: title, widget: string}
+
       - label: Our Work (pages)
         name: ourWorkRels
-        widget: relation
-        collection: our_work_page
-        searchFields: ["title"]
-        displayFields: ["title"]
-        valueField: "customSlug"
-        multiple: true
+        widget: list
+        allow_add: true
+        field:
+          label: Page
+          name: ourWorkPage
+          widget: relation
+          collection: our_work_page
+          searchFields: ["title"]
+          displayFields: ["title"]
+          valueField: "customSlug"
+          multiple: false
+
       - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
 
   # Our work (pages)
