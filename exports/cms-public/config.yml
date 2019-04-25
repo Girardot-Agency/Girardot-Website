@@ -263,13 +263,15 @@ collections:
     name: global_settings
     extension: json
     files:
-      - label: Google Analytics
-        name: google_analytics
-        file: content/settings/google-analytics.json
+
+      - label: Tracking code
+        name: tracking_code
+        file: content/settings/tracking-code.json
         fields:
           - {label: Category, name: category, widget: hidden, default: settings}
-          - {label: Title, name: title, widget: hidden, default: Google Analytics}
-          - {label: Tracking code, name: body, widget: markdown}
+          - {label: Title, name: title, widget: hidden, default: Tracking code}
+          - {label: Code, name: code, widget: markdown}
+
       - label: Branding
         name: branding
         file: content/settings/branding.json
