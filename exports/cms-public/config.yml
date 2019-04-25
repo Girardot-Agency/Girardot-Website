@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   repo: Girardot-Agency/Girardot-Website
-  branch: deploy/public
+  branch: -public
 media_folder: uploads
 public_folder: /static/uploads
 collections:
