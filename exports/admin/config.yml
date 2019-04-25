@@ -54,14 +54,20 @@ collections:
           - {label: Layout, name: layout, widget: hidden, default: jobs-home}
           - {label: Category, name: category, widget: hidden, default: jobs}
           - {label: Title, name: title, widget: string}
+
           - label: Jobs (pages)
             name: jobsRels
-            widget: relation
-            collection: jobs_page
-            searchFields: ["title"]
-            displayFields: ["title"]
-            valueField: "customSlug"
-            multiple: true
+            widget: list
+            allow_add: true
+            field:
+              label: Profile
+              name: jobsPage
+              widget: relation
+              collection: jobs_page
+              searchFields: ["title"]
+              displayFields: ["title"]
+              valueField: "customSlug"
+              multiple: false
 
       # Our people (home)
       - label: Our People (home)
