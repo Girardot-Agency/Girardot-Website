@@ -72,14 +72,20 @@ collections:
           - {label: Layout, name: layout, widget: hidden, default: our-people-home}
           - {label: Category, name: category, widget: hidden, default: our-people}
           - {label: Title, name: title, widget: string}
+
           - label: Our People (profiles)
             name: ourPeopleRels
-            widget: relation
-            collection: our_people_page
-            searchFields: ["title"]
-            displayFields: ["title"]
-            valueField: "customSlug"
-            multiple: true
+            widget: list
+            allow_add: true
+            field:
+              label: Page
+              name: ourPeoplePage
+              widget: relation
+              collection: our_people_page
+              searchFields: ["title"]
+              displayFields: ["title"]
+              valueField: "customSlug"
+              multiple: false
 
       # Our work (home)
       - label: Our Work (home)
