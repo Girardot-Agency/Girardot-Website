@@ -93,12 +93,17 @@ collections:
 
           - label: Our Work (categories)
             name: ourWorkCategoryRels
-            widget: relation
-            collection: our_work_category
-            searchFields: ["title"]
-            displayFields: ["title"]
-            valueField: "customSlug"
-            multiple: true
+            widget: list
+            allow_add: true
+            field:
+              label: Page
+              name: ourWorkPage
+              widget: relation
+              collection: our_work_category
+              searchFields: ["title"]
+              displayFields: ["title"]
+              valueField: "customSlug"
+              multiple: false
 
           - label: Our Work (pages)
             name: ourWorkRels
