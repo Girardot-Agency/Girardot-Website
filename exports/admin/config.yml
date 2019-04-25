@@ -60,7 +60,7 @@ collections:
             widget: list
             allow_add: true
             field:
-              label: Profile
+              label: Job
               name: jobsPage
               widget: relation
               collection: jobs_page
