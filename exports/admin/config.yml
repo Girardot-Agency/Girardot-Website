@@ -112,7 +112,7 @@ collections:
               searchFields: ["title"]
               displayFields: ["title"]
               valueField: "customSlug"
-              multiple: true
+              multiple: false
 
       # Testimonials (home)
       - label: Testimonials (home)
