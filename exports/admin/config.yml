@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  repo: lukebm/girardot
+  repo: Girardot-Agency/Girardot-Website
   branch: deploy/preview
 media_folder: uploads
 public_folder: /static/uploads
