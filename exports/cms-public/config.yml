@@ -263,8 +263,13 @@ collections:
     name: global_settings
     extension: json
     files:
-
-      # Branding
+      - label: Google Analytics
+        name: google_analytics
+        file: content/settings/google-analytics.json
+        fields:
+          - {label: Category, name: category, widget: hidden, default: settings}
+          - {label: Title, name: title, widget: hidden, default: Google Analytics}
+          - {label: Tracking code, name: body, widget: markdown}
       - label: Branding
         name: branding
         file: content/settings/branding.json
@@ -274,12 +279,3 @@ collections:
           - {label: Logo (main), name: logoMain, widget: image}
           - {label: Logo (grey), name: logoGrey, widget: image}
           - {label: Logo (invert), name: logoInvert, widget: image}
-
-      # Google analytics
-      - label: Google Analytics
-        name: google_analytics
-        file: content/settings/google-analytics.json
-        fields:
-          - {label: Category, name: category, widget: hidden, default: settings}
-          - {label: Title, name: title, widget: hidden, default: Google Analytics}
-          - {label: Tracking code, name: body, widget: markdown}
