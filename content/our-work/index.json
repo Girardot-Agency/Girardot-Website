@@ -4,7 +4,8 @@
   "category": "our-work",
   "title": "Our Work",
   "ourWorkCategoryRels": [
-    "all-projects"
+    "all-projects",
+    "motion-animation"
   ],
   "ourWorkRels": [
     "woodham-and-moortimer",
