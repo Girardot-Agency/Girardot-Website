@@ -3,8 +3,18 @@
   "category": "our-work",
   "title": "Financial & Corporate",
   "ourWorkRels": [
+    "premier-multi-asset-creative",
+    "hsbc-global-asset-management",
     "crux-asset-management-uk-ssf",
-    "premier-multi-asset-creative"
+    "neptune-emerging-markets",
+    "netwealth",
+    "premier-diversified-fund",
+    "allianz-global-investors-floating-rate",
+    "allianz-global-investors-global-alpha",
+    "axa-investment-managers",
+    "martin-currie",
+    "neptune-global-alpha",
+    "pictet"
   ],
   "customSlug": "financial-and-corporate"
 }
