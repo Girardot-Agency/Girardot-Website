@@ -1,10 +1,16 @@
 {
   "layout": "our-work-home",
   "category": "our-work",
-  "title": "Luxury & Sport",
+  "title": "Lifestyle",
   "ourWorkRels": [
-    "neptune-global-alpha",
-    "netwealth"
+    "gunna-drinks-product-campaign",
+    "gunna",
+    "gunna-drinks-purpose-campaign",
+    "inchbald-school-of-design-interior",
+    "theo-fennell",
+    "woodham-and-moortimer",
+    "inchbald",
+    "peter-reed"
   ],
   "customSlug": "luxury-and-sport"
 }
