@@ -1,0 +1,10 @@
+{
+  "layout": "our-work-page",
+  "category": "our-work",
+  "title": "Premier Multi Asset Video",
+  "body": "<Player url=\"https://player.vimeo.com/video/271505718\" />",
+  "bannerImage": "/static/uploads/banner.jpg",
+  "cardImage": "/static/uploads/video-scenes-11.jpg",
+  "gallery": [],
+  "customSlug": "premier-multiasset-video"
+}
