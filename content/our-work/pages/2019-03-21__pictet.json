@@ -2,8 +2,12 @@
   "layout": "our-work-page",
   "category": "our-work",
   "title": "Pictet",
-  "customSlug": "pictet",
   "body": "## The Task\n\nPictet Asset Management asked us to create an advertising campaign using their new branding to promote their Multi-Asset Portfolio Fund.\n\n## The Solution\n\nWe developed a campaign which used 'Simple Objects' to convey Pictet's simple and effective approach to Multi-Asset investing.\n\n## The Results\n\nThe 'Simple Objects' campaign has just gone live and we anticipate a higher than average CTR based on the initial figures we have received.\n\n<Player url=\"https://player.vimeo.com/video/172586893\" />",
   "bannerImage": "/static/uploads/pictetbanner.jpg",
-  "cardImage": "/static/uploads/pictetcard.jpg"
+  "cardImage": "/static/uploads/pictetcard.jpg",
+  "gallery": [
+    "/static/uploads/pictet_ad2.png",
+    "/static/uploads/pictet_ad3-1-.png"
+  ],
+  "customSlug": "pictet"
 }
