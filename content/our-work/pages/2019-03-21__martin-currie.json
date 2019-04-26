@@ -2,8 +2,12 @@
   "layout": "our-work-page",
   "category": "our-work",
   "title": "Martin Currie ",
-  "customSlug": "martin-currie",
-  "body": "Martin Currie.",
+  "body": "Content",
   "bannerImage": "/static/uploads/mcshooterbanner.jpg",
-  "cardImage": "/static/uploads/mcshootercard.jpg"
+  "cardImage": "/static/uploads/mcshootercard.jpg",
+  "gallery": [
+    "/static/uploads/sst_shooter_master_jan19.jpg",
+    "/static/uploads/sst_globe_master_jan19.jpg"
+  ],
+  "customSlug": "martin-currie"
 }
