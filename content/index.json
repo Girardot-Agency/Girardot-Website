@@ -3,14 +3,14 @@
   "layout": "index",
   "title": "Girardot",
   "strap": "Creativity at the speed of business",
-  "bannerLogo": "/static/uploads/logo-girardot-animated-invert.gif",
+  "bannerLogo": "/static/uploads/girardot-animated-logo.gif",
   "bannerImage": "/static/uploads/banner-home.jpg",
   "ourWorkTitle": "Our Work",
   "ourWorkRels": [
     "premier-multi-asset-creative",
-    "netwealth",
     "hsbc-global-asset-management",
     "gunna-drinks-product-campaign",
+    "netwealth",
     "crux-asset-management-uk-ssf",
     "inchbald-school-of-design-interior"
   ]
