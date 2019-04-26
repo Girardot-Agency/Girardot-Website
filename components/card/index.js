@@ -90,23 +90,23 @@ function Card({ pageData }) {
 						media={`${SCREEN.lg}`}
 						sizes={"33.33vw"}
 						srcSet={`
-							${transformImage(pageData.query.cardImage, { w: 300 })} 300w,
-							${transformImage(pageData.query.cardImage, { w: 500 })} 500w
+							${transformImage(pageData.query.cardImage, { w: 600 })} 300w,
+							${transformImage(pageData.query.cardImage, { w: 1000 })} 500w
 						`}
 					/>
 					<source
 						media={`${SCREEN.sm}`}
 						sizes={"50vw"}
 						srcSet={`
-							${transformImage(pageData.query.cardImage, { w: 300 })} 300w,
-							${transformImage(pageData.query.cardImage, { w: 500 })} 500w
+							${transformImage(pageData.query.cardImage, { w: 600 })} 300w,
+							${transformImage(pageData.query.cardImage, { w: 1000 })} 500w
 			            `}
 					/>
 					<source
 						sizes={"100vw"}
 						srcSet={`
-							${transformImage(pageData.query.cardImage, { w: 400 })} 400w,
-							${transformImage(pageData.query.cardImage, { w: 600 })} 600w
+							${transformImage(pageData.query.cardImage, { w: 800 })} 400w,
+							${transformImage(pageData.query.cardImage, { w: 1200 })} 600w
 			            `}
 					/>
 					<img
