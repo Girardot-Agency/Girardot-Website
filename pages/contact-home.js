@@ -182,6 +182,7 @@ class ContactPage extends Component {
             <DefaultLayout>
                 <SectionTitle title={pageData.title} isHeader={true} />
                 <ContentWrapper>
+					<ContactFormHidden />
 					<ContactForm
 						handleSubmitClick={this.handleSubmitClick.bind(this)}
 					/>
