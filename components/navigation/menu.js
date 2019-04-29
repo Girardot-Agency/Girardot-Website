@@ -55,7 +55,7 @@ const Menu_Styled = styled(Div100vh)`
   }
 
   .Menu-list {
-    font-size: ${TYPE.scale.md};
+    font-size: ${TYPE.scale.lg};
     padding: 1em 0;
     position: relative;
     text-align: center;
