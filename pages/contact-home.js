@@ -7,8 +7,10 @@ import React, {Component} from "react";
 import styled from "styled-components";
 
 import DefaultLayout from "../layouts/default";
-import SectionTitle from "../components/section-title";
+
+import Button from "../components/button";
 import ContentWrapper from "../components/content-wrapper";
+import SectionTitle from "../components/section-title";
 
 import {COL, TYPE} from "../assets/styles/theme/_style";
 import {_baseUnit} from "../assets/styles/mixins/_style";
@@ -22,13 +24,13 @@ const ContactForm_Styled = styled.form`
     width: 100%;
         max-width: ${_baseUnit(40)};
 
+	.Form-row {
+		margin-top: ${_baseUnit()};
+	}
+
     label,
     label > span {
         display: block;
-    }
-
-    label {
-        margin-top: ${_baseUnit()};
     }
 
     label > span {
@@ -62,49 +64,54 @@ function ContactForm (props = {}) {
     } = props;
 
     return (
-        <ContactForm_Styled
-            onSubmit={handleSubmit}
-        >
-            <div>
-                <label>
-                    <span>Full name:</span>
-                    <input
-                        type="text"
-                        name="name"
-                        value={fields.name}
-                        onChange={handleChange}
-                        placeholder={"Ms Name Surname"}
-                    />
-                </label>
-            </div>
-            <div>
-                <label>
-                    <span>Email address:</span>
-                    <input
-                        type="email"
-                        name="email"
-                        value={fields.email}
-                        onChange={handleChange}
-                        placeholder={"your@email.com"}
-                    />
-                </label>
-            </div>
-            <div>
-                <label>
-                    <span>Message:</span>
-                    <textarea
-                        name="message"
-                        value={fields.message}
-                        onChange={handleChange}
-                        placeholder={"Hello, Girardot!"}
-                    />
-                </label>
-            </div>
-            <div>
-                <button type="submit">Send</button>
-            </div>
-        </ContactForm_Styled>
-    )
+		<ContactForm_Styled onSubmit={handleSubmit}>
+			<div className="Form-row">
+				<label>
+					<span>Full name:</span>
+					<input
+						type="text"
+						name="name"
+						value={fields.name}
+						onChange={handleChange}
+						placeholder={"Ms Name Surname"}
+					/>
+				</label>
+			</div>
+			<div className="Form-row">
+				<label>
+					<span>Email address:</span>
+					<input
+						type="email"
+						name="email"
+						value={fields.email}
+						onChange={handleChange}
+						placeholder={"your@email.com"}
+					/>
+				</label>
+			</div>
+			<div className="Form-row">
+				<label>
+					<span>Message:</span>
+					<textarea
+						name="message"
+						value={fields.message}
+						onChange={handleChange}
+						placeholder={"Hello, Girardot!"}
+					/>
+				</label>
+			</div>
+			<div className="Form-row">
+				<Button
+					handleClick={true}
+					options={{
+						type: "cta",
+						text: "Send",
+						align: "left"
+					}}
+				/>
+			</div>
+		</ContactForm_Styled>
+	);
 }
 
 /**
