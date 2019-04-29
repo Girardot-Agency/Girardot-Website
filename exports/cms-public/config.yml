@@ -262,6 +262,7 @@ collections:
         name: body
         widget: markdown
         buttons:
+          - heading-one
           - heading-two
           - bold
           - italic

@@ -83,7 +83,8 @@ export default function (props = {}) {
   return (
     <Copy_Styled className={`Copy--${options.copyStyle}`}>
 
-      { options.title
+      {
+		options.title
         && <h1>{options.title}</h1>
       }
 

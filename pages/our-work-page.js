@@ -124,7 +124,7 @@ class BackButton extends Component {
           }}
         />
       </BackButton_Styled>
-    );  
+    );
   }
 }
 
@@ -235,7 +235,7 @@ class OurWorkPage extends Component {
             <Copy
               copy={pageData.body}
               options={{
-                title: pageData.title,
+                // title: pageData.title,
                 gallery: pageData.gallery
               }}
             />
