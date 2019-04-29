@@ -64,7 +64,11 @@ function ContactForm (props = {}) {
     } = props;
 
     return (
-		<ContactForm_Styled onSubmit={handleSubmit}>
+		<ContactForm_Styled
+			onSubmit={handleSubmit}
+			name="contact-form-v1"
+			netlify
+		>
 			<div className="Form-row">
 				<label>
 					<span>Full name:</span>
