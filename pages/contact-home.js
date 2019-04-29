@@ -4,6 +4,7 @@
 
 import {withRouter} from "next/router";
 import React, {Component} from "react";
+import NetlifyForm from "react-netlify-form";
 import styled from "styled-components";
 
 import DefaultLayout from "../layouts/default";
@@ -57,63 +58,63 @@ const ContactForm_Styled = styled.form`
 `;
 
 function ContactForm (props = {}) {
-    let {
-        handleSubmit,
-        handleChange,
-        ...fields
-    } = props;
-
     return (
-		<ContactForm_Styled
-			onSubmit={handleSubmit}
-			name="contact-form-v1"
-			data-netlify="true"
-		>
-			<div className="Form-row">
-				<label>
-					<span>Full name:</span>
-					<input
-						type="text"
-						name="name"
-						value={fields.name}
-						onChange={handleChange}
-						placeholder={"Ms Name Surname"}
-					/>
-				</label>
-			</div>
-			<div className="Form-row">
-				<label>
-					<span>Email address:</span>
-					<input
-						type="email"
-						name="email"
-						value={fields.email}
-						onChange={handleChange}
-						placeholder={"your@email.com"}
-					/>
-				</label>
-			</div>
-			<div className="Form-row">
-				<label>
-					<span>Message:</span>
-					<textarea
-						name="message"
-						value={fields.message}
-						onChange={handleChange}
-						placeholder={"Hello, Girardot!"}
-					/>
-				</label>
-			</div>
-			<div className="Form-row">
-				<Button
-					handleClick={true}
-					options={{
-						type: "cta",
-						text: "Send",
-						align: "left"
-					}}
-				/>
-			</div>
+		<ContactForm_Styled>
+			<NetlifyForm name="Contact Form">
+				{({ loading, error, success }) => (
+					<div>
+						{loading && <div>Loading...</div>}
+						{error && (
+							<div>
+								Your information was not sent. Please try
+								again later.
+							</div>
+						)}
+						{success && <div>Thank you for contacting us!</div>}
+						{!loading && !success && (<>
+							<div className="Form-row">
+								<label>
+									<span>Full name:</span>
+									<input
+										type="text"
+										name="name"
+										placeholder={"Ms Name Surname"}
+									/>
+								</label>
+							</div>
+							<div className="Form-row">
+								<label>
+									<span>Email address:</span>
+									<input
+										type="email"
+										name="email"
+										placeholder={"your@email.com"}
+									/>
+								</label>
+							</div>
+							<div className="Form-row">
+								<label>
+									<span>Message:</span>
+									<textarea
+										name="message"
+										placeholder={"Hello, Girardot!"}
+									/>
+								</label>
+							</div>
+							<div className="Form-row">
+								<Button
+									handleClick={true}
+									options={{
+										type: "cta",
+										text: "Send",
+										align: "left"
+									}}
+								/>
+							</div>
+					</>)}
+					</div>
+				)}
+			</NetlifyForm>
 		</ContactForm_Styled>
 	);
 }
@@ -122,73 +123,23 @@ function ContactForm (props = {}) {
  * =Page
 ************************************************************/
 
-function encode (date) {
-    return Object.keys.data.map((key) => {
-        return encodeURIComponent(key) + "=" + encodeURIComponent(date[key])
-    }).join("&");
-}
-
 class ContactPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pageData: props.router.query,
-            name: "",
-            email: "",
-            message: ""
+            pageData: props.router.query
         }
     }
-
-    handleSubmit(e) {
-        fetch("/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-                body: encode({
-                    "form-name": "contact",
-                    ...this.state
-                })
-            }
-        })
-        .then(() => console.log("Success"))
-        .catch(err => console.log(err));
-
-        e.preventDefault();
-    }
-
-    handleChange(e) {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-	}
-
-	handleClick() {
-		console.log("Submitting form...");
-	}
 
     render() {
         const {router} = this.props;
         const pageData = this.state.pageData;
 
-        const {
-            name,
-            email,
-            message
-        } = this.state;
-
         return (
             <DefaultLayout>
                 <SectionTitle title={pageData.title} isHeader={true} />
                 <ContentWrapper>
-                    <ContactForm
-                        handleChange={this.handleChange.bind(this)}
-                        handleSubmit={this.handleSubmit.bind(this)}
-                        fields={{
-                            name,
-                            email,
-                            message
-                        }}
-                    />
+                    <ContactForm />
                 </ContentWrapper>
             </DefaultLayout>
         );
