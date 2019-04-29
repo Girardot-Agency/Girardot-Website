@@ -40,6 +40,10 @@ const Copy_Styled = styled.div`
     max-width: 100%;
   }
 
+  img {
+	box-shadow: 1px 4px 11px -3px rgba(0, 0, 0, 0.35);
+  }
+
   ul {
     list-style: square;
     padding-left: ${_baseUnit(2.5)};
