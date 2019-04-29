@@ -48,7 +48,16 @@ collections:
           - {label: Layout, name: layout, widget: hidden, default: about-home}
           - {label: Category, name: category, widget: hidden, default: about}
           - {label: Title, name: title, widget: string}
-          - {label: Body, name: body, widget: markdown}
+          - label: Body
+            name: body
+            widget: markdown
+            buttons:
+              - heading-two
+              - bold
+              - italic
+              - link
+              - bulleted-list
+              - numbered-list
           - {label: Banner image, name: bannerImage, widget: image}
 
       # Jobs (home)
@@ -172,7 +181,16 @@ collections:
       - {label: Layout, name: layout, widget: hidden, default: jobs-page}
       - {label: Category, name: category, widget: hidden, default: jobs}
       - {label: Title, name: title, widget: string}
-      - {label: Body, name: body, widget: markdown}
+      - label: Body
+        name: body
+        widget: markdown
+        buttons:
+          - heading-two
+          - bold
+          - italic
+          - link
+          - bulleted-list
+          - numbered-list
       - {label: Banner image, name: bannerImage, widget: image}
       - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
 
@@ -188,7 +206,16 @@ collections:
       - {label: Category, name: category, widget: hidden, default: our-people}
       - {label: Full name, name: title, widget: string}
       - {label: Position, name: position, widget: string}
-      - {label: Body, name: body, widget: markdown}
+      - label: Body
+        name: body
+        widget: markdown
+        buttons:
+          - heading-two
+          - bold
+          - italic
+          - link
+          - bulleted-list
+          - numbered-list
       - {label: Profile image, name: profileImage, widget: image}
       - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
 
@@ -231,7 +258,17 @@ collections:
       - {label: Layout, name: layout, widget: hidden, default: our-work-page}
       - {label: Category, name: category, widget: hidden, default: our-work}
       - {label: Title, name: title, widget: string}
-      - {label: Body, name: body, widget: markdown}
+      - label: Body
+        name: body
+        widget: markdown
+        buttons:
+          - heading-one
+          - heading-two
+          - bold
+          - italic
+          - link
+          - bulleted-list
+          - numbered-list
       - {label: Banner image, name: bannerImage, widget: image}
       - {label: Card image, name: cardImage, widget: image}
       - label: Gallery
@@ -254,7 +291,16 @@ collections:
       - {label: Full name, name: title, widget: string}
       - {label: Position, name: position, widget: string}
       - {label: Brand, name: brand, widget: string}
-      - {label: Body, name: body, widget: markdown}
+      - label: Body
+        name: body
+        widget: markdown
+        buttons:
+          - heading-two
+          - bold
+          - italic
+          - link
+          - bulleted-list
+          - numbered-list
       - {label: Brand logo, name: brandLogo, widget: image}
       - {label: URL suffix (slug), name: customSlug, widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Accepts letters, numbers, and dashes only"]}
 
@@ -270,7 +316,11 @@ collections:
         fields:
           - {label: Category, name: category, widget: hidden, default: settings}
           - {label: Title, name: title, widget: hidden, default: Tracking code}
-          - {label: Code, name: code, widget: markdown}
+          - label: Code
+            name: code
+            widget: markdown
+            buttons:
+              - link
 
       - label: Branding
         name: branding
