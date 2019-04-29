@@ -57,6 +57,33 @@ const ContactForm_Styled = styled.form`
     }
 `;
 
+function ContactFormHidden (props = {}) {
+	return (
+		<form
+			data-netlify="true"
+			name="contact-form-v1"
+			style={{display: "none"}}
+		>
+			<label>
+				<input
+					type="text"
+					name="name"
+				/>
+			</label>
+			<label>
+				<input
+					type="email"
+					name="email"
+				/>
+			</label>
+			<label>
+				<textarea/>
+			</label>
+			<button type="submit">Send</button>
+		</form>
+	)
+}
+
 function ContactForm (props = {}) {
     return (
 		<ContactForm_Styled>
