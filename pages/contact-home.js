@@ -156,7 +156,11 @@ class ContactPage extends Component {
         this.setState({
             [e.target.name]: e.target.value
         });
-    }
+	}
+
+	handleClick() {
+		console.log("Submitting form...");
+	}
 
     render() {
         const {router} = this.props;
