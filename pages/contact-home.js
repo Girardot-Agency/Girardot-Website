@@ -62,12 +62,19 @@ function ContactFormHidden (props = {}) {
 		<form
 			data-netlify="true"
 			name="contact-form-v1"
+			data-netlify-honeypot="hands-off"
 			style={{display: "none"}}
 		>
 			<label>
 				<input
 					type="text"
 					name="name"
+				/>
+			</label>
+			<label>
+				<input
+					type="email"
+					name="hands-off"
 				/>
 			</label>
 			<label>
@@ -85,8 +92,13 @@ function ContactFormHidden (props = {}) {
 }
 
 function ContactForm (props = {}) {
+	let {
+		handleSubmitClick
+	} = props;
+
     return (
 		<ContactForm_Styled>
+
 			<NetlifyForm name="Contact Form">
 				{({ loading, error, success }) => (
 					<div>
@@ -130,7 +142,7 @@ function ContactForm (props = {}) {
 							</div>
 							<div className="Form-row">
 								<Button
-									handleClick={true}
+									handleClick={handleSubmitClick}
 									options={{
 										type: "cta",
 										text: "Send",
@@ -156,7 +168,11 @@ class ContactPage extends Component {
         this.state = {
             pageData: props.router.query
         }
-    }
+	}
+
+	handleSubmitClick() {
+		console.log("Submitting form...");
+	}
 
     render() {
         const {router} = this.props;
@@ -166,7 +182,9 @@ class ContactPage extends Component {
             <DefaultLayout>
                 <SectionTitle title={pageData.title} isHeader={true} />
                 <ContentWrapper>
-                    <ContactForm />
+					<ContactForm
+						handleSubmitClick={this.handleSubmitClick.bind(this)}
+					/>
                 </ContentWrapper>
             </DefaultLayout>
         );
