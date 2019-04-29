@@ -48,7 +48,16 @@ collections:
           - {label: Layout, name: layout, widget: hidden, default: about-home}
           - {label: Category, name: category, widget: hidden, default: about}
           - {label: Title, name: title, widget: string}
-          - {label: Body, name: body, widget: markdown}
+          - label: Body
+            name: body
+            widget: markdown
+            buttons:
+              - heading-two
+              - bold
+              - italic
+              - link
+              - bulleted-list
+              - numbered-list
           - {label: Banner image, name: bannerImage, widget: image}
 
       # Jobs (home)
