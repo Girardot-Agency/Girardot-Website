@@ -1,0 +1,14 @@
+{
+  "layout": "our-work-page",
+  "category": "our-work",
+  "title": "Henderson Global Investors",
+  "body": "## **Henderson Global Investors**\n\n**The Task**\n\nAfter their acquisition of New Star and Gartmore, Henderson wanted a campaign that stood out from the crowd and showed they had changed, were positive thinking professionals,had new energy, new commitment and were focused on results\n\n**The Solution**\n\nWe created advertising featuring Jose Mourinho and used the line, ‘The other special manager’. The concept was extremely adaptable and was taken across print, online, outdoor and literature and was used internally as well as externally.\n\n**The Results**\n\nThe advertising was much talked about  and in research was seen by over three quarters of advisors as the campaign with the most impact in its sector (Bdifferent research). It raised awareness of the brand by 73% in 3 months (Ptarmigan survey.)",
+  "bannerImage": "/static/uploads/hendersonbanner.jpg",
+  "cardImage": "/static/uploads/hendersoncard.jpg",
+  "gallery": [
+    "/static/uploads/hns52_dtel_330_211_051111.png",
+    "/static/uploads/hns73_dtel_330_211_121111.png",
+    "/static/uploads/hns300_slv_dtsport_230412.png"
+  ],
+  "customSlug": "henderson-global-investors"
+}
