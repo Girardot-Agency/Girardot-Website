@@ -20,13 +20,17 @@ import {_baseUnit} from "../assets/styles/mixins/_style";
  * =Form
 ************************************************************/
 
-const ContactForm_Styled = styled.form`
+const ContactForm_Styled = styled.div`
     margin: 0 auto;
     width: 100%;
         max-width: ${_baseUnit(40)};
 
 	.Form-row {
 		margin-top: ${_baseUnit()};
+	}
+
+	.Form-message {
+		text-align: center;
 	}
 
     label,
@@ -57,40 +61,6 @@ const ContactForm_Styled = styled.form`
     }
 `;
 
-function ContactFormHidden (props = {}) {
-	return (
-		<form
-			data-netlify="true"
-			name="contact-form-v1"
-			data-netlify-honeypot="hands-off"
-			style={{display: "none"}}
-		>
-			<label>
-				<input
-					type="text"
-					name="name"
-				/>
-			</label>
-			<label>
-				<input
-					type="email"
-					name="hands-off"
-				/>
-			</label>
-			<label>
-				<input
-					type="email"
-					name="email"
-				/>
-			</label>
-			<label>
-				<textarea/>
-			</label>
-			<button type="submit">Send</button>
-		</form>
-	)
-}
-
 function ContactForm (props = {}) {
 	let {
 		handleSubmitClick
@@ -102,14 +72,13 @@ function ContactForm (props = {}) {
 			<NetlifyForm name="Contact Form">
 				{({ loading, error, success }) => (
 					<div>
-						{loading && <div>Loading...</div>}
+						{loading && <div className="Form-message">Loading...</div>}
 						{error && (
-							<div>
-								Your information was not sent. Please try
-								again later.
+							<div className="Form-message">
+								Your information was not sent. Please check your nextwork connection and try again.
 							</div>
 						)}
-						{success && <div>Thank you for contacting us!</div>}
+						{success && <div className="Form-message">Thank you for contacting us!</div>}
 						{!loading && !success && (<>
 							<div className="Form-row">
 								<label>
@@ -117,7 +86,7 @@ function ContactForm (props = {}) {
 									<input
 										type="text"
 										name="name"
-										placeholder={"Ms Name Surname"}
+										placeholder={"Your name and surname"}
 									/>
 								</label>
 							</div>
@@ -182,7 +151,6 @@ class ContactPage extends Component {
             <DefaultLayout>
                 <SectionTitle title={pageData.title} isHeader={true} />
                 <ContentWrapper>
-					<ContactFormHidden />
 					<ContactForm
 						handleSubmitClick={this.handleSubmitClick.bind(this)}
 					/>
