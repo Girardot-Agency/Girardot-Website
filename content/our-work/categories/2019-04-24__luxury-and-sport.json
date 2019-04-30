@@ -1,16 +1,15 @@
 {
   "layout": "our-work-home",
   "category": "our-work",
-  "title": "Lifestyle",
+  "title": "Lifestyle & Sport",
   "ourWorkRels": [
     "gunna-drinks-product-campaign",
-    "gunna",
+    "kiki",
     "gunna-drinks-purpose-campaign",
-    "inchbald-school-of-design-interior",
+    "gunna",
+    "peter-reed",
     "theo-fennell",
-    "woodham-and-moortimer",
-    "inchbald",
-    "peter-reed"
+    "woodham-and-moortimer"
   ],
   "customSlug": "luxury-and-sport"
 }
