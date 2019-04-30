@@ -1,0 +1,14 @@
+{
+  "layout": "our-work-page",
+  "category": "our-work",
+  "title": "Jupiter Asset Management",
+  "body": "## **Jupiter Asset Management**\n\n**The Task**\n\nJupiter wanted us to build the brand in the retail space and increase funds under management in the specific funds featured in the advertising.\n\n**The Solution**\n\nWe created a strong look that was relevant and striking. It showed strong performance figures and used powerful headlines to attract attention.\n\n**The Results**\n\nOver the period we worked for Jupiter their funds under management increased from £200 million to £5 billion.",
+  "bannerImage": "/static/uploads/jupitercardbanner.jpg",
+  "cardImage": "/static/uploads/jupitercardcard.jpg",
+  "gallery": [
+    "/static/uploads/jupiter_01.png",
+    "/static/uploads/jupiter_02.png",
+    "/static/uploads/jupiter_03.png"
+  ],
+  "customSlug": "jupiter"
+}
