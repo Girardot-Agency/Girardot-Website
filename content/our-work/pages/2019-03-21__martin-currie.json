@@ -2,7 +2,7 @@
   "layout": "our-work-page",
   "category": "our-work",
   "title": "Martin Currie ",
-  "body": "Content",
+  "body": "## Martin Currie\n\n<Player url=\"https://player.vimeo.com/video/333335273\" />\n\n<Player url=\"https://player.vimeo.com/video/333335264\" />",
   "bannerImage": "/static/uploads/mcshooterbanner.jpg",
   "cardImage": "/static/uploads/mcshootercard.jpg",
   "gallery": [
