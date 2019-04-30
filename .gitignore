@@ -5,6 +5,7 @@ _out/
 out/
 node_modules/
 package-lock.json
+yarn.lock
 
 # Used only as temp folder for production asset caching
 static/uploads

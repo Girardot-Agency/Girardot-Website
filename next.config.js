@@ -1,7 +1,7 @@
 const fs = require("fs-extra");
 const path = require("path");
 
-const { ENV, BRANCH, DIR, ASSET } = require("./lib/_config");
+const { BRANCH, DIR, ASSET } = require("./lib/_config");
 
 const exportMap = require(ASSET.exportMap);
 
@@ -26,14 +26,8 @@ module.exports = {
 
 		if (!dev) {
 			let cmsDir;
-			if (BRANCH.preview) {
-				cmsDir = `${DIR.exports}/cms-preview`;
-			} else {
-				cmsDir = `${DIR.exports}/cms-public`;
-			}
-
-			console.log(cmsDir);
-
+			if (BRANCH.preview) cmsDir = `${DIR.exports}/cms-preview`;
+			else cmsDir = `${DIR.exports}/cms-public`;
 
 			fs.copy(cmsDir, path.resolve(`${DIR.out}/admin`));
 

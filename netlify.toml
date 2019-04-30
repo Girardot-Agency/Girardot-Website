@@ -2,7 +2,7 @@
   publish = "_out"
 
 [context.deploy-public]
-  command = "npm run deploy:public"
+  command = "yarn deploy:public"
 
 [context.deploy-preview]
-  command = "npm run deploy:preview"
+  command = "yarn deploy:preview"
