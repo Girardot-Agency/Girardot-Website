@@ -10,7 +10,6 @@
     "axa-investment-managers",
     "kiki",
     "neptune-emerging-markets",
-    "neptune-global-alpha",
     "premier-diversified-fund",
     "martin-currie",
     "crux-asset-management-uk-ssf",
@@ -18,13 +17,15 @@
     "pictet",
     "netwealth",
     "premier-optimum-income",
-    "allianz-global-investors-global-alpha",
+    "crux-eufund",
+    "allianz-global-investors-floating-rate",
     "gunna",
     "inchbald-school-of-design-interior",
     "peter-reed",
     "theo-fennell",
     "woodham-and-moortimer",
-    "inchbald"
+    "jupiter",
+    "henderson-global-investors"
   ],
   "customSlug": "all-projects"
 }
