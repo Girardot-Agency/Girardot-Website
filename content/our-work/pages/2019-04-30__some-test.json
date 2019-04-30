@@ -1,0 +1,10 @@
+{
+  "layout": "our-work-page",
+  "category": "our-work",
+  "title": "Test",
+  "body": "Test test",
+  "bannerImage": "/static/uploads/banner-craft-is-king.jpg",
+  "cardImage": "/static/uploads/card-hsbc.jpg",
+  "gallery": [],
+  "customSlug": "some-test"
+}
