@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import React from "react"
+import React, {Component} from "react"
 
 import Div100vh from "react-div-100vh";
 import styled from "styled-components";
@@ -16,7 +16,7 @@ const DefaultLayout_SC = styled(Div100vh)`
   justify-content: space-between;
 `;
 
-class DefaultLayout extends React.Component {
+class DefaultLayout extends Component {
   static pageTransitionDelayEnter = true;
 
   constructor (props) {
@@ -38,7 +38,7 @@ class DefaultLayout extends React.Component {
   }
 
   render () {
-    if (!this.state.loaded) return null;
+    // if (!this.state.loaded) return null;
     return (
       <DefaultLayout_SC style={{minHeight: "100rvh"}}>
         <main>
