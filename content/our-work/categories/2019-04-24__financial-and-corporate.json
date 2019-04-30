@@ -4,17 +4,20 @@
   "title": "Financial & Corporate",
   "ourWorkRels": [
     "premier-multi-asset-creative",
+    "crux-european-fund",
     "hsbc-global-asset-management",
-    "crux-asset-management-uk-ssf",
-    "neptune-emerging-markets",
-    "netwealth",
-    "premier-diversified-fund",
-    "allianz-global-investors-floating-rate",
-    "allianz-global-investors-global-alpha",
     "axa-investment-managers",
+    "neptune-emerging-markets",
+    "premier-diversified-fund",
     "martin-currie",
-    "neptune-global-alpha",
-    "pictet"
+    "crux-asset-management-uk-ssf",
+    "pictet",
+    "netwealth",
+    "premier-optimum-income",
+    "crux-eufund",
+    "allianz-global-investors-floating-rate",
+    "jupiter",
+    "henderson-global-investors"
   ],
   "customSlug": "financial-and-corporate"
 }
