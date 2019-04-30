@@ -1,0 +1,14 @@
+{
+  "layout": "our-work-page",
+  "category": "our-work",
+  "title": "Spread X",
+  "body": "## **Spread X**\n\n**The Task**\n\nWe were asked to create a completely new look and feel for SpreadEx that gave the brand personality and increased brand recognition.\n\n**The Solution**\n\nWe developed the ‘Red Man’ and applied the character across all marketing materials including a variety of animations for their website.\n\n**The Results**\n\nThe Red Man has raised brand awareness he has raised brand awareness, gained many fans and increased SpreadEx’s customer base and bet turnover.\n\n<Player ar=\"38%\" url=\"https://player.vimeo.com/video/325637487\" />",
+  "bannerImage": "/static/uploads/sxbanner.jpg",
+  "cardImage": "/static/uploads/sxcard.jpg",
+  "gallery": [
+    "/static/uploads/spr_01.png",
+    "/static/uploads/spr_03.png",
+    "/static/uploads/spr_02.png"
+  ],
+  "customSlug": "spreadx"
+}
