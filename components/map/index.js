@@ -5,10 +5,10 @@ import { _baseUnit, _screen } from "../../assets/styles/mixins/_style";
 const Map_Styled = styled.div`
 	position: relative;
 	width: 100%;
-	height: 450px;
+	height: 300px;
 
 	${_screen({
-		md: css`height: 600px;`
+		md: css`height: 450px;`
 	})}
 
 	.Map-embed {
