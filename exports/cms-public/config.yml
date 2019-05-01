@@ -70,7 +70,7 @@ collections:
           - {label: Category, name: category, widget: hidden, default: contact}
           - {label: Title, name: title, widget: string}
           - label: Column one
-            name: column_one
+            name: columnOne
             widget: markdown
             buttons:
               - heading-two
@@ -80,7 +80,7 @@ collections:
               - bulleted-list
               - numbered-list
           - label: Column two
-            name: column_two
+            name: columnTwo
             widget: markdown
             buttons:
               - heading-two
