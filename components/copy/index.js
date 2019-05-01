@@ -23,17 +23,20 @@ const Copy_Styled = styled.div`
     max-width: ${_baseUnit(40)};
 
   h1 {
-    font-size: ${TYPE.scale.xl};
+    font-size: ${TYPE.scale.lg};
     margin-bottom: ${_baseUnit(5)};
   }
 
   h2 {
-    font-size: ${TYPE.scale.lg};
+    font-size: ${TYPE.scale.md};
   }
 
   h2, h3, h4, h5, h6, p, img {
-    margin-top: ${_baseUnit(2.5)};
     margin-bottom: ${_baseUnit(2.5)};
+
+	&:not(:first-child) {
+		margin-top: ${_baseUnit(2.5)};
+	}
   }
 
   img, iframe {

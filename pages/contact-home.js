@@ -24,14 +24,16 @@ import { _baseUnit, _flex } from "../assets/styles/mixins/_style";
  ************************************************************/
 
 const ContactForm_Styled = styled.div`
-	margin: 0 auto;
+	border-top: 2px solid ${COL.grey_light};
+	margin: ${_baseUnit(2.5)} auto 0;
+	padding-top: ${_baseUnit(2.5)};
 	width: 100%;
-	max-width: ${_baseUnit(40)};
+		max-width: ${_baseUnit(40)};
 
 	.Form-title {
 		color: ${COL.brand_main_base};
-		font-size: ${TYPE.scale.lg};
-		margin: ${_baseUnit(5)} 0 ${_baseUnit(2)};
+		font-size: ${TYPE.scale.md};
+		margin-bottom: ${_baseUnit(2)};
 	}
 
 	.Form-row {
@@ -151,10 +153,21 @@ function ContactForm(props = {}) {
 ************************************************************/
 
 const Columns_Styled = styled.section`
-	${_flex("row")};
+	border-top: 2px solid ${COL.grey_light};
+	margin: ${_baseUnit(2.5)} auto 0;
+	width: 100%;
+		max-width: ${_baseUnit(40)};
+	padding-top: ${_baseUnit(2.5)};
 
-	> div {
-		width: 50%;
+	.Columns-inner {
+		${_flex("row")};
+
+		margin: -${_baseUnit(2)} 0 0 -${_baseUnit(2)};
+	}
+
+	.Columns-col {
+		width: calc(50% - ${_baseUnit(2)});
+		margin: ${_baseUnit(2)} 0 0 ${_baseUnit(2)};
 	}
 `;
 
@@ -166,11 +179,13 @@ function Columns (props = {}) {
 
 	return (
 		<Columns_Styled>
-			<div>
-				<Copy copy={columnOne} />
-			</div>
-			<div>
-				<Copy copy={columnTwo} />
+			<div className="Columns-inner">
+				<div className="Columns-col">
+					<Copy copy={columnOne} options={{copyStyle: "secondary"}} />
+				</div>
+				<div className="Columns-col">
+					<Copy copy={columnTwo} options={{copyStyle: "secondary"}} />
+				</div>
 			</div>
 		</Columns_Styled>
 	);
@@ -203,14 +218,14 @@ class ContactPage extends Component {
 
 				<SectionTitle title={pageData.title} isHeader={true} />
 				<ContentWrapper>
+					<Map />
+
+					<ContactForm handleSubmitClick={this.handleSubmitClick.bind(this)} />
 
 					<Columns
 						columnOne={pageData.columnOne}
 						columnTwo={pageData.columnTwo}
 					/>
-
-					<Map />
-					<ContactForm handleSubmitClick={this.handleSubmitClick.bind(this)} />
 				</ContentWrapper>
 			</DefaultLayout>
 		);
