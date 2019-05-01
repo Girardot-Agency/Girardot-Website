@@ -42,14 +42,14 @@ const Menu_Styled = styled(Div100vh)`
   .Menu-inner {
     ${_flex("columnCenterAll")};
 
-    padding: ${_baseUnit(3)} 0;
+    padding: ${_baseUnit(3)} 0 0;
     width: 100%;
     height: inherit;
 
     ${
       _screen({
-        sm: css`padding: ${_baseUnit(4)} 0;`,
-        lg: css`padding: ${_baseUnit(5)} 0;`
+        sm: css`padding: ${_baseUnit(4)} 0 0;`,
+        lg: css`padding: ${_baseUnit(5)} 0 0;`
       })
     };
   }

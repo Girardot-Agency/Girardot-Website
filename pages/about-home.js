@@ -2,9 +2,11 @@ import { withRouter } from "next/router";
 import React, { Component } from "react";
 import styled from "styled-components";
 
+import DefaultLayout from "../layouts/default";
+
 import Copy from "../components/copy";
 import ContentWrapper from "../components/content-wrapper";
-import DefaultLayout from "../layouts/default";
+import Head from "../components/head";
 import SectionTitle from "../components/section-title";
 
 import { transformImage } from "../lib/helpers";
@@ -73,6 +75,10 @@ class AboutHome extends Component {
 
 		return (
 			<DefaultLayout>
+				<Head
+					pageTitle={pageData.title}
+				/>
+
 				<SectionTitle title={pageData.title} isHeader={true} />
 
 				<ContentWrapper>

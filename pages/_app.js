@@ -55,7 +55,6 @@ export default class Girardot extends App {
 
     return (
       <Container>
-        <CustomHead />
         <Navigation />
 
         {/* Main content */}

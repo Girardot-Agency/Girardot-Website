@@ -6,6 +6,7 @@ import styled from "styled-components";
 import DefaultLayout from "../layouts/default";
 
 import ContentWrapper from "../components/content-wrapper";
+import Head from "../components/head";
 import SectionTitle from "../components/section-title";
 
 import exportMap from "../static/db/export-map.json";
@@ -97,6 +98,10 @@ class JobsHome extends Component {
 
 		return (
 			<DefaultLayout>
+				<Head
+					pageTitle={pageData.title}
+				/>
+
 				<SectionTitle title={pageData.title} isHeader={true} />
 
 				<ContentWrapper>

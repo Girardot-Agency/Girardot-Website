@@ -2,13 +2,14 @@ import Head from "next/head";
 
 export default function (props = {}) {
   let {
-    title = "Girardot"
+    title = " | Girardot",
+    pageTitle = "Girardot"
   } = props;
 
   return (
     <Head>
       <meta name="viewport" content="width=device-width" />
-      <title>{title}</title>
+      <title>{pageTitle + title}</title>
     </Head>
   );
 }

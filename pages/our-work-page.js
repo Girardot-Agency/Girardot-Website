@@ -1,250 +1,245 @@
-import Link from "next/link";
-import Router, {withRouter} from "next/router"
-import React, {Component} from "react";
+import Router, { withRouter } from "next/router";
+import React, { Component } from "react";
 
 import Fade from "react-reveal/Fade";
-import {StickyContainer, Sticky} from "react-sticky";
-import styled, {css} from "styled-components";
+import { StickyContainer, Sticky } from "react-sticky";
+import styled, { css } from "styled-components";
+
+import DefaultLayout from "../layouts/default";
 
 import Button from "../components/button";
 import Copy from "../components/copy";
-import DefaultLayout from "../layouts/default";
+import Head from "../components/head";
 
-import {transformImage} from "../lib/helpers";
-import {_baseUnit, _contentWrapper, _screen, _flex} from "../assets/styles/mixins/_style";
-import {SCREEN} from "../assets/styles/theme/_style";
+import { transformImage } from "../lib/helpers";
+import { _baseUnit, _contentWrapper, _screen, _flex } from "../assets/styles/mixins/_style";
+import { SCREEN } from "../assets/styles/theme/_style";
 
 /**
  * =Content
-************************************************************/
+ ************************************************************/
 
 const Content_Styled = styled.section`
-  ${_contentWrapper()};
-  ${_flex("row")};
+	${_contentWrapper()};
+	${_flex("row")};
 
-  position: relative;
-  margin-top: ${_baseUnit(2)};
+	position: relative;
+	margin-top: ${_baseUnit(2)};
 
-  &::before {
-    content: "";
-    display: block;
+	&::before {
+		content: "";
+		display: block;
 
-    flex-basis: 100%;
-    ${_screen({
-      lg: css`
-        flex-basis: 50%;
-      `
-    })};
-  }
+		flex-basis: 100%;
+		${_screen({
+			lg: css`
+				flex-basis: 50%;
+			`
+		})};
+	}
 
-  .Content-inner {
-    flex-basis: 100%;
-    margin-top: ${_baseUnit(2)};
-    margin-bottom: ${_baseUnit(5)};
+	.Content-inner {
+		flex-basis: 100%;
+		margin-top: ${_baseUnit(2)};
+		margin-bottom: ${_baseUnit(5)};
 
-    ${_screen({
-      lg: css`
-        flex-basis: calc(50% - ${_baseUnit(2)});
-        margin-top: ${_baseUnit(4)};
-        padding-left: ${_baseUnit(2)};
-      `
-    })};
-  }
+		${_screen({
+			lg: css`
+				flex-basis: calc(50% - ${_baseUnit(2)});
+				margin-top: ${_baseUnit(4)};
+				padding-left: ${_baseUnit(2)};
+			`
+		})};
+	}
 `;
 
-function Content ({children}) {
-  return (
-    <Content_Styled>
-      <div className="Content-inner">
-        {children}
-      </div>
-    </Content_Styled>
-  );
+function Content({ children }) {
+	return (
+		<Content_Styled>
+			<div className="Content-inner">{children}</div>
+		</Content_Styled>
+	);
 }
 
 /**
  * =BannerImg
-************************************************************/
+ ************************************************************/
 
 const Banner_Styled = styled.div`
-  position: relative;
-  z-index: 200;
+	position: relative;
+	z-index: 200;
 
-  ${_screen({
-    lg: css`
-      max-width: 50vw;
-      padding-top: ${_baseUnit(4.5)};
-      position: absolute;
-        top: 0;
-        left: 0;
-      width: 50vw;
-    `
-  })};
+	${_screen({
+		lg: css`
+			max-width: 50vw;
+			padding-top: ${_baseUnit(4.5)};
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 50vw;
+		`
+	})};
 
-  .Banner-image {
-    position: relative;
-    padding-bottom: 100%;
+	.Banner-image {
+		position: relative;
+		padding-bottom: 100%;
 
-    img {
-      max-width: 100%;
-      position: absolute;
-    }
-  }
+		img {
+			max-width: 100%;
+			position: absolute;
+		}
+	}
 `;
 
 const BackButton_Styled = styled.div`
-  position: absolute;
-  bottom: 0;
+	position: absolute;
+	bottom: 0;
 
-  ${_screen({
-    lg: css`bottom: 20%;`
-  })};
-
+	${_screen({
+		lg: css`
+			bottom: 20%;
+		`
+	})};
 `;
 
 class BackButton extends Component {
-  constructor(props) {
-    super(props);
-  }
+	constructor(props) {
+		super(props);
+	}
 
-  handleBackClick() {
-    return Router.back()
-  }
+	handleBackClick() {
+		return Router.back();
+	}
 
-  render() {
-    return (
-      <BackButton_Styled>
-        <Button
-          handleClick={this.handleBackClick.bind(this)}
-          options={{
-            shrink: true,
-            style: "secondary",
-            text: "Back",
-            type: "cta"
-          }}
-        />
-      </BackButton_Styled>
-    );
-  }
+	render() {
+		return (
+			<BackButton_Styled>
+				<Button
+					handleClick={this.handleBackClick.bind(this)}
+					options={{
+						shrink: true,
+						style: "secondary",
+						text: "Back",
+						type: "cta"
+					}}
+				/>
+			</BackButton_Styled>
+		);
+	}
 }
 
-function Banner ({isSticky, src, alt}) {
-  return (
-    <Sticky disableCompensation={true}>
-      {({style}) => {
-        return (
-          <Banner_Styled style={isSticky ? style : {}}>
-            <Fade left delay={500} duration={600}>
+function Banner({ isSticky, src, alt }) {
+	return (
+		<Sticky disableCompensation={true}>
+			{({ style }) => {
+				return (
+					<Banner_Styled style={isSticky ? style : {}}>
+						<Fade left delay={600} duration={600}>
+							<div className="Banner-image">
+								<picture>
+									<source
+										media={`${SCREEN.lg}`}
+										sizes={"50vw"}
+										srcset={`
+											${transformImage(src, { w: 900 })} 600w,
+											${transformImage(src, { w: 1200 })} 800w,
+											${transformImage(src, { w: 1500 })} 1000w,
+											${transformImage(src, { w: 2100 })} 1400w,
+											${transformImage(src, { w: 2800 })} 1800w
+                    					`}
+									/>
+									<source
+										sizes={"100vw"}
+										srcset={`
+											${transformImage(src, { w: 600 })} 400w,
+											${transformImage(src, { w: 900 })} 600w,
+											${transformImage(src, { w: 1200 })} 800w,
+											${transformImage(src, { w: 1500 })} 1000w,
+											${transformImage(src, { w: 1800 })} 1200w
+										`}
+									/>
+									<img src={transformImage(src)} alt={alt} />
+								</picture>
 
-              <div className="Banner-image">
-                <picture>
-                  <source
-                    media={`${SCREEN.lg}`}
-                    sizes={"50vw"}
-                    srcSet={`
-                      ${transformImage(src, {w: 900})} 600w,
-                      ${transformImage(src, {w: 1200})} 800w,
-                      ${transformImage(src, {w: 1500})} 1000w,
-                      ${transformImage(src, {w: 2100})} 1400w,
-                      ${transformImage(src, {w: 2800})} 1800w
-                    `}
-                  />
-                  <source
-                    sizes={"100vw"}
-                    srcSet={`
-                      ${transformImage(src, {w: 600})} 400w,
-                      ${transformImage(src, {w: 900})} 600w,
-                      ${transformImage(src, {w: 1200})} 800w,
-                      ${transformImage(src, {w: 1500})} 1000w,
-                      ${transformImage(src, {w: 1800})} 1200w
-                    `}
-                  />
-                  <img src={transformImage(src)} alt={alt} />
-                </picture>
-
-                <BackButton />
-              </div>
-
-            </Fade>
-          </Banner_Styled>
-        );
-      }}
-    </Sticky>
-  );
+								<BackButton />
+							</div>
+						</Fade>
+					</Banner_Styled>
+				);
+			}}
+		</Sticky>
+	);
 }
 
 /**
  * =Container
-************************************************************/
+ ************************************************************/
 
 const Container_Styled = styled(StickyContainer)`
-  padding-top: ${_baseUnit(4.5)};
-  min-height: 100vh;
+	padding-top: ${_baseUnit(4.5)};
+	min-height: 100vh;
 `;
 
-function Container ({children}) {
-  return (
-    <Container_Styled>
-      {children}
-    </Container_Styled>
-  );
+function Container({ children }) {
+	return <Container_Styled>{children}</Container_Styled>;
 }
 
 /**
  * =OurWorkPage
-************************************************************/
+ ************************************************************/
 
-function setSticky (state) {
-  if (window.matchMedia(SCREEN.lg).matches) {
-    return state.setState({isSticky: true});
-  }
-  return state.setState({isSticky: false});
+function setSticky(state) {
+	if (window.matchMedia(SCREEN.lg).matches) {
+		return state.setState({ isSticky: true });
+	}
+	return state.setState({ isSticky: false });
 }
 
 class OurWorkPage extends Component {
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props);
 
-    this.state = {
-      pageData: props.router.query,
-      isSticky: "",
-    };
-  }
+		this.state = {
+			pageData: props.router.query,
+			isSticky: ""
+		};
+	}
 
-  componentDidMount() {
-    setSticky(this);
-    window.addEventListener("resize", (e) => setSticky(this));
-  }
+	componentDidMount() {
+		setSticky(this);
+		window.addEventListener("resize", e => setSticky(this));
+	}
 
-  render() {
-    const {router} = this.props;
-    const pageData = this.state.pageData;
+	render() {
+		const { router } = this.props;
+		const pageData = this.state.pageData;
 
-    return (
-      <DefaultLayout>
-        <Container>
+		return (
+			<DefaultLayout>
+				<Head
+					pageTitle={pageData.title}
+				/>
 
-          <Banner
-            isSticky={this.state.isSticky}
-            src={pageData.bannerImage}
-            alt={pageData.title}
-          />
+				<Container>
+					<Banner
+						isSticky={this.state.isSticky}
+						src={pageData.bannerImage}
+						alt={pageData.title}
+					/>
 
-          <Content>
-
-            <Copy
-              copy={pageData.body}
-              options={{
-                // title: pageData.title,
-                gallery: pageData.gallery
-              }}
-            />
-
-          </Content>
-        </Container>
-      </DefaultLayout>
-    );
-  }
+					<Content>
+						<Copy
+							copy={pageData.body}
+							options={{
+								// title: pageData.title,
+								gallery: pageData.gallery
+							}}
+						/>
+					</Content>
+				</Container>
+			</DefaultLayout>
+		);
+	}
 }
 
 export default withRouter(OurWorkPage);

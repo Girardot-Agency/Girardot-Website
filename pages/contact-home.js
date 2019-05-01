@@ -11,6 +11,7 @@ import DefaultLayout from "../layouts/default";
 
 import Button from "../components/button";
 import ContentWrapper from "../components/content-wrapper";
+import Head from "../components/head";
 import SectionTitle from "../components/section-title";
 
 import {COL, TYPE} from "../assets/styles/theme/_style";
@@ -68,7 +69,6 @@ function ContactForm (props = {}) {
 
     return (
 		<ContactForm_Styled>
-
 			<NetlifyForm name="Contact Form">
 				{({ loading, error, success }) => (
 					<div>
@@ -149,6 +149,10 @@ class ContactPage extends Component {
 
         return (
             <DefaultLayout>
+				<Head
+					pageTitle={pageData.title}
+				/>
+
                 <SectionTitle title={pageData.title} isHeader={true} />
                 <ContentWrapper>
 					<ContactForm
