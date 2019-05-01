@@ -27,6 +27,12 @@ const ContactForm_Styled = styled.div`
 	width: 100%;
 	max-width: ${_baseUnit(40)};
 
+	.Form-title {
+		color: ${COL.brand_main_base};
+		font-size: ${TYPE.scale.md};
+		margin: ${_baseUnit(5)} 0 ${_baseUnit(2)};
+	}
+
 	.Form-row {
 		margin-top: ${_baseUnit()};
 	}
@@ -87,6 +93,7 @@ function ContactForm(props = {}) {
 						)}
 						{!loading && !success && (
 							<>
+								<h2 className="Form-title">Send us a message</h2>
 								<div className="Form-row">
 									<label>
 										<span>Full name:</span>
