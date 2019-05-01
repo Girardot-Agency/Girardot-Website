@@ -327,7 +327,19 @@ collections:
         file: content/settings/branding.json
         fields:
           - {label: Category, name: category, widget: hidden, default: settings}
-          - {label: Title, name: title, widget: hidden, default: Settings}
+          - {label: Title, name: title, widget: hidden, default: Branding}
           - {label: Logo (main), name: logoMain, widget: image}
           - {label: Logo (grey), name: logoGrey, widget: image}
           - {label: Logo (invert), name: logoInvert, widget: image}
+
+      - label: Map
+        name: map
+        file: content/settings/branding.json
+        fields:
+          - {label: Category, name: category, widget: hidden, default: settings}
+          - {label: Title, name: title, widget: hidden, default: Map}
+          - label: Map
+            name: code
+            widget: markdown
+            buttons:
+              - link
