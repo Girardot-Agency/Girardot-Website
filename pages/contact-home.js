@@ -10,13 +10,14 @@ import styled from "styled-components";
 import DefaultLayout from "../layouts/default";
 
 import Button from "../components/button";
+import Copy from "../components/copy";
 import ContentWrapper from "../components/content-wrapper";
 import Head from "../components/head";
 import Map from "../components/map";
 import SectionTitle from "../components/section-title";
 
 import { COL, TYPE } from "../assets/styles/theme/_style";
-import { _baseUnit } from "../assets/styles/mixins/_style";
+import { _baseUnit, _flex } from "../assets/styles/mixins/_style";
 
 /**
  * =Form
@@ -29,7 +30,7 @@ const ContactForm_Styled = styled.div`
 
 	.Form-title {
 		color: ${COL.brand_main_base};
-		font-size: ${TYPE.scale.md};
+		font-size: ${TYPE.scale.lg};
 		margin: ${_baseUnit(5)} 0 ${_baseUnit(2)};
 	}
 
@@ -38,7 +39,8 @@ const ContactForm_Styled = styled.div`
 	}
 
 	.Form-message {
-		text-align: center;
+		color: ${COL.grey_base};
+		margin-bottom: ${_baseUnit(2)};
 	}
 
 	label,
@@ -77,13 +79,14 @@ function ContactForm(props = {}) {
 			<NetlifyForm name="Contact Form">
 				{({ loading, error, success }) => (
 					<div>
+						<h2 className="Form-title">Send us a message</h2>
+
 						{loading && (
 							<div className="Form-message">Loading...</div>
 						)}
 						{error && (
 							<div className="Form-message">
-								Your information was not sent. Please check your
-								nextwork connection and try again.
+								Your information was not sent. Please ensure all fields are properly completed (or check your network connection).
 							</div>
 						)}
 						{success && (
@@ -93,7 +96,6 @@ function ContactForm(props = {}) {
 						)}
 						{!loading && !success && (
 							<>
-								<h2 className="Form-title">Send us a message</h2>
 								<div className="Form-row">
 									<label>
 										<span>Full name:</span>
@@ -145,6 +147,37 @@ function ContactForm(props = {}) {
 }
 
 /**
+ * =Columns
+************************************************************/
+
+const Columns_Styled = styled.section`
+	${_flex("row")};
+
+	> div {
+		width: 50%;
+	}
+`;
+
+function Columns (props = {}) {
+	let {
+		columnOne,
+		columnTwo
+	} = props;
+
+	return (
+		<Columns_Styled>
+			<div>
+				<Copy copy={columnOne} />
+			</div>
+			<div>
+				<Copy copy={columnTwo} />
+			</div>
+		</Columns_Styled>
+	);
+}
+
+
+/**
  * =Page
  ************************************************************/
 
@@ -170,6 +203,12 @@ class ContactPage extends Component {
 
 				<SectionTitle title={pageData.title} isHeader={true} />
 				<ContentWrapper>
+
+					<Columns
+						columnOne={pageData.columnOne}
+						columnTwo={pageData.columnTwo}
+					/>
+
 					<Map />
 					<ContactForm handleSubmitClick={this.handleSubmitClick.bind(this)} />
 				</ContentWrapper>

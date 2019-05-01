@@ -231,7 +231,6 @@ class OurWorkPage extends Component {
 						<Copy
 							copy={pageData.body}
 							options={{
-								// title: pageData.title,
 								gallery: pageData.gallery
 							}}
 						/>
