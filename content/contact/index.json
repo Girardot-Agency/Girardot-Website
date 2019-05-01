@@ -1,6 +1,8 @@
 {
-    "index": true,
-    "layout": "contact-home",
-    "category": "contact",
-    "title": "Contact"
+  "index": true,
+  "layout": "contact-home",
+  "category": "contact",
+  "title": "Contact",
+  "column_one": "## Contact Girardot\n\nGreencoat House\\\nFrancis Street\\\nLondon SW1P 1DH\n\n<mailto:info@girardot.co.uk>\\\n[+44 (0) 207 931 6246](tel:+442079316246)",
+  "column_two": "## New Business\n\nLexa Palfrey: <mailto:lpalfrey@girardot.co.uk>"
 }
