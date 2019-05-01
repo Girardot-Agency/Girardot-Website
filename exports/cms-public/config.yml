@@ -60,6 +60,36 @@ collections:
               - numbered-list
           - {label: Banner image, name: bannerImage, widget: image}
 
+      # Contact (home)
+      - label: Contact (home)
+        name: contact_home
+        file: content/contact/index.json
+        fields:
+          - {label: Index, name: index, widget: hidden, default: true}
+          - {label: Layout, name: layout, widget: hidden, default: contact-home}
+          - {label: Category, name: category, widget: hidden, default: contact}
+          - {label: Title, name: title, widget: string}
+          - label: Column one
+            name: column_one
+            widget: markdown
+            buttons:
+              - heading-two
+              - bold
+              - italic
+              - link
+              - bulleted-list
+              - numbered-list
+          - label: Column two
+            name: column_two
+            widget: markdown
+            buttons:
+              - heading-two
+              - bold
+              - italic
+              - link
+              - bulleted-list
+              - numbered-list
+
       # Jobs (home)
       - label: Jobs (home)
         name: jobs_home
