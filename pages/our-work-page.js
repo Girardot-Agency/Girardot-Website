@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import Fade from "react-reveal/Fade";
 import { StickyContainer, Sticky } from "react-sticky";
 import styled, { css } from "styled-components";
+import Div100vh from "react-div-100vh";
 
 import DefaultLayout from "../layouts/default";
 
@@ -66,27 +67,34 @@ function Content({ children }) {
  ************************************************************/
 
 const Banner_Styled = styled.div`
+	overflow: hidden;
 	position: relative;
 	z-index: 200;
 
-	${_screen({
-		lg: css`
-			max-width: 50vw;
-			padding-top: ${_baseUnit(4.5)};
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 50vw;
-		`
-	})};
+	${
+		_screen({
+			lg: css`
+				max-width: 50vw;
+				padding-top: ${_baseUnit(5)};
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 50vw;
+			`
+		})
+	};
 
 	.Banner-image {
 		position: relative;
 		padding-bottom: 100%;
 
 		img {
-			max-width: 100%;
+			top: 0;
+			right: 50%;
+			height: 100%;
 			position: absolute;
+			transform: translateX(50%);
+			z-index: 0;
 		}
 	}
 `;
@@ -135,7 +143,7 @@ function Banner({ isSticky, src, alt }) {
 				return (
 					<Banner_Styled style={isSticky ? style : {}}>
 						<Fade left delay={600} duration={600}>
-							<div className="Banner-image">
+							<Div100vh className="Banner-image" style={{height: "calc(100rvh - 75px)"}}>
 								<picture>
 									<source
 										media={`${SCREEN.lg}`}
@@ -162,7 +170,7 @@ function Banner({ isSticky, src, alt }) {
 								</picture>
 
 								<BackButton />
-							</div>
+							</Div100vh>
 						</Fade>
 					</Banner_Styled>
 				);
@@ -176,7 +184,7 @@ function Banner({ isSticky, src, alt }) {
  ************************************************************/
 
 const Container_Styled = styled(StickyContainer)`
-	padding-top: ${_baseUnit(4.5)};
+	padding-top: ${_baseUnit(5)};
 	min-height: 100vh;
 `;
 
