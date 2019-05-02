@@ -24,14 +24,13 @@ const Copy_Styled = styled.div`
 
   h1 {
     font-size: ${TYPE.scale.lg};
-    margin-bottom: ${_baseUnit(5)};
   }
 
   h2 {
-    font-size: ${TYPE.scale.md};
+    font-size: ${TYPE.scale.sm};
   }
 
-  h2, h3, h4, h5, h6, p, img {
+  h1, h2, h3, h4, h5, h6, p, img {
     margin-bottom: ${_baseUnit(2.5)};
 
 	&:not(:first-child) {
