@@ -2,7 +2,7 @@
   "layout": "our-work-page",
   "category": "our-work",
   "title": "Premier Asset Management - Multi Asset Video",
-  "body": "## Premier Asset Management\n\nMulti-Asset video\n\n<Player url=\"https://player.vimeo.com/video/271505718\" />",
+  "body": "# Premier Asset Management\n\nMulti-Asset video\n\n<Player url=\"https://player.vimeo.com/video/271505718\" />",
   "bannerImage": "/static/uploads/banner.jpg",
   "cardImage": "/static/uploads/video-scenes-11.jpg",
   "gallery": [],
