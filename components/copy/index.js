@@ -17,7 +17,7 @@ import {COL, TYPE} from "../../assets/styles/theme/_style";
 ******************************/
 
 const Copy_Styled = styled.div`
-  line-height: 1.5;
+  line-height: 150%;
   margin: 0 auto;
   width: 100%;
     max-width: ${_baseUnit(40)};
@@ -26,16 +26,23 @@ const Copy_Styled = styled.div`
     font-size: ${TYPE.scale.lg};
   }
 
-  h2 {
+  h2, h3, h4, h5, h6 {
     font-size: ${TYPE.scale.sm};
+	margin-bottom: 0;
   }
 
-  h1, h2, h3, h4, h5, h6, p, img {
-    margin-bottom: ${_baseUnit(2.5)};
-
+  h1, h2, h3, h4, h5, h6, p, img, iframe {
 	&:not(:first-child) {
 		margin-top: ${_baseUnit(2.5)};
 	}
+  }
+
+  h2 + p {
+	margin-top: 0 !important;
+  }
+
+  p, img, iframe {
+    margin-bottom: ${_baseUnit(2.5)};
   }
 
   img, iframe {
