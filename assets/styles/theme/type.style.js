@@ -10,7 +10,7 @@ export default {
     xs: "14px",
     sm: "18px",
     md: "22px",
-    lg: "35px",
+    lg: "30px",
     xl: "50px"
   }
 }
