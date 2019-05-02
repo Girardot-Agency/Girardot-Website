@@ -42,10 +42,24 @@ const SubMenuList_Styled = styled.ul`
 `;
 
 function SubMenuItems({ handleClick }) {
-	const ourWorkCategories =
-		exportMap["/our-work/index.html"].query.ourWorkCategoryRels;
+	const ourWorkCategories = exportMap["/our-work/index.html"].query.ourWorkCategoryRels;
+	const ourWorkHome = exportMap["/our-work/index.html"];
 
-	let menuItems = [];
+	let menuItems = [
+		<li key={"all-projects"}>
+			<Link
+				href={{
+					pathname: ourWorkHome.page,
+					query: ourWorkHome.query
+				}}
+				as={ourWorkHome.query.path}
+				scroll={false}
+			>
+				<a onClick={handleClick}>All Projects</a>
+			</Link>
+		</li>
+	];
+
 	ourWorkCategories.map((pageUrl, i) => {
 		const pageData = exportMap[pageUrl];
 		const route = {

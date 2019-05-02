@@ -1,6 +1,6 @@
 import { withRouter } from "next/router";
 import React, { Component } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import DefaultLayout from "../layouts/default";
 
@@ -10,7 +10,7 @@ import Head from "../components/head";
 import SectionTitle from "../components/section-title";
 
 import { transformImage } from "../lib/helpers";
-import { _baseUnit } from "../assets/styles/mixins/_style";
+import { _baseUnit, _flex, _screen } from "../assets/styles/mixins/_style";
 
 /**
  * =Banner
@@ -58,6 +58,47 @@ function Banner(props = {}) {
 }
 
 /**
+ * =Columns
+************************************************************/
+
+const Columns_Styled = styled.div`
+	${ _flex("row") };
+
+	margin-top: -${ _baseUnit(2) };
+	margin-left: -${ _baseUnit(2) };
+
+	.Columns-one,
+	.Columns-two {
+		margin-top: ${ _baseUnit(2) };
+		margin-left: ${ _baseUnit(2) };
+
+		width: calc(100% - ${ _baseUnit(2) });
+
+		${
+			_screen({
+				md: css`
+					width: calc(50% - ${ _baseUnit(2) });
+				`
+			})
+		};
+	}
+`;
+
+function Columns (props = {}) {
+	let {
+		columnOne = "",
+		columnTwo = ""
+	} = props;
+
+	return (
+		<Columns_Styled>
+			<div className="Columns-one">{ columnOne }</div>
+			<div className="Columns-one">{ columnTwo }</div>
+		</Columns_Styled>
+	);
+}
+
+/**
  * =AboutHome
  ************************************************************/
 
@@ -75,18 +116,18 @@ class AboutHome extends Component {
 
 		return (
 			<DefaultLayout>
-				<Head
-					pageTitle={pageData.title}
-				/>
+				<Head pageTitle={pageData.title} />
 
 				<SectionTitle title={pageData.title} isHeader={true} />
 
 				<ContentWrapper>
-					<Banner src={pageData.bannerImage} alt={pageData.title} />
-
-					<Copy
-						copy={pageData.body}
-						options={{ copyStyle: "secondary" }}
+					<Columns
+						columnOne={
+							<Banner src={pageData.bannerImage} alt={pageData.title} />
+						}
+						columnTwo={
+							<Copy copy={pageData.body} options={{ copyStyle: "secondary" }} />
+						}
 					/>
 				</ContentWrapper>
 			</DefaultLayout>
