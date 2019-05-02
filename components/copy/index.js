@@ -17,13 +17,19 @@ import {COL, TYPE} from "../../assets/styles/theme/_style";
 ******************************/
 
 const Copy_Styled = styled.div`
-  line-height: 150%;
   margin: 0 auto;
   width: 100%;
     max-width: ${_baseUnit(40)};
 
   h1 {
     font-size: ${TYPE.scale.lg};
+
+	> em {
+		line-height: 100%;
+		font-size: ${TYPE.scale.sm};
+		display: block;
+		font-style: normal;
+	}
   }
 
   h2, h3, h4, h5, h6 {
@@ -32,6 +38,8 @@ const Copy_Styled = styled.div`
   }
 
   h1, h2, h3, h4, h5, h6, p, img, iframe {
+	line-height: 150%;
+
 	&:not(:first-child) {
 		margin-top: ${_baseUnit(2.5)};
 	}

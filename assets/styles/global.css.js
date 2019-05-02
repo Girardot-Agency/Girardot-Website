@@ -7,16 +7,18 @@ export default createGlobalStyle`
 
   @font-face {
     font-family: "apercu";
+	font-weight: normal;
     src: url("/static/fonts/apercu.ttf") format("truetype");
   }
 
   @font-face {
     font-family: "apercu-bold";
+	font-weight: normal;
     src: url("/static/fonts/apercu-bold.ttf") format("truetype");
   }
 
   html {
-    font-family: "apercu", sans-serif;
+    font-family: ${TYPE.ff.main};
     font-size: ${TYPE.scale.sm};
   }
 
@@ -25,6 +27,10 @@ export default createGlobalStyle`
 
     color: inherit;
     text-decoration: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: ${TYPE.ff.main_bold};
   }
 
   .ReactModal__Overlay {

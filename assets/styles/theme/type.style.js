@@ -5,6 +5,7 @@
 export default {
   ff: {
     main: "'apercu', sans-serif",
+    main_bold: "'apercu-bold', sans-serif"
   },
   scale: {
     xs: "14px",
