@@ -62,18 +62,21 @@ function SubMenuItems({ handleClick }) {
 
 	ourWorkCategories.map((pageUrl, i) => {
 		const pageData = exportMap[pageUrl];
-		const route = {
-			pathname: pageData.page,
-			query: pageData.query
-		};
 
-		menuItems.push(
-			<li key={`category-${i}`}>
-				<Link href={route} as={pageData.query.path} scroll={false}>
-					<a onClick={handleClick}>{pageData.query.title}</a>
-				</Link>
-			</li>
-		);
+		if (pageData && pageData !== undefined) {
+			const route = {
+				pathname: pageData.page,
+				query: pageData.query
+			};
+
+			menuItems.push(
+				<li key={`category-${i}`}>
+					<Link href={route} as={pageData.query.path} scroll={false}>
+						<a onClick={handleClick}>{pageData.query.title}</a>
+					</Link>
+				</li>
+			);
+		}
 	});
 
 	return <SubMenuList_Styled>{menuItems}</SubMenuList_Styled>;
