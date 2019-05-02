@@ -65,15 +65,17 @@ const Copy_Styled = styled.div`
 
 export default function (props = {}) {
   let defaultOptions = {
-    copyStyle: "primary",
+    copyStyle: "secondary",
     gallery: false,
     title: false
   };
 
   let {
     copy,
-    options = defaultOptions,
+    options
   } = props;
+
+  options = Object.assign({}, defaultOptions, options);
 
   let markdownOpts = {
     overrides: {
