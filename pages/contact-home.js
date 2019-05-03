@@ -10,6 +10,7 @@ import styled from "styled-components";
 import DefaultLayout from "../layouts/default";
 
 import Button from "../components/button";
+import Columns from "../components/columns";
 import Copy from "../components/copy";
 import ContentWrapper from "../components/content-wrapper";
 import Head from "../components/head";
@@ -149,50 +150,6 @@ function ContactForm(props = {}) {
 }
 
 /**
- * =Columns
-************************************************************/
-
-const Columns_Styled = styled.section`
-	border-top: 2px solid ${COL.grey_light};
-	margin: ${_baseUnit(2.5)} auto 0;
-	width: 100%;
-		max-width: ${_baseUnit(40)};
-	padding-top: ${_baseUnit(2.5)};
-
-	.Columns-inner {
-		${_flex("row")};
-
-		margin: -${_baseUnit(2)} 0 0 -${_baseUnit(2)};
-	}
-
-	.Columns-col {
-		width: calc(50% - ${_baseUnit(2)});
-		margin: ${_baseUnit(2)} 0 0 ${_baseUnit(2)};
-	}
-`;
-
-function Columns (props = {}) {
-	let {
-		columnOne,
-		columnTwo
-	} = props;
-
-	return (
-		<Columns_Styled>
-			<div className="Columns-inner">
-				<div className="Columns-col">
-					<Copy copy={columnOne} options={{copyStyle: "secondary"}} />
-				</div>
-				<div className="Columns-col">
-					<Copy copy={columnTwo} options={{copyStyle: "secondary"}} />
-				</div>
-			</div>
-		</Columns_Styled>
-	);
-}
-
-
-/**
  * =Page
  ************************************************************/
 
@@ -218,14 +175,17 @@ class ContactPage extends Component {
 
 				<SectionTitle title={pageData.title} isHeader={true} />
 				<ContentWrapper>
-					<Map />
-
-					<ContactForm handleSubmitClick={this.handleSubmitClick.bind(this)} />
-
 					<Columns
-						columnOne={pageData.columnOne}
-						columnTwo={pageData.columnTwo}
+						split="oneAndThree"
+						colOne={
+							<Copy
+								copy={ pageData.columnOne }
+								options={{copyStyle: "secondary"}}
+							/>
+						}
+						colTwo={ <Map /> }
 					/>
+					<ContactForm handleSubmitClick={this.handleSubmitClick.bind(this)} />
 				</ContentWrapper>
 			</DefaultLayout>
 		);

@@ -69,18 +69,8 @@ collections:
           - {label: Layout, name: layout, widget: hidden, default: contact-home}
           - {label: Category, name: category, widget: hidden, default: contact}
           - {label: Title, name: title, widget: string}
-          - label: Column one
-            name: columnOne
-            widget: markdown
-            buttons:
-              - heading-two
-              - bold
-              - italic
-              - link
-              - bulleted-list
-              - numbered-list
-          - label: Column two
-            name: columnTwo
+          - label: Contact text
+            name: body
             widget: markdown
             buttons:
               - heading-two
