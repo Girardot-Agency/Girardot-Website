@@ -1,4 +1,5 @@
-import {createGlobalStyle} from "styled-components";
+import { createGlobalStyle } from "styled-components";
+import { COL } from "../../assets/styles/theme/_style";
 
 export default createGlobalStyle`
   @keyframes closeWindow {
@@ -105,12 +106,15 @@ export default createGlobalStyle`
 
   .ril__caption,
   .ril__toolbar {
-    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     left: 0;
     right: 0;
     display: flex;
     justify-content: space-between;
+  }
+
+  .ril__caption {
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   .ril__caption {
@@ -344,5 +348,15 @@ export default createGlobalStyle`
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
+  }
+
+  /* Custom */
+  .ril__builtinButton {
+	  background-color: ${ COL.brand_main_base };
+	  opacity: 1;
+
+	  &:hover {
+		  opacity: .75;
+	  }
   }
 `;
