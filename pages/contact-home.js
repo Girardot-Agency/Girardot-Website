@@ -25,7 +25,7 @@ import { _baseUnit, _flex } from "../assets/styles/mixins/_style";
  ************************************************************/
 
 const ContactForm_Styled = styled.div`
-	border-top: 2px solid ${COL.grey_light};
+	/* border-top: 2px solid ${COL.grey_light}; */
 	margin: ${_baseUnit(2.5)} auto 0;
 	padding-top: ${_baseUnit(2.5)};
 	width: 100%;
@@ -179,7 +179,7 @@ class ContactPage extends Component {
 						split="oneAndThree"
 						colOne={
 							<Copy
-								copy={ pageData.columnOne }
+								copy={ pageData.body }
 								options={{copyStyle: "secondary"}}
 							/>
 						}
