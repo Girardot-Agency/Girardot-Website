@@ -30,7 +30,7 @@ export default createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: ${TYPE.ff.main_bold};
+    /* font-family: ${TYPE.ff.main_bold}; */
   }
 
   .ReactModal__Overlay {
