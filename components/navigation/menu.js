@@ -1,148 +1,147 @@
 /**
  * =Menu
-************************************************************/
+ ************************************************************/
 
 import Link from "next/link";
-import {slideInDown, slideOutUp} from "react-animations";
+import { slideInDown, slideOutUp } from "react-animations";
 import Div100vh from "react-div-100vh";
-import styled, {css, keyframes} from "styled-components";
-
+import styled, { css, keyframes } from "styled-components";
 
 // Themes/mixins/helpers
-import {_baseUnit, _flex, _hover, _center, _screen} from "../../assets/styles/mixins/_style";
-import {COL, TYPE} from "../../assets/styles/theme/_style";
-import {getPagesData} from "../../lib/helpers";
+import {
+	_baseUnit,
+	_flex,
+	_hover,
+	_center,
+	_screen
+} from "../../assets/styles/mixins/_style";
+import { COL, TYPE } from "../../assets/styles/theme/_style";
+import { getPagesData } from "../../lib/helpers";
 
 /**
  * =Styles
-******************************/
+ ******************************/
 
 const animateMenuDown = keyframes`${slideInDown}`;
 const animateMenuUp = keyframes`${slideOutUp}`;
 
 const Menu_Styled = styled(Div100vh)`
-  background-color: ${COL.brand_main_base};
-  left: 0;
-    top: 0;
-  overflow-y: auto;
-  position: fixed;
-  transform: translateY(-100%);
-  width: 100vw;
-  z-index: 600;
+	background-color: ${COL.brand_main_base};
+	left: 0;
+	top: 0;
+	overflow-y: auto;
+	position: fixed;
+	transform: translateY(-100%);
+	width: 100vw;
+	z-index: 600;
 
-  &.is-inactive {
-    animation: .8s ${animateMenuUp};
-  }
+	&.is-inactive {
+		animation: 0.8s ${animateMenuUp};
+	}
 
-  &.is-active {
-    animation: .8s ${animateMenuDown};
-    transform: translateY(0);
-  }
+	&.is-active {
+		animation: 0.8s ${animateMenuDown};
+		transform: translateY(0);
+	}
 
-  .Menu-inner {
-    ${_flex("columnCenterAll")};
+	.Menu-inner {
+		${_flex("columnCenterAll")};
 
-    padding: ${_baseUnit(3)} 0 0;
-    width: 100%;
-    height: inherit;
+		padding: ${_baseUnit(3)} 0 0;
+		width: 100%;
+		height: inherit;
 
-    ${
-      _screen({
-        sm: css`padding: ${_baseUnit(4)} 0 0;`,
-        lg: css`padding: ${_baseUnit(5)} 0 0;`
-      })
-    };
-  }
+		${_screen({
+			sm: css`
+				padding: ${_baseUnit(4)} 0 0;
+			`,
+			lg: css`
+				padding: ${_baseUnit(5)} 0 0;
+			`
+		})};
+	}
 
-  .Menu-list {
-    font-size: ${TYPE.scale.lg};
-    padding: 1em 0;
-    position: relative;
-    text-align: center;
+	.Menu-list {
+		font-size: ${TYPE.scale.lg};
+		padding: 1em 0;
+		position: relative;
+		text-align: center;
 
-    &::before,
-    &::after {
-      ${_center("x", "relative")};
+		&::before,
+		&::after {
+			${_center("x", "relative")};
 
-      content: "";
-      display: block;
-      width: ${_baseUnit(3.5)};
+			content: "";
+			display: block;
+			width: ${_baseUnit(3.5)};
+		}
+		&::before {
+			border-top: ${_baseUnit(0.25)} solid ${COL.white};
+			padding-top: 1em;
+		}
+		&::after {
+			border-bottom: ${_baseUnit(0.25)} solid ${COL.white};
+			padding-bottom: 1em;
+		}
+	}
 
-    } &::before {
-      border-top: ${_baseUnit(.25)} solid ${COL.white};
-      padding-top: 1em;
+	.Menu-item {
+		text-transform: uppercase;
 
-    } &::after {
-      border-bottom: ${_baseUnit(.25)} solid ${COL.white};
-      padding-bottom: 1em;
-    }
-  }
+		&:not(:last-child) {
+			margin-bottom: 0.75em;
+		}
 
-  .Menu-item {
-    text-transform: uppercase;
-
-    &:not(:last-child) {
-      margin-bottom: .75em;
-    }
-
-    & > a {
-      ${_hover(COL.white, COL.white_opaque)};
-    }
-  }
+		& > a {
+			${_hover(COL.white, COL.white_opaque)};
+		}
+	}
 `;
 
 /**
  * =Component
-******************************/
+ ******************************/
 
-function Menu ({handleClick, activeClass}) {
-  const indexPages = getPagesData(/^(?!\/index.html)(.*\/index.html)/);
+function Menu({ handleClick, activeClass }) {
+	let listItems = [
+		<li className="Menu-item" key={`page-home`}>
+			<Link href="/">
+				<a onClick={handleClick}>Home</a>
+			</Link>
+		</li>
+	];
 
-  let listItems = [(
-    <li className="Menu-item" key={`page-home`}>
-      <Link
-        href="/"
-      >
-        <a onClick={handleClick}>Home</a>
-      </Link>
-    </li>
-  )];
+	let indexPages = getPagesData(/^(?!\/index.html)(.*\/index.html)/);
+	// let indexPages2 = getPagesData(/^(\/our-work\/index.html|\/testimonials\/index.html|\/about\/index.html|\/our-people\/index.html|\/jobs\/index.html|\/contact\/index.html)/);
 
-  indexPages.map((item, index) => {
-    // const slug = item.slug.replace(/(\/index)?\.html$/, "");
-    const title = item.data.query.title;
+	indexPages.map((item, index) => {
+		const title = item.data.query.title;
 
-    const route = {
-      pathname: item.data.page,
-      query: item.data.query
-    };
+		const route = {
+			pathname: item.data.page,
+			query: item.data.query
+		};
 
-    listItems.push(
-      <li className="Menu-item" key={`page-${index}`}>
-        <Link
-          href={route}
-          as={item.data.query.path}
-          scroll={false}
-        >
-          <a onClick={handleClick}>{title}</a>
-        </Link>
-      </li>
-    );
-  });
+		listItems.push(
+			<li className="Menu-item" key={`page-${index}`}>
+				<Link href={route} as={item.data.query.path} scroll={false}>
+					<a onClick={handleClick}>{title}</a>
+				</Link>
+			</li>
+		);
+	});
 
-  return (
-    <Menu_Styled
-      id="Menu"
-      className={activeClass}
-      style={{height: "100rvh"}}
-    >
-      <div className="Menu-inner">
-        <ul className="Menu-list">
-          {listItems}
-        </ul>
-      </div>
-    </Menu_Styled>
-  );
+	return (
+		<Menu_Styled
+			id="Menu"
+			className={activeClass}
+			style={{ height: "100rvh" }}
+		>
+			<div className="Menu-inner">
+				<ul className="Menu-list">{listItems}</ul>
+			</div>
+		</Menu_Styled>
+	);
 }
 
-export default Menu
+export default Menu;

@@ -342,6 +342,26 @@ collections:
             buttons:
               - link
 
+      - label: Menu
+        name: menu
+        file: content/settings/menu.json
+        fields:
+          - {label: Category, name: category, widget: hidden, default: settings}
+          - {label: Title, name: title, widget: hidden, default: Menu}
+          - label: Navigation pages
+            name: navigationRels
+            widget: list
+            allow_add: true
+            field:
+              label: Page
+              name: navigationPage
+              widget: relation
+              collection: static
+              searchFields: ["title"]
+              displayFields: ["title"]
+              valueField: "title"
+              multiple: false
+
       - label: Branding
         name: branding
         file: content/settings/branding.json
