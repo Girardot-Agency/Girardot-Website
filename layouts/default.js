@@ -30,7 +30,7 @@ class DefaultLayout extends Component {
     this.timeoutId = setTimeout(() => {
       this.props.pageTransitionReadyToEnter();
       this.setState({ loaded: true });
-    }, 100);
+    }, 600);
   }
 
   componentWillUnmount () {

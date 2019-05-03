@@ -2,9 +2,8 @@ import React from "react";
 import App, { Container } from "next/app";
 import { PageTransition } from "next-page-transitions";
 
-import styled, {createGlobalStyle} from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
-import CustomHead from "../components/head";
 import Navigation from "../components/navigation";
 
 import GlobalStyles from "../assets/styles/global.css";
@@ -12,7 +11,7 @@ import ResetStyles from "../assets/styles/reset.css";
 
 /**
  * =Page transition
-************************************************************/
+ ************************************************************/
 
 const PageTransitionStyles = createGlobalStyle`
   .PageTran-enter {
@@ -38,46 +37,40 @@ const PageTransitionStyles = createGlobalStyle`
 
 /**
  * =APP
-************************************************************/
+ ************************************************************/
 
 export default class Girardot extends App {
-  static async getInitialProps ({Component, ctx}) {
-    let pageProps = {};
+	static async getInitialProps({ Component, ctx }) {
+		let pageProps = {};
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-    return {pageProps};
-  }
+		if (Component.getInitialProps) {
+			pageProps = await Component.getInitialProps(ctx);
+		}
+		return { pageProps };
+	}
 
-  render () {
-    const {Component, pageProps, router} = this.props;
+	render() {
+		const { Component, pageProps, router } = this.props;
 
-    return (
-      <Container>
-        <Navigation />
+		return (
+			<Container>
+				<Navigation />
 
-        {/* Main content */}
-        <PageTransition
-          classNames="PageTran"
-          loadingDelay={100}
-          monkeyPatchScrolling={true}
-          skipInitialTransition
-          timeout={650}
-        >
+				{/* Main content */}
+				<PageTransition
+					classNames="PageTran"
+					loadingDelay={600}
+					monkeyPatchScrolling={true}
+					timeout={600}
+				>
+					<Component {...pageProps} key={router.route} />
+				</PageTransition>
 
-          <Component
-            {...pageProps}
-            key={router.route}
-          />
-
-        </PageTransition>
-
-        {/* Styles */}
-        <ResetStyles />
-        <GlobalStyles />
-        <PageTransitionStyles />
-      </Container>
-    );
-  }
+				{/* Styles */}
+				<ResetStyles />
+				<GlobalStyles />
+				<PageTransitionStyles />
+			</Container>
+		);
+	}
 }

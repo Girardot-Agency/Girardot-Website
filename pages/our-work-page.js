@@ -116,7 +116,9 @@ class BackButton extends Component {
 	}
 
 	handleBackClick() {
-		return Router.back();
+		return setTimeout(() => {
+			Router.back();
+		}, 600);
 	}
 
 	render() {
@@ -148,7 +150,7 @@ function Banner({ isSticky, src, alt }) {
 									<source
 										media={`${SCREEN.lg}`}
 										sizes={"50vw"}
-										srcset={`
+										srcSet={`
 											${transformImage(src, { w: 900 })} 600w,
 											${transformImage(src, { w: 1200 })} 800w,
 											${transformImage(src, { w: 1500 })} 1000w,
@@ -158,7 +160,7 @@ function Banner({ isSticky, src, alt }) {
 									/>
 									<source
 										sizes={"100vw"}
-										srcset={`
+										srcSet={`
 											${transformImage(src, { w: 600 })} 400w,
 											${transformImage(src, { w: 900 })} 600w,
 											${transformImage(src, { w: 1200 })} 800w,

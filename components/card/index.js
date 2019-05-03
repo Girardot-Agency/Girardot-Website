@@ -21,7 +21,7 @@ import exportMap from "../../static/db/export-map.json";
  * =Card:styles
  ******************************/
 
-const Card_Styled = styled.section `
+const Card_Styled = styled.section`
   overflow: hidden;
   position: relative;
 
