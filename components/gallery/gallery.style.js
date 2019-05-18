@@ -148,13 +148,13 @@ export default createGlobalStyle`
 
   .ril__toolbarRightSide {
     padding-left: 0;
-    padding-right: 20px;
+    padding-right: 0;
     flex: 0 0 auto;
   }
 
   .ril__toolbarItem {
     display: inline-block;
-    line-height: 50px;
+    /* line-height: 50px; */
     padding: 0;
     color: #fff;
     font-size: 120%;
