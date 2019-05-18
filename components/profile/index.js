@@ -5,6 +5,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import Markdown from "markdown-to-jsx";
 
 // External parts
@@ -111,13 +112,25 @@ class Profile extends Component {
 		};
 	}
 
+	targetElement = null;
+
+	componentDidMount() {
+		this.targetElement = document.querySelector(`#${this.props.key}`);
+	}
+
 	handleOpenModal() {
+		disableBodyScroll(this.targetElement, {
+			reserveScrollBarGap: true
+		});
+
 		this.setState({
 			modalIsOpen: true
 		});
 	}
 
 	handleCloseModal() {
+		enableBodyScroll(this.targetElement);
+
 		this.setState({
 			modalIsOpen: false
 		});
