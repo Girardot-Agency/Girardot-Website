@@ -54,11 +54,13 @@ export default class Gallery extends Component {
 
     return (
       <div>
-        <Button
+		{/* <h2>Image gallery</h2> */}
+
+		<Button
           handleClick={this.handleClick.bind(this)}
           options={{
             type: "cta",
-            text: "Open gallery"
+            text: "View gallery"
           }}
         />
 

@@ -54,7 +54,9 @@ const Button_Styled = styled.button`
 export default function(props = {}) {
 	let defaultOptions = {
 		align: false,
+		icons: false,
 		shrink: false,
+		size: "medium",
 		style: "primary",
 		text: false,
 		type: "cta"
@@ -73,7 +75,9 @@ export default function(props = {}) {
 				options.type === "cta" && (
 					<CTA
 						options={{
+							icon: options.icon,
 							shrink: options.shrink,
+							size: options.size,
 							style: options.style,
 							text: options.text,
 							type: "text"
@@ -81,7 +85,6 @@ export default function(props = {}) {
 					/>
 				)
 			}
-
 			{
 				options.type === "hmbgr"
 				&& <Hmbgr activeClass={activeClass} />
