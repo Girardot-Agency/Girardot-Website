@@ -13,6 +13,7 @@ import Button from "../button";
 import GalleryStyle from "./gallery.style";
 
 // Mixins/Themes etc
+import { PUBLIC } from "../../lib/_config";
 import {_transition} from "../../assets/styles/mixins/_style"
 
 /**
@@ -67,9 +68,9 @@ export default class Gallery extends Component {
 
         {isOpen && (
           <Lightbox
-            mainSrc={this.props.images[photoIndex]}
-            nextSrc={this.props.images[(photoIndex + 1) % this.props.images.length]}
-            prevSrc={this.props.images[(photoIndex + this.props.images.length - 1) % this.props.images.length]}
+            mainSrc={`${PUBLIC.path}${this.props.images[photoIndex]}`}
+            nextSrc={`${PUBLIC.path}${this.props.images[(photoIndex + 1) % this.props.images.length]}`}
+            prevSrc={`${PUBLIC.path}${this.props.images[(photoIndex + this.props.images.length - 1) % this.props.images.length]}`}
             onCloseRequest={() => this.setState({ isOpen: false })}
             onMovePrevRequest={() =>
               this.setState({
