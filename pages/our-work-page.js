@@ -93,7 +93,7 @@ const Banner_Styled = styled.div`
 			/* right: 50%; */
 			right: 0;
 			min-height: 100%;
-			max-height: 100%;
+			min-width: 100%;
 			position: absolute;
 			/* transform: translateX(50%); */
 			z-index: 0;
