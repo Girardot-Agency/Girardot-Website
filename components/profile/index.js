@@ -12,6 +12,7 @@ import Markdown from "markdown-to-jsx";
 import Modal from "../modal";
 
 // Misins/theme/helpers etc
+import { PUBLIC } from "../../lib/_config";
 import { _transition, _baseUnit } from "../../assets/styles/mixins/_style";
 import { COL, TYPE } from "../../assets/styles/theme/_style";
 import exportMap from "../../static/db/export-map.json";
@@ -141,7 +142,7 @@ class Profile extends Component {
 			<Profile_Styled>
 				<img
 					className="Profile-image"
-					src={this.props.profileImage}
+					src={`${PUBLIC.path}${this.props.profileImage}`}
 					alt={this.props.title}
 				/>
 
