@@ -68,7 +68,7 @@ export default function(props = {}) {
 
 	return (
 		<Button_Styled
-			className={`Button--${options.align}`}
+			className={options.align && `Button--${options.align}`}
 			onClick={handleClick}
 		>
 			{

@@ -5,7 +5,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 
 import Button from "../button";
 
-import { _baseUnit, _flex, _transition } from "../../assets/styles/mixins/_style";
+import { _baseUnit, _center, _flex, _transition } from "../../assets/styles/mixins/_style";
 import { COL } from "../../assets/styles/theme/_style";
 
 /**
@@ -22,6 +22,10 @@ const PlayerWrapper_Styled = styled.div`
 		line-height: 0;
 		right: 0;
 		z-index: 1;
+	}
+
+	.PlayerWrapper-playButton {
+		display: none;
 	}
 
 	&.isOpen {
@@ -43,6 +47,13 @@ const PlayerWrapper_Styled = styled.div`
 
 		.PlayerWrapper-button {
 			top: 0;
+		}
+
+		.PlayerWrapper-playButton {
+			${ _center("xy") };
+
+			display: block;
+			z-index: 1;
 		}
 	}
 `;
@@ -164,6 +175,23 @@ export default class Player extends Component {
 						margin: this.state.isOpen ? "0" : "50px 0"
 					}}
 				>
+					{ this.state.isOpen
+						&& (
+							<div className="PlayerWrapper-playButton">
+								<Button
+									handleClick={this.handlePlay.bind(this)}
+									options={{
+										icon: this.state.isPlaying
+											? "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxLjQxNDIxOyI+CiAgICA8cGF0aCBkPSJNOTYsNDQ4TDIwMi43LDQ0OEwyMDIuNyw2NEw5Niw2NEw5Niw0NDhaTTMwOS4zLDY0TDMwOS4zLDQ0OEw0MTYsNDQ4TDQxNiw2NEwzMDkuMyw2NFoiIHN0eWxlPSJmaWxsOndoaXRlO2ZpbGwtcnVsZTpub256ZXJvOyIvPgo8L3N2Zz4K"
+											: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxLjQxNDIxOyI+CiAgICA8cGF0aCBkPSJNOTYsNTJMOTYsNDYwTDQxNiwyNTZMOTYsNTJaIiBzdHlsZT0iZmlsbDp3aGl0ZTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KPC9zdmc+Cg==",
+										size: "icon",
+										type: "cta",
+										style: "tertiary"
+									}}
+								/>
+							</div>
+						)
+					}
 					<ReactPlayer
 						playing={ this.state.isPlaying }
 						onEnded={ this.onEnded.bind(this) }

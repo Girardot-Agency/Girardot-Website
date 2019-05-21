@@ -35,6 +35,7 @@ const CTA_Styled = styled.div`
 		font-size: ${TYPE.scale.xs};
 		height: ${_baseUnit(2)};
 		width: auto;
+		padding: 4px 2px;
 
 		.CTA-inner {
 			padding: 0;
