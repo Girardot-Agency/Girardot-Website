@@ -64,7 +64,7 @@ export default class Gallery extends Component {
 
         <FeaturedImage_Styled
           onClick={this.handleClick.bind(this)}
-          src={this.props.images[0]} />
+          src={`${PUBLIC.path}${this.props.images[0]}`} />
 
         {isOpen && (
           <Lightbox
