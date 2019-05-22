@@ -16,7 +16,7 @@ const PlayerWrapper_Styled = styled.div`
 	position: relative;
 	box-shadow: 1px 4px 11px -3px rgba(0, 0, 0, 0.35);
 
-	.PlayerWrapper-button {
+	.PlayerWrapper-controls {
 		position: absolute;
 		bottom: 0;
 		line-height: 0;
@@ -27,9 +27,10 @@ const PlayerWrapper_Styled = styled.div`
 	.PlayerWrapper-playButton {
 		${_transition()};
 
+		cursor: pointer;
 		display: none;
-		width: 100%;
 		height: 100%;
+		width: 100%;
 
 		> * {
 			${_center("xy")};
@@ -60,7 +61,7 @@ const PlayerWrapper_Styled = styled.div`
 			max-width: 100%;
 		}
 
-		.PlayerWrapper-button {
+		.PlayerWrapper-controls {
 			top: 0;
 		}
 
@@ -156,7 +157,7 @@ export default class Player extends Component {
 				aspectRatio={this.state.aspectRatio}
 			>
 
-				<div className="PlayerWrapper-button">
+				<div className="PlayerWrapper-controls">
 					{ !this.state.branding && (
 						<Button
 							handleClick={this.handlePlay.bind(this)}
@@ -193,6 +194,7 @@ export default class Player extends Component {
 					{ this.state.isOpen
 						&& (
 							<div
+								onClick={this.handlePlay.bind(this)}
 								className={`PlayerWrapper-playButton ${this.state.isPlaying && "isPlaying"}`}
 							>
 								<Button
