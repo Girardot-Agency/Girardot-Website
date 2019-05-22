@@ -30,6 +30,7 @@ const Menu_Styled = styled(Div100vh)`
 	left: 0;
 	top: 0;
 	overflow-y: auto;
+	padding-top: ${_baseUnit(5)};
 	position: fixed;
 	transform: translateY(-100%);
 	width: 100vw;
@@ -47,18 +48,9 @@ const Menu_Styled = styled(Div100vh)`
 	.Menu-inner {
 		${_flex("columnCenterAll")};
 
-		padding: ${_baseUnit(3)} 0 0; /* 3 */
+		background-color: ${COL.brand_main_base};
 		width: 100%;
-		height: inherit;
-
-		${_screen({
-			sm: css`
-				padding: ${_baseUnit(4)} 0 0; /* 4 */
-			`,
-			lg: css`
-				padding: ${_baseUnit(5)} 0 0; /* 5 */
-			`
-		})};
+		min-height: 100%;
 	}
 
 	.Menu-list {

@@ -25,7 +25,22 @@ const PlayerWrapper_Styled = styled.div`
 	}
 
 	.PlayerWrapper-playButton {
+		${_transition()};
+
 		display: none;
+		width: 100%;
+		height: 100%;
+
+		> * {
+			${_center("xy")};
+			${_transition()};
+		}
+
+		&.isPlaying {
+			> * {
+				opacity: 0;
+			}
+		}
 	}
 
 	&.isOpen {
@@ -177,7 +192,9 @@ export default class Player extends Component {
 				>
 					{ this.state.isOpen
 						&& (
-							<div className="PlayerWrapper-playButton">
+							<div
+								className={`PlayerWrapper-playButton ${this.state.isPlaying && "isPlaying"}`}
+							>
 								<Button
 									handleClick={this.handlePlay.bind(this)}
 									options={{

@@ -55,7 +55,7 @@ const Hero_SC = styled(Div100vh)`
       color: ${COL.white};
       display: block;
       font-size: ${TYPE.scale.sm};
-      top: -${_baseUnit(4)};
+      top: -${_baseUnit(3)};
     }
   }
 `;
