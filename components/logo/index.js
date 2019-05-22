@@ -4,6 +4,7 @@
 
 import styled from "styled-components";
 
+import { PUBLIC } from "../../lib/_config";
 import branding from "../../content/settings/branding.json";
 
 /**
@@ -46,7 +47,7 @@ export default function (props = {}) {
       size={size}
 
       width={size.default}
-      src={src}
+      src={`${PUBLIC.path}${src}`}
       alt="Girardot logo" />
   );
 }

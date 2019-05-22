@@ -35,8 +35,9 @@ const Card_Styled = styled.section`
     position: relative;
 
     img {
-      ${_transition()};
+		${_transition()};
 
+	  background-color: ${COL.grey_lightest};
       position: absolute;
       top: 0;
         left: 0;

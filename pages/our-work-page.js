@@ -90,10 +90,11 @@ const Banner_Styled = styled.div`
 
 		img {
 			top: 0;
-			right: 50%;
-			height: 100%;
+			left: 50%;
+			min-height: 100%;
+			min-width: 100%;
 			position: absolute;
-			transform: translateX(50%);
+			transform: translateX(-50%);
 			z-index: 0;
 		}
 	}
@@ -105,7 +106,7 @@ const BackButton_Styled = styled.div`
 
 	${_screen({
 		lg: css`
-			bottom: 20%;
+			bottom: 22.5%;
 		`
 	})};
 `;

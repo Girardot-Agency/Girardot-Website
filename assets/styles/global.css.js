@@ -1,7 +1,7 @@
-import {createGlobalStyle} from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
-import {TYPE} from "./theme/_style";
-import {_transition} from "./mixins/_style";
+import { TYPE } from "./theme/_style";
+import { _transition } from "./mixins/_style";
 
 export default createGlobalStyle`
 

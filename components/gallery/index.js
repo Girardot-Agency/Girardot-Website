@@ -13,6 +13,7 @@ import Button from "../button";
 import GalleryStyle from "./gallery.style";
 
 // Mixins/Themes etc
+import { PUBLIC } from "../../lib/_config";
 import {_transition} from "../../assets/styles/mixins/_style"
 
 /**
@@ -53,23 +54,25 @@ export default class Gallery extends Component {
 
     return (
       <div>
-        <Button
+		{/* <h2>Image gallery</h2> */}
+
+		<Button
           handleClick={this.handleClick.bind(this)}
           options={{
             type: "cta",
-            text: "Open gallery"
+            text: "View gallery"
           }}
         />
 
         <FeaturedImage_Styled
           onClick={this.handleClick.bind(this)}
-          src={this.props.images[0]} />
+          src={`${PUBLIC.path}${this.props.images[0]}`} />
 
         {isOpen && (
           <Lightbox
-            mainSrc={this.props.images[photoIndex]}
-            nextSrc={this.props.images[(photoIndex + 1) % this.props.images.length]}
-            prevSrc={this.props.images[(photoIndex + this.props.images.length - 1) % this.props.images.length]}
+            mainSrc={`${PUBLIC.path}${this.props.images[photoIndex]}`}
+            nextSrc={`${PUBLIC.path}${this.props.images[(photoIndex + 1) % this.props.images.length]}`}
+            prevSrc={`${PUBLIC.path}${this.props.images[(photoIndex + this.props.images.length - 1) % this.props.images.length]}`}
             onCloseRequest={() => this.setState({ isOpen: false })}
             onMovePrevRequest={() =>
               this.setState({
