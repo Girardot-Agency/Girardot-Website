@@ -25,10 +25,11 @@ const Copy_Styled = styled.div`
 		font-size: ${TYPE.scale.lg};
 
 		> em {
-			line-height: 100%;
-			font-size: ${TYPE.scale.sm};
+			color: ${COL.black};
 			display: block;
+			font-size: ${TYPE.scale.sm};
 			font-style: normal;
+			line-height: 100%;
 		}
 	}
 

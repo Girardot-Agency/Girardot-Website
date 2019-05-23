@@ -22,6 +22,8 @@ export default {
 
   white: "hsla(0, 100%, 100%, 1)",
   white_opaque: "hsla(0, 100%, 100%, .75)",
+  black: "hsla(0, 0%, 0%, 1)",
+  black_opaque: "hsla(0, 0%, 0%, .75)",
 
   grey_lightest: "hsla(0, 0%, 95%, 1)",
   grey_light: "hsla(0, 0%, 85%, 1)",
