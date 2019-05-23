@@ -1,8 +1,8 @@
 {
   "layout": "our-work-page",
   "category": "our-work",
-  "title": "Girardot",
-  "body": "Girardot Video",
+  "title": "Girardot Advertising",
+  "body": "<Player url=\"https://player.vimeo.com/video/333361214\" branding=\"show\"/>",
   "bannerImage": "/static/uploads/girardotbanner.jpg",
   "cardImage": "/static/uploads/girardotcard.jpg",
   "gallery": [],
