@@ -2,7 +2,7 @@
   "layout": "our-work-page",
   "category": "our-work",
   "title": "Girardot Advertising",
-  "body": "<Player url=\"https://player.vimeo.com/video/333361214\" branding=\"show\"/>\n\n# Practising what we preach.\n\nIn our video we explain the benefits of video content and animated graphics.\n\nA series of facts show the benefits of using video content, particularly if it’s creative and well constructed.\n\nIf you’re thinking video, think Girardot.",
+  "body": "# Practising what we preach.\n\nIn our video we explain the benefits of video content and animated graphics.\n\nA series of facts show the benefits of using video content, particularly if it’s creative and well constructed.\n\nIf you’re thinking video, think Girardot.\n\n<Player url=\"https://player.vimeo.com/video/333361214\" branding=\"show\"/>",
   "bannerImage": "/static/uploads/girardotbanner.jpg",
   "cardImage": "/static/uploads/girardotcard.jpg",
   "gallery": [],
