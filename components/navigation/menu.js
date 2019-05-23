@@ -104,7 +104,7 @@ function Menu({ handleClick, activeClass }) {
 	];
 
 	let indexPages = getPagesData(/^(?!\/index.html)(.*\/index.html)/);
-	indexPages = [indexPages[4], indexPages[5], indexPages[0], indexPages[3], indexPages[4], indexPages[2], indexPages[1]];
+	indexPages = [indexPages[4], indexPages[5], indexPages[0], indexPages[3], indexPages[2], indexPages[1]];
 
 	indexPages.map((item, index) => {
 		const title = item.data.query.title;
