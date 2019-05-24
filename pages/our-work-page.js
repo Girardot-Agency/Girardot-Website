@@ -13,7 +13,7 @@ import Copy from "../components/copy";
 import Head from "../components/head";
 
 import { transformImage } from "../lib/helpers";
-import { _baseUnit, _contentWrapper, _screen, _flex } from "../assets/styles/mixins/_style";
+import { _baseUnit, _center, _contentWrapper, _screen, _flex } from "../assets/styles/mixins/_style";
 import { SCREEN } from "../assets/styles/theme/_style";
 
 /**
@@ -89,12 +89,10 @@ const Banner_Styled = styled.div`
 		padding-bottom: 100%;
 
 		img {
-			top: 0;
-			left: 50%;
+			${_center("xy")};
+
 			min-height: 100%;
 			min-width: 100%;
-			position: absolute;
-			transform: translateX(-50%);
 			z-index: 0;
 		}
 	}
