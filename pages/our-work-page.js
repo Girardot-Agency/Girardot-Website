@@ -91,8 +91,8 @@ const Banner_Styled = styled.div`
 		img {
 			${_center("xy")};
 
-			min-height: 100%;
-			min-width: 100%;
+			/* min-height: 100%; */
+			height: 100%;
 			z-index: 0;
 		}
 	}
