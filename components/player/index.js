@@ -57,11 +57,14 @@ const PlayerWrapper_Styled = styled.div`
 		background-color: rgba(0, 0, 0, .85);
 
 		.PlayerWrapper-inner {
-			width: ${ _baseUnit(50) };
-			max-width: 100%;
+			position: relative;
+			width: ${ _baseUnit(75) };
+			max-height: 100vh;
+			max-width: 100vw;
 		}
 
 		.PlayerWrapper-controls {
+			position: fixed;
 			top: 0;
 		}
 
@@ -157,38 +160,13 @@ export default class Player extends Component {
 				aspectRatio={this.state.aspectRatio}
 			>
 
-				<div className="PlayerWrapper-controls">
-					{ !this.state.branding && (
-						<Button
-							handleClick={this.handlePlay.bind(this)}
-							options={{
-								icon: this.state.isPlaying
-									? "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxLjQxNDIxOyI+CiAgICA8cGF0aCBkPSJNOTYsNDQ4TDIwMi43LDQ0OEwyMDIuNyw2NEw5Niw2NEw5Niw0NDhaTTMwOS4zLDY0TDMwOS4zLDQ0OEw0MTYsNDQ4TDQxNiw2NEwzMDkuMyw2NFoiIHN0eWxlPSJmaWxsOndoaXRlO2ZpbGwtcnVsZTpub256ZXJvOyIvPgo8L3N2Zz4K"
-									: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxLjQxNDIxOyI+CiAgICA8cGF0aCBkPSJNOTYsNTJMOTYsNDYwTDQxNiwyNTZMOTYsNTJaIiBzdHlsZT0iZmlsbDp3aGl0ZTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KPC9zdmc+Cg==",
-								size: "icon",
-								type: "cta",
-								style: "tertiary"
-							}}
-						/>
-					)}
-					<Button
-						handleClick={this.handleClick.bind(this)}
-						options={{
-							icon: this.state.isOpen
-								? "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxLjQxNDIxOyI+CiAgICA8cGF0aCBkPSJNNDA1LDEzNi43OThMMzc1LjIwMiwxMDdMMjU2LDIyNi4yMDJMMTM2Ljc5OCwxMDdMMTA3LDEzNi43OThMMjI2LjIwMiwyNTZMMTA3LDM3NS4yMDJMMTM2Ljc5OCw0MDVMMjU2LDI4NS43OThMMzc1LjIwMiw0MDVMNDA1LDM3NS4yMDJMMjg1Ljc5OCwyNTZMNDA1LDEzNi43OThaIiBzdHlsZT0iZmlsbDp3aGl0ZTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KPC9zdmc+Cg=="
-								: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxLjQxNDIxOyI+CiAgICA8cGF0aCBkPSJNMzk2Ljc5NSwzOTYuOEwzMjAsMzk2LjhMMzIwLDQ0OEw0NDgsNDQ4TDQ0OCwzMjBMMzk2Ljc5NSwzMjBMMzk2Ljc5NSwzOTYuOFpNMzk2LjgsMTE1LjIwNUwzOTYuOCwxOTJMNDQ4LDE5Mkw0NDgsNjRMMzIwLDY0TDMyMCwxMTUuMjA1TDM5Ni44LDExNS4yMDVaTTExNS4yMDUsMTE1LjJMMTkyLDExNS4yTDE5Miw2NEw2NCw2NEw2NCwxOTJMMTE1LjIwNSwxOTJMMTE1LjIwNSwxMTUuMlpNMTE1LjIsMzk2Ljc5NUwxMTUuMiwzMjBMNjQsMzIwTDY0LDQ0OEwxOTIsNDQ4TDE5MiwzOTYuNzk1TDExNS4yLDM5Ni43OTVaIiBzdHlsZT0iZmlsbDp3aGl0ZTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KPC9zdmc+Cg==",
-							size: "icon",
-							type: "cta",
-							style: "tertiary"
-						}}
-					/>
-				</div>
-
 				<div
 					style={{
 						paddingBottom: this.state.aspectRatio,
-						position: "relative",
-						margin: this.state.isOpen ? "0" : "50px 0"
+						// position: "relative",
+						margin: this.state.isOpen ? "0" : "50px 0",
+						maxHeight: "100%",
+						maxWidth: "100%"
 					}}
 				>
 					{ this.state.isOpen
@@ -220,7 +198,8 @@ export default class Player extends Component {
 						style={{
 							position: "absolute",
 							top: "0",
-							left: "0"
+							left: "0",
+							maxHeight: "100%"
 						}}
 						config={{
 							youtube: {
@@ -239,6 +218,34 @@ export default class Player extends Component {
 						}}
 					/>
 				</div>
+
+				<div className="PlayerWrapper-controls">
+					{ !this.state.branding && (
+						<Button
+							handleClick={this.handlePlay.bind(this)}
+							options={{
+								icon: this.state.isPlaying
+									? "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxLjQxNDIxOyI+CiAgICA8cGF0aCBkPSJNOTYsNDQ4TDIwMi43LDQ0OEwyMDIuNyw2NEw5Niw2NEw5Niw0NDhaTTMwOS4zLDY0TDMwOS4zLDQ0OEw0MTYsNDQ4TDQxNiw2NEwzMDkuMyw2NFoiIHN0eWxlPSJmaWxsOndoaXRlO2ZpbGwtcnVsZTpub256ZXJvOyIvPgo8L3N2Zz4K"
+									: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxLjQxNDIxOyI+CiAgICA8cGF0aCBkPSJNOTYsNTJMOTYsNDYwTDQxNiwyNTZMOTYsNTJaIiBzdHlsZT0iZmlsbDp3aGl0ZTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KPC9zdmc+Cg==",
+								size: "icon",
+								type: "cta",
+								style: "tertiary"
+							}}
+						/>
+					)}
+					<Button
+						handleClick={this.handleClick.bind(this)}
+						options={{
+							icon: this.state.isOpen
+								? "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxLjQxNDIxOyI+CiAgICA8cGF0aCBkPSJNNDA1LDEzNi43OThMMzc1LjIwMiwxMDdMMjU2LDIyNi4yMDJMMTM2Ljc5OCwxMDdMMTA3LDEzNi43OThMMjI2LjIwMiwyNTZMMTA3LDM3NS4yMDJMMTM2Ljc5OCw0MDVMMjU2LDI4NS43OThMMzc1LjIwMiw0MDVMNDA1LDM3NS4yMDJMMjg1Ljc5OCwyNTZMNDA1LDEzNi43OThaIiBzdHlsZT0iZmlsbDp3aGl0ZTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KPC9zdmc+Cg=="
+								: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxLjQxNDIxOyI+CiAgICA8cGF0aCBkPSJNMzk2Ljc5NSwzOTYuOEwzMjAsMzk2LjhMMzIwLDQ0OEw0NDgsNDQ4TDQ0OCwzMjBMMzk2Ljc5NSwzMjBMMzk2Ljc5NSwzOTYuOFpNMzk2LjgsMTE1LjIwNUwzOTYuOCwxOTJMNDQ4LDE5Mkw0NDgsNjRMMzIwLDY0TDMyMCwxMTUuMjA1TDM5Ni44LDExNS4yMDVaTTExNS4yMDUsMTE1LjJMMTkyLDExNS4yTDE5Miw2NEw2NCw2NEw2NCwxOTJMMTE1LjIwNSwxOTJMMTE1LjIwNSwxMTUuMlpNMTE1LjIsMzk2Ljc5NUwxMTUuMiwzMjBMNjQsMzIwTDY0LDQ0OEwxOTIsNDQ4TDE5MiwzOTYuNzk1TDExNS4yLDM5Ni43OTVaIiBzdHlsZT0iZmlsbDp3aGl0ZTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KPC9zdmc+Cg==",
+							size: "icon",
+							type: "cta",
+							style: "tertiary"
+						}}
+					/>
+				</div>
+
 			</PlayerWrapper>
 		);
 	};
