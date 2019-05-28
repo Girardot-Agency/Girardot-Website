@@ -22,6 +22,10 @@ export default createGlobalStyle`
     font-size: ${TYPE.scale.sm};
   }
 
+  body {
+	  overflow-x: hidden;
+  }
+
   a {
     ${_transition()};
 
